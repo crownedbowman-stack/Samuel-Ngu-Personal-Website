@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samuel Ngu — Clarity. Alignment. Abundance.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+  SAMUEL NGU — PERSONAL WEBSITE
+  Last updated: June 2026
+
+  EDITABLE SETTINGS — search for "EDIT:" to find all change points
+  ============================================================
+
+  QUICK REFERENCE — things you'll change most often:
+  - Calendly link:      search "EDIT: CALENDLY"
+  - Webinar Zoom link:  search "EDIT: WEBINAR ZOOM"
+  - Assessment link:    search "EDIT: ASSESSMENT"
+  - LinkedIn URL:       search "EDIT: LINKEDIN"
+  - Social links:       search "EDIT: SOCIAL"
+  - Podcast links:      search "EDIT: PODCAST"
+  - Webinar title/desc: search "EDIT: WEBINAR TITLE"
+  - Email recipient:    search "EDIT: FORM EMAIL"
+  ============================================================ -->
+
+<style>
+:root {
+  --cherry: #2A122E;
+  --cherry-80: #3d1a43;
+  --cherry-10: #f0e8f2;
+  --cherry-5: #f8f4f9;
+  --obsidian: #0D0A14;
+  --stone: #EDECEC;
+  --white: #FFFFFF;
+  --gold: #c9a84c;
+  --gold-light: #f0e0a0;
+  --muted: #8a7a90;
+  --font-d: 'Cormorant Garamond', Georgia, serif;
+  --font-b: 'Montserrat', sans-serif;
+  --ease: cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--white);color:var(--obsidian);overflow-x:hidden;font-size:15px;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
+nav.s{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(42,18,46,.08);backdrop-filter:blur(12px)}
+.nav-logo{font-family:var(--font-d);font-size:20px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .3s}
+nav.s .nav-logo{color:var(--cherry)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);text-decoration:none;transition:color .3s}
+nav.s .nav-links a{color:#4a3d50}
+.nav-links a:hover{color:var(--white)}
+nav.s .nav-links a:hover{color:var(--cherry)}
+.nav-cta{padding:9px 20px;border:1px solid rgba(255,255,255,.4);border-radius:2px;color:var(--white)!important}
+nav.s .nav-cta{border-color:var(--cherry);color:var(--cherry)!important}
+.nav-cta:hover{background:var(--white)!important;color:var(--cherry)!important}
+nav.s .nav-cta:hover{background:var(--cherry)!important;color:var(--white)!important;border-color:var(--cherry)!important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hbg span{display:block;width:24px;height:1.5px;background:var(--white);transition:all .3s}
+nav.s .hbg span{background:var(--cherry)}
+
+/* MOBILE MENU */
+.mmenu{display:none;position:fixed;inset:0;background:var(--cherry);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mmenu.open{display:flex}
+.mmenu a{font-family:var(--font-d);font-size:30px;font-weight:300;color:rgba(255,255,255,.7);text-decoration:none;letter-spacing:.06em;transition:color .3s}
+.mmenu a:hover{color:var(--white)}
+.mclose{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer;padding:8px;line-height:1}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--cherry);position:relative;display:flex;align-items:center;overflow:hidden}
+.h-pat{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(255,255,255,.3) 60px,rgba(255,255,255,.3) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,255,255,.3) 60px,rgba(255,255,255,.3) 61px)}
+.h-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
+.h-glow2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);bottom:80px;left:40px;pointer-events:none}
+.hc{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%}
+.h-eye{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px;opacity:0;animation:fu .8s var(--ease) .2s forwards}
+.h-eye::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+.h-name{font-family:var(--font-d);font-size:clamp(50px,6vw,78px);font-weight:300;line-height:1.05;color:var(--white);letter-spacing:.02em;margin-bottom:8px;opacity:0;animation:fu .8s var(--ease) .35s forwards}
+.h-name em{font-style:italic;color:var(--gold)}
+.h-tag{font-family:var(--font-d);font-size:clamp(15px,2vw,19px);font-weight:300;color:rgba(255,255,255,.5);letter-spacing:.1em;margin-bottom:36px;text-transform:uppercase;opacity:0;animation:fu .8s var(--ease) .5s forwards}
+.h-tag span{color:rgba(255,255,255,.25);margin:0 10px}
+.h-desc{font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,.68);max-width:460px;margin-bottom:44px;opacity:0;animation:fu .8s var(--ease) .65s forwards}
+.h-ctas{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fu .8s var(--ease) .8s forwards}
+.btn-p{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:var(--gold);color:var(--cherry);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:none;border-radius:2px;cursor:pointer;transition:all .3s var(--ease)}
+.btn-p:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-o{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;background:transparent;color:rgba(255,255,255,.8);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.25);border-radius:2px;cursor:pointer;transition:all .3s var(--ease)}
+.btn-o:hover{border-color:rgba(255,255,255,.6);color:var(--white)}
+.h-right{opacity:0;animation:fi 1.2s var(--ease) .9s forwards}
+.h-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:40px}
+.h-card-lbl{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.h-card-q{font-family:var(--font-d);font-size:clamp(19px,2.4vw,26px);font-weight:300;font-style:italic;line-height:1.5;color:rgba(255,255,255,.9);margin-bottom:24px}
+.h-card-b{font-size:13px;font-weight:300;line-height:1.9;color:rgba(255,255,255,.48);border-top:1px solid rgba(255,255,255,.08);padding-top:24px}
+.h-creds{display:flex;flex-direction:column;gap:12px;margin-top:28px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08)}
+.h-cred{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:300;color:rgba(255,255,255,.48)}
+.h-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.h-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fi 1s var(--ease) 1.5s forwards}
+.h-scroll span{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.h-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);animation:sp 2s ease-in-out infinite}
+
+/* WEBINAR BANNER */
+#wb{background:var(--obsidian);border-bottom:1px solid rgba(201,168,76,.15);position:relative}
+.wb-inner{max-width:1200px;margin:0 auto;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.wb-badge{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);padding:5px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0}
+.wb-info{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.wb-title{font-size:13px;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:.02em}
+.wb-date{font-size:12px;font-weight:300;color:rgba(255,255,255,.4);font-style:italic}
+.wb-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.wb-x{background:none;border:none;color:rgba(255,255,255,.3);cursor:pointer;font-size:18px;line-height:1;padding:4px;flex-shrink:0;transition:color .3s}
+.wb-x:hover{color:rgba(255,255,255,.6)}
+
+/* PILLARS NAV */
+.pnav{background:var(--obsidian)}
+.pnav-inner{display:flex;max-width:1200px;margin:0 auto}
+.pni{flex:1;padding:26px 24px;text-align:center;border-bottom:2px solid transparent;text-decoration:none;display:block;transition:all .3s}
+.pni:hover,.pni.active{border-bottom-color:var(--gold)}
+.pni-n{font-size:10px;font-weight:500;letter-spacing:.16em;color:rgba(255,255,255,.3);margin-bottom:4px}
+.pni-t{font-family:var(--font-d);font-size:17px;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.65);transition:color .3s;text-transform:uppercase}
+.pni:hover .pni-t,.pni.active .pni-t{color:var(--white)}
+
+/* SECTIONS */
+section{position:relative}
+.si{max-width:1200px;margin:0 auto;padding:110px 48px}
+.s-lbl{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.s-lbl::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
+.s-h{font-family:var(--font-d);font-size:clamp(40px,5vw,62px);font-weight:300;line-height:1.1;letter-spacing:.02em;margin-bottom:20px}
+.s-sub{font-size:14px;font-weight:300;line-height:1.9;color:#4a3d50;max-width:560px;margin-bottom:60px}
+
+/* CLARITY */
+#clarity{background:var(--white)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.prob-list{list-style:none;margin-bottom:48px}
+.prob-list li{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--stone);font-size:14px;font-weight:300;color:#4a3d50;line-height:1.6}
+.prob-dot{width:20px;height:20px;border-radius:50%;border:1px solid rgba(42,18,46,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.prob-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--cherry-80)}
+.callout{background:var(--cherry);border-radius:4px;padding:48px;position:relative;overflow:hidden}
+.callout::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(201,168,76,.15)}
+.c-lbl{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.c-h{font-family:var(--font-d);font-size:30px;font-weight:300;color:var(--white);line-height:1.2;margin-bottom:16px}
+.c-b{font-size:13px;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);margin-bottom:32px}
+.c-feats{list-style:none;margin-bottom:36px}
+.c-feats li{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:400;color:rgba(255,255,255,.72);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.chk{width:16px;height:16px;border-radius:50%;background:rgba(201,168,76,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:10px}
+.c-timing{font-size:12px;font-weight:300;color:rgba(255,255,255,.38);margin-bottom:28px;font-style:italic}
+.c-right{position:sticky;top:100px}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.stat{background:var(--cherry-5);border:1px solid var(--cherry-10);border-radius:4px;padding:28px 24px}
+.stat-n{font-family:var(--font-d);font-size:40px;font-weight:300;color:var(--cherry);line-height:1;margin-bottom:6px}
+.stat-l{font-size:11px;font-weight:400;color:var(--muted);line-height:1.4}
+.c-q{background:var(--stone);border-left:3px solid var(--gold);padding:28px 32px;border-radius:0 4px 4px 0;margin-bottom:20px}
+.c-q-t{font-family:var(--font-d);font-size:19px;font-style:italic;font-weight:300;color:var(--cherry);line-height:1.5;margin-bottom:12px}
+.c-q-a{font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.five-f{background:var(--cherry-5);border:1px solid var(--cherry-10);border-radius:4px;padding:28px}
+.five-f-lbl{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.five-f-t{font-size:13px;font-weight:300;color:#4a3d50;line-height:1.7}
+
+/* ALIGNMENT */
+#alignment{background:var(--cherry-5)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.a-box{background:var(--white);border:1px solid var(--stone);border-radius:4px;padding:48px;margin-bottom:24px}
+.steps{list-style:none;counter-reset:s;margin:28px 0 0}
+.step{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--stone)}
+.step-n{font-family:var(--font-d);font-size:34px;font-weight:300;color:var(--cherry-10);line-height:1;min-width:40px;flex-shrink:0;position:relative;top:-4px}
+.step-tt{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--cherry);margin-bottom:6px}
+.step-dd{font-size:13px;font-weight:300;color:#4a3d50;line-height:1.7}
+.a-dark{background:var(--obsidian);border-radius:4px;padding:40px;margin-bottom:24px}
+.a-dark .c-b{margin-bottom:24px}
+.btn-g{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;background:var(--gold);color:var(--cherry);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:none;border-radius:2px;cursor:pointer;transition:all .3s;margin-right:12px;margin-bottom:12px}
+.btn-g:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-gd{display:inline-flex;align-items:center;padding:14px 24px;background:transparent;color:rgba(255,255,255,.65);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.15);border-radius:2px;cursor:pointer;transition:all .3s;margin-bottom:12px}
+.btn-gd:hover{border-color:rgba(255,255,255,.4);color:var(--white)}
+.a-note{font-size:11px;font-weight:300;color:rgba(255,255,255,.28);margin-top:12px;font-style:italic}
+.coach-card{background:var(--cherry);border-radius:4px;padding:40px}
+.tiers{display:flex;flex-direction:column;gap:10px;margin:20px 0 28px}
+.tier{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(255,255,255,.06);border-radius:2px;border:1px solid rgba(255,255,255,.08);cursor:pointer;text-decoration:none;transition:background .3s}
+.tier:hover{background:rgba(255,255,255,.1)}
+.tier-n{font-size:12px;font-weight:500;color:rgba(255,255,255,.8)}
+.tier-d{font-size:11px;font-weight:300;color:rgba(255,255,255,.38)}
+.tier-b{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--gold);background:rgba(201,168,76,.1);padding:4px 10px;border-radius:2px;text-transform:uppercase;white-space:nowrap}
+
+/* COACHING INQUIRY FORM */
+.coach-form-wrap{background:var(--white);border-radius:4px;padding:36px;margin-top:24px;border:1px solid var(--stone)}
+.coach-form-wrap .c-lbl{color:var(--cherry)}
+.f-lbl{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
+.f-inp,.f-sel,.f-ta{width:100%;padding:14px 16px;background:var(--cherry-5);border:1px solid var(--cherry-10);border-radius:2px;font-family:var(--font-b);font-size:13px;font-weight:300;color:var(--obsidian);outline:none;transition:border-color .3s;-webkit-appearance:none}
+.f-inp:focus,.f-sel:focus,.f-ta:focus{border-color:rgba(42,18,46,.3)}
+.f-ta{min-height:90px;resize:vertical}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{margin-bottom:18px}
+.f-sub{width:100%;padding:17px;background:var(--cherry);color:var(--white);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;font-family:var(--font-b);transition:all .3s;margin-top:6px}
+.f-sub:hover{background:var(--cherry-80);transform:translateY(-1px)}
+
+/* ABUNDANCE */
+#abundance{background:var(--white)}
+.ab-quote{text-align:center;max-width:800px;margin:0 auto 80px;padding-bottom:80px;border-bottom:1px solid var(--stone)}
+.ab-quote blockquote{font-family:var(--font-d);font-size:clamp(26px,4vw,42px);font-weight:300;font-style:italic;line-height:1.3;color:var(--cherry);margin-bottom:20px}
+.ab-quote cite{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-style:normal}
+.ab-g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:80px}
+.wp p{font-size:15px;font-weight:300;line-height:1.9;color:#4a3d50;margin-bottom:16px}
+.wp p strong{color:var(--cherry);font-weight:600}
+.ba-card{background:var(--obsidian);border-radius:4px;padding:48px;position:relative}
+.ba-badge{position:absolute;top:24px;right:24px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:2px;padding:5px 12px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.ba-pr{display:flex;align-items:baseline;gap:16px;margin:20px 0 8px}
+.ba-orig{font-family:var(--font-d);font-size:34px;font-weight:300;color:rgba(255,255,255,.2);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.25)}
+.ba-free{font-family:var(--font-d);font-size:46px;font-weight:300;color:var(--gold)}
+.ba-note{font-size:12px;font-weight:300;color:rgba(255,255,255,.32);margin-bottom:28px;font-style:italic}
+.ba-feats{list-style:none;margin-bottom:36px}
+.ba-feats li{display:flex;align-items:flex-start;gap:12px;font-size:13px;font-weight:300;color:rgba(255,255,255,.62);padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);line-height:1.5}
+.svcs{margin-top:80px}
+.svc-h{font-family:var(--font-d);font-size:clamp(30px,4vw,46px);font-weight:300;text-align:center;color:var(--cherry);margin-bottom:16px}
+.svc-sub{text-align:center;font-size:14px;font-weight:300;color:var(--muted);max-width:520px;margin:0 auto 52px;line-height:1.8}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:40px}
+.svc{background:var(--cherry-5);border:1px solid var(--cherry-10);border-radius:4px;padding:28px 24px;transition:all .3s var(--ease)}
+.svc:hover{background:var(--cherry);border-color:var(--cherry);transform:translateY(-4px)}
+.svc:hover .svc-name{color:var(--white)}
+.svc-ico{font-size:22px;margin-bottom:14px}
+.svc-name{font-size:13px;font-weight:500;color:var(--cherry);line-height:1.4;transition:color .3s}
+.ent-banner{background:var(--cherry-5);border:1px solid var(--cherry-10);border-radius:4px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.ent-t{font-family:var(--font-d);font-size:26px;font-weight:300;color:var(--cherry);margin-bottom:10px}
+.ent-d{font-size:13px;font-weight:300;color:#4a3d50;line-height:1.8;max-width:500px}
+.ent-perks{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.ent-p{font-size:11px;font-weight:500;color:var(--cherry);background:rgba(42,18,46,.06);padding:5px 12px;border-radius:2px;border:1px solid rgba(42,18,46,.1)}
+
+/* BOOKS */
+#books{background:var(--obsidian)}
+.bk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px}
+.bk{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:28px;transition:all .3s var(--ease);text-decoration:none;display:block}
+.bk:hover{background:rgba(255,255,255,.06);border-color:rgba(201,168,76,.3);transform:translateY(-4px)}
+.bk-spine{width:100%;aspect-ratio:2/3;background:linear-gradient(135deg,var(--cherry) 0%,var(--cherry-80) 100%);border-radius:2px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:13px;font-style:italic;color:rgba(255,255,255,.4);text-align:center;padding:16px;line-height:1.4;position:relative;overflow:hidden}
+.bk-spine::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.08) 0%,transparent 60%)}
+.bk-badge{position:absolute;bottom:10px;right:10px;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);padding:3px 8px;border-radius:2px}
+.bk-title{font-family:var(--font-d);font-size:17px;font-weight:400;color:var(--white);margin-bottom:6px;line-height:1.3}
+.bk-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.38);line-height:1.6;margin-bottom:16px}
+.bk-links{display:flex;gap:8px;flex-wrap:wrap}
+.bk-a{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.3);padding:5px 12px;border-radius:2px;transition:all .3s}
+.bk-a:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+
+/* PODCAST */
+#podcast{background:var(--cherry-5)}
+.pod-g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.pod-art{background:var(--cherry);border-radius:4px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden}
+.pod-art::before{content:'';position:absolute;inset:-20px;background:repeating-conic-gradient(rgba(201,168,76,.03) 0% 25%,transparent 0% 50%) 0 0 / 40px 40px}
+.pod-in{position:relative;z-index:1;text-align:center}
+.pod-ico{font-size:52px;margin-bottom:24px;opacity:.8}
+.pod-name{font-family:var(--font-d);font-size:26px;font-weight:300;color:var(--white);line-height:1.2;margin-bottom:8px}
+.pod-tag{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:16px}
+.pod-desc{font-size:15px;font-weight:300;color:#4a3d50;line-height:1.9;margin-bottom:32px}
+.pod-plat{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.plat{font-size:11px;font-weight:500;color:var(--cherry);background:rgba(42,18,46,.06);border:1px solid rgba(42,18,46,.1);padding:8px 18px;border-radius:2px;text-decoration:none;transition:all .3s}
+.plat:hover{background:var(--cherry);color:var(--white);border-color:var(--cherry)}
+.plat.coming{opacity:.45;cursor:default;pointer-events:none}
+
+/* COMMUNITY */
+#community{background:var(--cherry);text-align:center}
+#community .si{padding:90px 48px}
+#community .s-lbl{justify-content:center}
+#community .s-lbl::before{display:none}
+.com-desc{font-size:15px;font-weight:300;color:rgba(255,255,255,.62);max-width:520px;margin:0 auto 44px;line-height:1.9}
+.em-form{display:flex;max-width:420px;margin:0 auto 12px;border:1px solid rgba(255,255,255,.2);border-radius:2px;overflow:hidden}
+.em-inp{flex:1;background:rgba(255,255,255,.06);border:none;outline:none;padding:16px 20px;font-family:var(--font-b);font-size:13px;font-weight:300;color:var(--white)}
+.em-inp::placeholder{color:rgba(255,255,255,.3)}
+.em-btn{padding:16px 24px;background:var(--gold);color:var(--cherry);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;font-family:var(--font-b);transition:background .3s;white-space:nowrap}
+.em-btn:hover{background:var(--gold-light)}
+.soc-row{display:flex;justify-content:center;gap:16px;margin-top:36px;flex-wrap:wrap}
+.soc{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;padding:10px 18px;border:1px solid rgba(255,255,255,.1);border-radius:2px;transition:all .3s}
+.soc:hover{color:var(--white);border-color:rgba(255,255,255,.35)}
+.soc.coming{opacity:.3;cursor:default;pointer-events:none;font-style:italic}
+
+/* SPEAK */
+#speak{background:var(--stone)}
+.sp-g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.sp-topics{list-style:none;margin:28px 0 24px}
+.sp-t{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(42,18,46,.08);font-size:14px;font-weight:300;color:#4a3d50}
+.sp-tn{font-family:var(--font-d);font-size:20px;font-weight:300;color:var(--cherry-10);min-width:32px}
+.cf{background:var(--white);border-radius:4px;padding:48px;border:1px solid rgba(42,18,46,.08)}
+
+/* FOOTER */
+footer{background:var(--obsidian);padding:60px 48px 32px}
+.ft{max-width:1200px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:32px}
+.ft-brand{font-family:var(--font-d);font-size:24px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.ft-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.32);line-height:1.8;max-width:230px}
+.ft-ct{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:13px;font-weight:300;color:rgba(255,255,255,.42);text-decoration:none;transition:color .3s}
+.ft-links a:hover{color:var(--white)}
+.ft-links a.coming{opacity:.3;cursor:default;pointer-events:none;font-style:italic}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.ft-copy{font-size:11px;font-weight:300;color:rgba(255,255,255,.2);letter-spacing:.04em}
+.ft-tag{font-family:var(--font-d);font-size:13px;font-style:italic;color:rgba(255,255,255,.2);letter-spacing:.06em}
+
+/* ANIMATIONS */
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:.7}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* SUCCESS STATES */
+.form-success{background:rgba(30,126,52,.1);border:1px solid rgba(30,126,52,.3);border-radius:2px;padding:16px 20px;font-size:13px;font-weight:400;color:#1E7E34;display:none;margin-top:12px;text-align:center}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .hbg{display:flex}
+  .hc{grid-template-columns:1fr;gap:40px;padding:100px 24px 60px}
+  .h-right{display:none}
+  .si{padding:80px 24px}
+  .cg,.ag,.ab-g,.sp-g,.pod-g{grid-template-columns:1fr;gap:40px}
+  .c-right{position:static}
+  .bk-grid{grid-template-columns:1fr 1fr}
+  .ft-top{grid-template-columns:1fr 1fr}
+  .ent-banner{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  .pnav-inner{flex-direction:column}
+  footer{padding:40px 24px 24px}
+  .wb-inner{padding:14px 24px}
+}
+@media(max-width:600px){
+  .bk-grid{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .h-ctas{flex-direction:column}
+  .btn-p,.btn-o{width:100%;justify-content:center}
+  .coach-form-wrap{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mm">
+  <button class="mclose" onclick="closeMM()">✕</button>
+  <a href="#clarity" onclick="closeMM()">Clarity</a>
+  <a href="#alignment" onclick="closeMM()">Alignment</a>
+  <a href="#abundance" onclick="closeMM()">Abundance</a>
+  <a href="#books" onclick="closeMM()">Books</a>
+  <a href="#podcast" onclick="closeMM()">Podcast</a>
+  <a href="#speak" onclick="closeMM()">Speak &amp; Consult</a>
+  <!-- EDIT: ASSESSMENT — change href to your assessment URL -->
+  <a href="https://align360.io" target="_blank" class="btn-p" style="margin-top:16px;font-family:var(--font-b)" onclick="closeMM()">Start Free Assessment →</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Samuel Ngu</a>
+  <ul class="nav-links">
+    <li><a href="#clarity">Clarity</a></li>
+    <li><a href="#alignment">Alignment</a></li>
+    <li><a href="#abundance">Abundance</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+    <li><a href="#speak">Speak &amp; Consult</a></li>
+    <!-- EDIT: ASSESSMENT — change href to your assessment URL -->
+    <li><a href="https://align360.io" target="_blank" class="nav-cta">Start Free →</a></li>
+  </ul>
+  <button class="hbg" onclick="openMM()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-pat"></div>
+  <div class="h-glow"></div>
+  <div class="h-glow2"></div>
+  <div class="hc">
+    <div>
+      <div class="h-eye">Samuel Ngu — Crowned Bowman</div>
+      <h1 class="h-name">Built for<br><em>Purpose.</em><br>Wired for<br><em>Impact.</em></h1>
+      <div class="h-tag">Clarity <span>·</span> Alignment <span>·</span> Abundance</div>
+      <p class="h-desc">I came to this country with a calling I couldn't fully name yet. Faith led me through corridors I wasn't supposed to enter — to Wall Street, to the investment desk, to a licensed chair in the financial world — and eventually back to the question that started it all: <em>Why do gifted people stay stuck?</em><br><br>Align was my answer. And it might be yours.</p>
+      <div class="h-ctas">
+        <!-- EDIT: ASSESSMENT — change href to your assessment URL -->
+        <a href="https://align360.io" target="_blank" class="btn-p">Start Free Assessment →</a>
+        <a href="#alignment" class="btn-o">Explore Align</a>
+      </div>
+    </div>
+    <div class="h-right">
+      <div class="h-card">
+        <div class="h-card-lbl">The Origin</div>
+        <div class="h-card-q">"I didn't find clarity. I built a system that produces it."</div>
+        <div class="h-card-b">Immigrant. Author. Faith leader. Fund Product Development Manager at a global investment firm. Licensed financial professional. And the founder of Align — the operating system I wish had existed when I needed it most.<br><br>Four published books. A weekly podcast. A platform trusted by leaders and enterprises. This wasn't a pivot. It was alignment.</div>
+        <div class="h-creds">
+          <div class="h-cred"><div class="h-dot"></div>Fund Product Development Manager · Investment Management</div>
+          <div class="h-cred"><div class="h-dot"></div>Licensed Financial Professional</div>
+          <div class="h-cred"><div class="h-dot"></div>Author · 4 Published Works on Amazon</div>
+          <div class="h-cred"><div class="h-dot"></div>Founder, Align360 — The Alignment OS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="h-scroll"><div class="h-line"></div><span>Scroll</span></div>
+</section>
+
+<!-- WEBINAR BANNER — Coming Soon -->
+<div id="wb">
+  <div class="wb-inner">
+    <div class="wb-info">
+      <span class="wb-badge">Webinar</span>
+      <!-- EDIT: WEBINAR TITLE — update the title and description below -->
+      <span class="wb-title">Align: Your Life &amp; Career Operating System</span>
+      <span class="wb-date">Coming Soon — date &amp; registration link dropping shortly</span>
+    </div>
+    <div class="wb-right">
+      <!-- EDIT: WEBINAR ZOOM — when ready, replace the span below with:
+           <a href="YOUR_ZOOM_LINK_HERE" target="_blank" class="wb-btn">Reserve My Seat →</a>
+           and delete the span tag -->
+      <span style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:10px 22px;border:1px solid rgba(255,255,255,.1);border-radius:2px">Notify Me Soon</span>
+      <button class="wb-x" onclick="document.getElementById('wb').style.display='none'">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- PILLARS NAV -->
+<div class="pnav">
+  <div class="pnav-inner">
+    <a href="#clarity" class="pni"><div class="pni-n">01</div><div class="pni-t">Clarity</div></a>
+    <a href="#alignment" class="pni"><div class="pni-n">02</div><div class="pni-t">Alignment</div></a>
+    <a href="#abundance" class="pni"><div class="pni-n">03</div><div class="pni-t">Abundance</div></a>
+  </div>
+</div>
+
+<!-- CLARITY -->
+<section id="clarity">
+  <div class="si">
+    <div class="cg">
+      <div>
+        <div class="s-lbl rv">01 — Clarity</div>
+        <h2 class="s-h rv d1">We reveal the patterns behind meaningful decisions.</h2>
+        <p class="s-sub rv d2">Most people don't lack ambition. They lack a clear signal. The noise of daily demands, competing priorities, and unexamined assumptions drowns out the one voice that matters — yours.</p>
+        <ul class="prob-list rv d2">
+          <li><div class="prob-dot"></div>You're accomplished on the outside but something feels misaligned on the inside</li>
+          <li><div class="prob-dot"></div>Your decisions are reactive rather than rooted in who you actually are</li>
+          <li><div class="prob-dot"></div>You've outgrown your current systems but haven't found a better one</li>
+          <li><div class="prob-dot"></div>You sense there's a higher version of your life and work — you just can't see it clearly yet</li>
+        </ul>
+        <div class="callout rv d3">
+          <div class="c-lbl">Introducing Align</div>
+          <h3 class="c-h">Your Alignment Operating System</h3>
+          <p class="c-b">Align is the platform I built after spending years watching brilliant people underperform — not from lack of talent, but lack of alignment. It maps who you are, how you're wired, and what you're called to create — then turns that into a precision operating system for your life and work.</p>
+          <ul class="c-feats">
+            <li><div class="chk">✓</div>Wiring for Impact Assessment — discover how you're built to operate</li>
+            <li><div class="chk">✓</div>Orientation for Impact — clarify your direction and calling</li>
+            <li><div class="chk">✓</div>Three-layer alignment: Internal → Interpersonal → External</li>
+            <li><div class="chk">✓</div>Career navigation, life integration, and legacy planning tools</li>
+            <li><div class="chk">✓</div>Powered by AI. Guided by your coach.</li>
+          </ul>
+          <p class="c-timing">Takes 10–12 minutes. Changes everything.</p>
+          <!-- EDIT: ASSESSMENT — change href to your assessment URL -->
+          <a href="https://align360.io" target="_blank" class="btn-p">Take the Free Assessment →</a>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="stat-row rv">
+          <div class="stat"><div class="stat-n">10<span style="font-size:22px">m</span></div><div class="stat-l">To start your alignment journey</div></div>
+          <div class="stat"><div class="stat-n">3</div><div class="stat-l">Alignment layers mapped to your life</div></div>
+          <div class="stat"><div class="stat-n">5</div><div class="stat-l">Core life domains — the 5 F's</div></div>
+          <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Compounding clarity over time</div></div>
+        </div>
+        <div class="c-q rv d1">
+          <div class="c-q-t">"Compounding clarity is the greatest competitive advantage a leader can build."</div>
+          <div class="c-q-a">— Samuel Ngu, Align360</div>
+        </div>
+        <div class="five-f rv d2">
+          <div class="five-f-lbl">What Align Maps</div>
+          <div class="five-f-t"><strong style="color:var(--cherry);font-weight:600">Family · Finances · Friendships · Faith · Fitness</strong> — the 5 F's of whole-self alignment. Most platforms optimize one dimension. Align integrates all five into one precision operating system.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALIGNMENT -->
+<section id="alignment">
+  <div class="si">
+    <div class="ag">
+      <div>
+        <div class="s-lbl rv">02 — Alignment</div>
+        <h2 class="s-h rv d1">Identity, strategy, and execution — one cohesive system.</h2>
+        <p class="s-sub rv d2">Knowing who you are is only the beginning. Alignment is what happens when your identity informs your strategy, and your strategy drives your execution — without friction, without drift.</p>
+        <div class="a-box rv d2">
+          <div class="c-lbl" style="color:var(--cherry)">Your Path Inside Align</div>
+          <h3 style="font-family:var(--font-d);font-size:24px;font-weight:300;color:var(--cherry);margin-bottom:8px">How It Works</h3>
+          <ol class="steps">
+            <li class="step"><div class="step-n">01</div><div><div class="step-tt">Take the Assessment</div><div class="step-dd">Your free 10–12 minute Wiring for Impact assessment generates your personal alignment profile — how you think, decide, and operate at your highest level.</div></div></li>
+            <li class="step"><div class="step-n">02</div><div><div class="step-tt">Enter Your Operating System</div><div class="step-dd">Align maps your results into a living dashboard — your DesignSuite, CareerNav, and life integration modules. Your OS, built around you.</div></div></li>
+            <li class="step"><div class="step-n">03</div><div><div class="step-tt">Accelerate with Coaching</div><div class="step-dd">If you want my personal attention — group or 1:1 — book a strategy session. Coaching compounds every insight Align surfaces.</div></div></li>
+          </ol>
+        </div>
+      </div>
+      <div>
+        <div class="a-dark rv">
+          <div class="c-lbl">Ready to Begin</div>
+          <h3 class="c-h" style="font-size:26px">Start with Align. Scale with Coaching.</h3>
+          <p class="c-b">Get the platform first — it does the heavy lifting. When you're ready to go deeper, a seat in my coaching cohort or a 1:1 strategy engagement is waiting.</p>
+          <!-- EDIT: ASSESSMENT — change href to your assessment URL -->
+          <a href="https://align360.io" target="_blank" class="btn-g">Start Free on Align →</a>
+          <!-- EDIT: CALENDLY — this links to your booking page -->
+          <a href="https://calendly.com/feelinglikechocolate-info/30min" target="_blank" class="btn-gd">Book a Strategy Call</a>
+          <p class="a-note">Coaching pricing discussed on call based on capacity and scope.</p>
+        </div>
+        <div class="coach-card rv d2">
+          <div class="c-lbl">Personal Coaching</div>
+          <h3 style="font-family:var(--font-d);font-size:24px;font-weight:300;color:var(--white);margin-bottom:12px">Two Ways to Work Together</h3>
+          <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,.5);margin-bottom:20px;line-height:1.7">My personal engagement is limited by design. The platform scales. My time doesn't.</p>
+          <div class="tiers">
+            <!-- EDIT: CALENDLY — both Apply buttons link to Calendly -->
+            <a href="https://calendly.com/feelinglikechocolate-info/30min" target="_blank" class="tier">
+              <div><div class="tier-n">Group Coaching Cohort</div><div class="tier-d">1x weekly live · Align-powered curriculum</div></div>
+              <div class="tier-b">Apply</div>
+            </a>
+            <a href="https://calendly.com/feelinglikechocolate-info/30min" target="_blank" class="tier">
+              <div><div class="tier-n">1:1 Strategy Coaching</div><div class="tier-d">High-touch · Limited seats</div></div>
+              <div class="tier-b">Apply</div>
+            </a>
+            <a href="https://calendly.com/feelinglikechocolate-info/30min" target="_blank" class="tier">
+              <div><div class="tier-n">Enterprise Deployment</div><div class="tier-d">Align for your team · White-label available</div></div>
+              <div class="tier-b">Inquire</div>
+            </a>
+          </div>
+          <!-- EDIT: CALENDLY -->
+          <a href="https://calendly.com/feelinglikechocolate-info/30min" target="_blank" class="btn-g">Apply to Work Together →</a>
+        </div>
+
+        <!-- COACHING INQUIRY FORM — submissions go to Netlify Forms -->
+        <!-- EDIT: FORM EMAIL — set your notification email in Netlify dashboard under Forms > Notifications -->
+        <div class="coach-form-wrap rv d3">
+          <div class="c-lbl">Quick Inquiry — 1:1 or Group Coaching</div>
+          <form name="coaching-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="coachForm">
+            <input type="hidden" name="form-name" value="coaching-inquiry">
+            <p style="display:none"><input name="bot-field"></p>
+            <div class="f-row">
+              <div class="fg"><label class="f-lbl">First Name</label><input type="text" name="first_name" class="f-inp" placeholder="First" required></div>
+              <div class="fg"><label class="f-lbl">Last Name</label><input type="text" name="last_name" class="f-inp" placeholder="Last" required></div>
+            </div>
+            <div class="f-row">
+              <div class="fg"><label class="f-lbl">Email</label><input type="email" name="email" class="f-inp" placeholder="you@company.com" required></div>
+              <div class="fg"><label class="f-lbl">Phone</label><input type="tel" name="phone" class="f-inp" placeholder="+1 (555) 000-0000"></div>
+            </div>
+            <div class="fg"><label class="f-lbl">Company / Organization</label><input type="text" name="company" class="f-inp" placeholder="Where do you work or lead?"></div>
+            <div class="fg">
+              <label class="f-lbl">Coaching Format</label>
+              <select name="format" class="f-sel">
+                <option value="">Select preference</option>
+                <option>1:1 Strategy Coaching</option>
+                <option>Group Coaching Cohort</option>
+                <option>Not sure yet — open to either</option>
+              </select>
+            </div>
+            <div class="fg"><label class="f-lbl">Why Now? What Are You Building?</label><textarea name="reason" class="f-ta" placeholder="Share where you are and what you're trying to create..."></textarea></div>
+            <button type="submit" class="f-sub">Submit Inquiry →</button>
+            <div class="form-success" id="coachSuccess">✓ Received. Samuel will be in touch within 48 hours.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABUNDANCE -->
+<section id="abundance">
+  <div class="si">
+    <div class="ab-quote rv">
+      <div class="s-lbl" style="justify-content:center"><span style="width:24px;height:1px;background:var(--gold);display:block"></span>03 — Abundance</div>
+      <blockquote>"Money is created. But wealth is engineered."</blockquote>
+      <cite>— Andrew Cordle</cite>
+    </div>
+    <div class="ab-g">
+      <div>
+        <h2 class="s-h rv">We unlock scalable potential, meaningful impact, and sustained expansion.</h2>
+        <div class="wp rv d1">
+          <p>You are already wealthy. Whether your salary is $40K or $400K, the difference between your current financial reality and the life you're designed for is not income — it's <strong>architecture</strong>.</p>
+          <p>Align helps you see the full picture: where you are, where the gaps are, and what moves — made in the right sequence — compound into lasting wealth. Then we connect you with the partners who execute the strategy.</p>
+          <p>As a licensed financial professional and Fund Product Development Manager in the investment world, I bring institutional-grade thinking to your personal financial alignment — backed by a vetted network of financial, real estate, and private lending partners.</p>
+        </div>
+        <!-- EDIT: ASSESSMENT -->
+        <a href="https://align360.io" target="_blank" class="btn-p" style="background:var(--cherry);color:var(--white);margin-bottom:12px;display:inline-flex">Start with Align →</a>
+        <!-- EDIT: CALENDLY -->
+        <a href="https://calendly.com/feelinglikechocolate-info/30min" target="_blank" class="btn-o" style="color:var(--cherry);border-color:rgba(42,18,46,.25);display:inline-flex">Book a Wealth Strategy Call</a>
+      </div>
+      <div>
+        <div class="ba-card rv d1">
+          <div class="ba-badge">Enterprise &amp; Individual</div>
+          <div class="c-lbl">Business &amp; Financial Analysis</div>
+          <div class="ba-pr"><div class="ba-orig">$20,000</div><div class="ba-free">Free.</div></div>
+          <p class="ba-note">For qualified individuals and enterprise clients via Align partnership.</p>
+          <ul class="ba-feats">
+            <li><div class="chk" style="background:rgba(201,168,76,.15)">✓</div>Comprehensive financial position review</li>
+            <li><div class="chk" style="background:rgba(201,168,76,.15)">✓</div>Tax-free retirement strategy assessment</li>
+            <li><div class="chk" style="background:rgba(201,168,76,.15)">✓</div>Wealth engineering roadmap (personal &amp; business)</li>
+            <li><div class="chk" style="background:rgba(201,168,76,.15)">✓</div>Partner referrals: real estate, private lending, infinite banking</li>
+            <li><div class="chk" style="background:rgba(201,168,76,.15)">✓</div>Access to Global Financial Impact partner network</li>
+            <li><div class="chk" style="background:rgba(201,168,76,.15)">✓</div>Enterprise: free audit + Align Strategy OS demo</li>
+            <li><div class="chk" style="background:rgba(201,168,76,.15)">✓</div>Employee health benefits that cost employers $0 — saving $600–$900/employee/year in FICA taxes via EHP partnership</li>
+          </ul>
+          <div style="background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18);border-radius:3px;padding:16px 18px;margin-bottom:28px">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Featured Partner · EHP Inc.</div>
+            <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.8">Next-gen preventive care for your team — virtual primary care, no copays, no deductibles, and no added cost to your business or employees. Employers typically save $640–$900 per employee annually in FICA tax offsets. Whole-person health, aligned with your whole-person OS.</div>
+          </div>
+          <!-- EDIT: CALENDLY -->
+          <a href="https://calendly.com/feelinglikechocolate-info/30min" target="_blank" class="btn-g">Claim Your Free Analysis →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="svcs">
+      <div class="s-lbl rv" style="justify-content:center"><span style="width:24px;height:1px;background:var(--gold);display:block"></span>Financial Services Through Align</div>
+      <h3 class="svc-h rv">Engineering Wealth Across Every Domain</h3>
+      <p class="svc-sub rv d1">Through our licensed partnerships, Align clients gain access to a full spectrum of personal and enterprise wealth strategies — executed by specialists, coordinated through us.</p>
+      <div class="svc-grid rv d2">
+        <div class="svc"><div class="svc-ico">💼</div><div class="svc-name">Tax-Free Retirement</div></div>
+        <div class="svc"><div class="svc-ico">🛡️</div><div class="svc-name">Market Loss &amp; Asset Protection</div></div>
+        <div class="svc"><div class="svc-ico">🎓</div><div class="svc-name">Million Dollar Baby College Funds</div></div>
+        <div class="svc"><div class="svc-ico">🏦</div><div class="svc-name">Family Bank &amp; Infinite Banking Wealth Strategies</div></div>
+        <div class="svc"><div class="svc-ico">❤️</div><div class="svc-name">Critical, Chronic &amp; Terminal Illness Support</div></div>
+        <div class="svc"><div class="svc-ico">📜</div><div class="svc-name">Trust, Wills &amp; Legacy Planning</div></div>
+        <div class="svc"><div class="svc-ico">🏢</div><div class="svc-name">Business Owner Plans</div></div>
+        <div class="svc"><div class="svc-ico">🌿</div><div class="svc-name">Long Term Care</div></div>
+        <div class="svc"><div class="svc-ico">📊</div><div class="svc-name">Budgeting &amp; Managing Expenses</div></div>
+        <div class="svc"><div class="svc-ico">🔄</div><div class="svc-name">401k, IRA &amp; Retirement Account Rollovers</div></div>
+        <div class="svc"><div class="svc-ico">🔁</div><div class="svc-name">Term Insurance Return of Premium</div></div>
+        <div class="svc"><div class="svc-ico">📈</div><div class="svc-name">Private Money Lending &amp; Real Estate</div></div>
+        <div class="svc"><div class="svc-ico">🏥</div><div class="svc-name">Employee Health Benefits — Zero Net Cost to Employer or Employee (EHP)</div></div>
+      </div>
+      <div class="ent-banner rv">
+        <div>
+          <h3 class="ent-t">Deploy Align Inside Your Enterprise</h3>
+          <p class="ent-d">Enterprise buyers get Align rolled out across their team — plus a complimentary business audit, financial analysis, and access to the Align Strategy OS. Below-market pricing when you deploy Align organization-wide.</p>
+          <div class="ent-perks">
+            <span class="ent-p">Free Business Audit</span>
+            <span class="ent-p">Align Strategy OS Demo</span>
+            <span class="ent-p">White-Label Available</span>
+            <span class="ent-p">Dedicated Partner Support</span>
+            <span class="ent-p">Financial Partner Network</span>
+            <span class="ent-p">EHP Health Benefits ($0 net cost)</span>
+          </div>
+        </div>
+        <!-- EDIT: CALENDLY -->
+        <a href="https://calendly.com/feelinglikechocolate-info/30min" target="_blank" class="btn-p" style="white-space:nowrap">Inquire About Enterprise →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books">
+  <div class="si">
+    <div class="s-lbl rv" style="color:rgba(201,168,76,.8)">Written Works</div>
+    <h2 class="s-h rv d1" style="color:var(--white)">Books That Build Leaders</h2>
+    <p class="s-sub rv d2" style="color:rgba(255,255,255,.42)">Before Align was a platform, it was a body of work. These books are the foundation — each one a chapter in the framework that became your operating system.</p>
+    <div class="bk-grid">
+      <div class="bk rv">
+        <div class="bk-spine">The God Experiment<span class="bk-badge">Audiobook</span></div>
+        <div class="bk-title">The God Experiment</div>
+        <div class="bk-desc">Developing your faith, purpose, and destiny through divine design.</div>
+        <div class="bk-links">
+          <a href="https://www.amazon.com/God-Experiment-Developing-Your-Destiny/dp/B0D5FGM9DX/ref=sr_1_13?crid=3IQHZSDZGVFQ2&dib=eyJ2IjoiMSJ9.69JGxW-CJJpsSh50673LsFHb_O4fGOH9CGpSeWOmj_b5LT980NHv0Sl4SbwPJnaEiVKmTl64Zph1Rdzn0aTYXYtvPuQI0Hd7ysotWlDS44h9yzE__NqAWDYTXhx9xyfPlHgr5Ks6BdUdGzoqw4-1uQJy0JF3dujE-MvaALqYz-lEeILnMGHUx6rJv305JeGnu2lIk5Jarr3i8TPlo_Y31vVAyCZ2285ckc4t7tu_ZpU.BzrnL-VaTnofPL5lKi55R3v1sp4_83aYiYapEIKhh1I&dib_tag=se&keywords=the+god+experiment&qid=1781573885&sprefix=the+god+experiment%2Caps%2C252&sr=8-13" target="_blank" class="bk-a">Audiobook</a>
+        </div>
+      </div>
+      <div class="bk rv d1">
+        <div class="bk-spine">Live Fearless</div>
+        <div class="bk-title">Live Fearless</div>
+        <div class="bk-desc">Overcoming overthinking, building resilience, and transforming your mindset.</div>
+        <div class="bk-links"><a href="https://www.amazon.com/Live-Fearless-Overthinking-Resilience-Transforming-ebook/dp/B0DP7JQ7WP/ref=pd_sim_d_sccl_1_1/145-7022676-3029313?pd_rd_w=amAoS&content-id=amzn1.sym.7c24b67e-6f48-4291-a1d6-24d3e6952d7a&pf_rd_p=7c24b67e-6f48-4291-a1d6-24d3e6952d7a&pf_rd_r=RB47HVS9RSS6GQMHPBFM&pd_rd_wg=s5aKj&pd_rd_r=d3cfc4b7-e6c9-47b2-8ae9-f539f83e81c4&pd_rd_i=B0DP7JQ7WP&psc=1" target="_blank" class="bk-a">Read on Amazon</a></div>
+      </div>
+      <div class="bk rv d2">
+        <div class="bk-spine">The Gifts of Rejection</div>
+        <div class="bk-title">The Gifts of Rejection</div>
+        <div class="bk-desc">The counterintuitive guide to emotionally transforming your greatest setbacks.</div>
+        <div class="bk-links"><a href="https://www.amazon.com/Gifts-Rejection-Counterintuitive-Emotionally-Transforming-ebook/dp/B0DP7BJ772/ref=sr_1_1?crid=2IDXN0QDBJGIO&dib=eyJ2IjoiMSJ9.ngZRCk1WsKIyYsQfISjXiDRmLfm6o4US02wqCVZrv1rg9qJosdH3F8AKNd1p2RhR.wYOliboZjQWAOg0JdXMeTDLI8EPld9Ujqkez3end8u0&dib_tag=se&keywords=the+gifts+of+rejection+samuel&qid=1781573947&s=audible&sprefix=the+gifts+of+rejection+samuel%2Caudible%2C173&sr=1-1" target="_blank" class="bk-a">Read on Amazon</a></div>
+      </div>
+      <div class="bk rv d3">
+        <div class="bk-spine">Meditations for Leaders &amp; Entrepreneurs</div>
+        <div class="bk-title">Meditations for Leaders &amp; Entrepreneurs</div>
+        <div class="bk-desc">52 weeks of strategic wisdom for those building what's next.</div>
+        <div class="bk-links">
+          <a href="https://www.amazon.com/Meditations-Discipline-Productivity-Leaders-Entrepeneurs-ebook/dp/B0DP367J77/ref=sr_1_1?crid=V05EW5VZFN1E&dib=eyJ2IjoiMSJ9.uEPE-_b5_6sSpoHmMiZCnUwFSrgcTxwKBQ_z07j5iUW-ADcPL4p3ngGughvK8FIZTjHQcqkRE_tc8OiNb3-tvUiGRRuIZruknukwwN4fm1RRXQ0GFTCVgK6hRFA-MHObrvFz0mYx4ZOCubCHNPOFLxD6n_m_6Dbdru77BX2O8Hc67xppB2fopOtse-QnrXppgRI4TBLI4PSZj3m8NGnqbWIFYZXu5Kh6lOzBDuC1j6w.YlogNT6TNrSh8wP9fG6k4_WLrV182629JzM5KbVZA-o&dib_tag=se&keywords=meditation+for+leaders+and+entrepreneurs+feeling+like&qid=1781573996&s=digital-text&sprefix=meditation+for+leaders+and+entrepeneurs+feeling+like%2Cdigital-text%2C165&sr=1-1" target="_blank" class="bk-a">Read on Amazon</a>
+          <a href="https://www.amazon.com/stores/Feeling-Like-Chocolate/author/B0DV8DGX4B" target="_blank" class="bk-a">All Books</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST -->
+<section id="podcast">
+  <div class="si">
+    <div class="pod-g">
+      <div class="pod-art rv">
+        <div class="pod-in">
+          <div class="pod-ico">🎙️</div>
+          <div class="pod-name">Align.<br>Engineered<br>for Impact.</div>
+          <div class="pod-tag">With Samuel Ngu</div>
+        </div>
+      </div>
+      <div>
+        <div class="s-lbl rv">The Podcast</div>
+        <h2 class="s-h rv d1">Align.<br>Engineered for Impact.</h2>
+        <p class="pod-desc rv d2">Every episode is a masterclass in building what you're called to build — without losing who you are. We go deep on alignment, leadership, faith, financial intelligence, and the architecture of a purposeful life.<br><br>Conversations with visionary leaders, founders, and thinkers who are designing organizations and lives of lasting impact.</p>
+        <!-- EDIT: PODCAST — replace # with your Spotify or primary podcast link when live -->
+        <a href="#" class="btn-p rv d3">Listen Now →</a>
+        <div class="pod-plat rv d3">
+          <!-- EDIT: PODCAST — replace each # with the real platform URL when live. Add class="plat coming" to keep greyed out until ready -->
+          <a href="#" class="plat coming">Spotify — Coming Soon</a>
+          <a href="#" class="plat coming">Apple Podcasts — Coming Soon</a>
+          <a href="#" class="plat coming">YouTube — Coming Soon</a>
+          <a href="#" class="plat coming">Amazon Music — Coming Soon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="si">
+    <div class="s-lbl">Join the Movement</div>
+    <h2 class="s-h" style="color:var(--white);margin-bottom:16px">Stay in the Signal.<br>Not the Noise.</h2>
+    <p class="com-desc">Insights on alignment, financial intelligence, leadership, and the Align platform — delivered to visionary leaders building with intention. No spam. Just signal.</p>
+    <!-- Email list form — submissions go to Netlify Forms -->
+    <!-- EDIT: FORM EMAIL — configure notification email in Netlify dashboard > Forms > Notifications -->
+    <form name="email-list" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="emailForm" style="margin-bottom:12px">
+      <input type="hidden" name="form-name" value="email-list">
+      <p style="display:none"><input name="bot-field"></p>
+      <div class="em-form">
+        <input type="email" name="email" class="em-inp" id="emInp" placeholder="Your email address" required>
+        <button type="submit" class="em-btn" id="emBtn">Join →</button>
+      </div>
+    </form>
+    <p style="font-size:11px;font-weight:300;color:rgba(255,255,255,.22);margin-top:8px">No spam. Unsubscribe anytime.</p>
+    <div class="soc-row">
+      <!-- EDIT: LINKEDIN — your LinkedIn URL -->
+      <a href="https://www.linkedin.com/in/samuelngu-align" target="_blank" class="soc">LinkedIn</a>
+      <!-- EDIT: SOCIAL — replace # and remove class="coming" when each is live -->
+      <a href="#" class="soc coming">Instagram — Coming Soon</a>
+      <a href="#" class="soc coming">YouTube — Coming Soon</a>
+      <a href="#" class="soc coming">X / Twitter — Coming Soon</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAK & CONSULT -->
+<section id="speak">
+  <div class="si">
+    <div class="sp-g">
+      <div>
+        <div class="s-lbl rv">Invite Samuel</div>
+        <h2 class="s-h rv d1">Speaking &amp; Consulting</h2>
+        <p class="s-sub rv d2" style="margin-bottom:28px">Samuel speaks to organizations, leadership teams, and conferences on alignment, wealth engineering, and building with purpose. Each engagement is tailored to where your organization is and where it's going.</p>
+        <ul class="sp-topics rv d2">
+          <li class="sp-t"><div class="sp-tn">01</div>Whole-Self Alignment for High-Performing Teams</li>
+          <li class="sp-t"><div class="sp-tn">02</div>Wealth Engineering: From Income to Architecture</li>
+          <li class="sp-t"><div class="sp-tn">03</div>Faith, Purpose &amp; the Business of Legacy</li>
+          <li class="sp-t"><div class="sp-tn">04</div>The Alignment OS: Deploying Align in Your Organization</li>
+          <li class="sp-t"><div class="sp-tn">05</div>Leadership Under Construction: Building Clarity in Complexity</li>
+          <li class="sp-t"><div class="sp-tn">06</div>The Rejection Gift: Turning Setbacks into Strategic Advantage</li>
+        </ul>
+        <div style="padding:22px 28px;background:rgba(42,18,46,.05);border-left:3px solid var(--gold);border-radius:0 4px 4px 0" class="rv d3">
+          <div style="font-size:12px;font-weight:300;color:#4a3d50;line-height:1.8">Available for <strong style="color:var(--cherry);font-weight:600">keynotes</strong>, <strong style="color:var(--cherry);font-weight:600">workshops</strong>, <strong style="color:var(--cherry);font-weight:600">corporate consulting</strong>, <strong style="color:var(--cherry);font-weight:600">executive strategy days</strong>, and <strong style="color:var(--cherry);font-weight:600">enterprise Align rollouts</strong>.</div>
+        </div>
+      </div>
+      <div class="rv d1">
+        <!-- Speaking & Consulting Inquiry Form — submissions go to Netlify Forms -->
+        <!-- EDIT: FORM EMAIL — configure notification email in Netlify dashboard > Forms > Notifications -->
+        <div class="cf">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:24px">Send a Speaking or Consulting Inquiry</div>
+          <form name="speaking-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="speakForm">
+            <input type="hidden" name="form-name" value="speaking-inquiry">
+            <p style="display:none"><input name="bot-field"></p>
+            <div class="f-row">
+              <div class="fg"><label class="f-lbl">First Name</label><input type="text" name="first_name" class="f-inp" placeholder="First" required></div>
+              <div class="fg"><label class="f-lbl">Last Name</label><input type="text" name="last_name" class="f-inp" placeholder="Last" required></div>
+            </div>
+            <div class="f-row">
+              <div class="fg"><label class="f-lbl">Email</label><input type="email" name="email" class="f-inp" placeholder="you@company.com" required></div>
+              <div class="fg"><label class="f-lbl">Phone</label><input type="tel" name="phone" class="f-inp" placeholder="+1 (555) 000-0000"></div>
+            </div>
+            <div class="fg"><label class="f-lbl">Organization / Event</label><input type="text" name="organization" class="f-inp" placeholder="Company or event name" required></div>
+            <div class="fg">
+              <label class="f-lbl">Inquiry Type</label>
+              <select name="inquiry_type" class="f-sel">
+                <option value="">Select type</option>
+                <option>Keynote Speaking</option>
+                <option>Workshop / Training</option>
+                <option>Executive Consulting</option>
+                <option>Enterprise Align Deployment</option>
+                <option>Webinar / Panel</option>
+                <option>Media / Press</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label class="f-lbl">Budget Range</label>
+              <select name="budget" class="f-sel">
+                <option value="">Select range</option>
+                <option>Under $5,000</option>
+                <option>$5,000 – $15,000</option>
+                <option>$15,000 – $30,000</option>
+                <option>$30,000+</option>
+                <option>To be discussed</option>
+              </select>
+            </div>
+            <div class="fg"><label class="f-lbl">Tell Me More</label><textarea name="details" class="f-ta" placeholder="Share the context — event, org size, goals, timeline..."></textarea></div>
+            <button type="submit" class="f-sub" id="speakSub">Send Inquiry →</button>
+            <div class="form-success" id="speakSuccess">✓ Inquiry received. Samuel's team will respond within 48 hours.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand">Samuel Ngu</div>
+        <p class="ft-desc">Founder, Align360. Author. Licensed Financial Professional. Fund Product Development Manager. Building the operating system for purposeful lives and aligned organizations.</p>
+      </div>
+      <div>
+        <div class="ft-ct">Navigate</div>
+        <ul class="ft-links">
+          <li><a href="#clarity">Clarity</a></li>
+          <li><a href="#alignment">Alignment</a></li>
+          <li><a href="#abundance">Abundance</a></li>
+          <li><a href="#speak">Speak &amp; Consult</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-ct">Resources</div>
+        <ul class="ft-links">
+          <li><a href="#books">Books</a></li>
+          <li><a href="#podcast">Podcast</a></li>
+          <li><a href="#community">Join Community</a></li>
+          <li><a href="https://www.amazon.com/stores/Feeling-Like-Chocolate/author/B0DV8DGX4B" target="_blank">Amazon Author Page</a></li>
+          <!-- EDIT: ASSESSMENT -->
+          <li><a href="https://align360.io" target="_blank">Align360 Platform</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-ct">Connect</div>
+        <ul class="ft-links">
+          <!-- EDIT: LINKEDIN -->
+          <li><a href="https://www.linkedin.com/in/samuelngu-align" target="_blank">LinkedIn</a></li>
+          <!-- EDIT: SOCIAL — remove class="coming" and add real URLs when live -->
+          <li><a href="#" class="coming">Instagram — Soon</a></li>
+          <li><a href="#" class="coming">YouTube — Soon</a></li>
+          <li><a href="#" class="coming">X / Twitter — Soon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">© 2025 Samuel Ngu / Crowned Bowman. All rights reserved.</div>
+      <div class="ft-tag">Clarity · Alignment · Abundance</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('s', window.scrollY > 60));
+
+  // Mobile menu
+  function openMM(){document.getElementById('mm').classList.add('open');document.body.style.overflow='hidden'}
+  function closeMM(){document.getElementById('mm').classList.remove('open');document.body.style.overflow=''}
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  // Active pillar
+  const pnis = document.querySelectorAll('.pni');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    ['clarity','alignment','abundance'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el && window.scrollY >= el.offsetTop - 200) cur = id;
+    });
+    pnis.forEach(p => p.classList.toggle('active', p.getAttribute('href') === '#'+cur));
+  });
+
+  // Email form — Netlify handles submission, we just show success UI
+  document.getElementById('emailForm').addEventListener('submit', function(e){
+    const btn = document.getElementById('emBtn');
+    setTimeout(() => {
+      btn.textContent = "You're In ✓";
+      btn.style.background = '#2A122E';
+      btn.style.color = '#fff';
+      document.getElementById('emInp').value = '';
+    }, 200);
+  });
+
+  // Coaching form success
+  document.getElementById('coachForm').addEventListener('submit', function(){
+    setTimeout(() => {
+      document.getElementById('coachSuccess').style.display = 'block';
+      this.reset();
+    }, 200);
+  });
+
+  // Speaking form success
+  document.getElementById('speakForm').addEventListener('submit', function(){
+    setTimeout(() => {
+      document.getElementById('speakSuccess').style.display = 'block';
+      this.reset();
+    }, 200);
+  });
+</script>
+</body>
+</html>
