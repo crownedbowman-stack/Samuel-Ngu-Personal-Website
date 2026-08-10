@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Align360 — Wealth Architecture Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Inter',sans-serif;background:#F2F0F5;color:#1A0A20}
+:root{--plum:#2A122E;--gold:#C8A96E;--cream:#F2F0F5;--mid:#5A4A68;--muted:#9A8AA8;--bdr:#E0D8E8}
+
+/* PAGE */
+.page{max-width:900px;margin:0 auto;padding:40px 32px 60px}
+
+/* HEADER */
+.hdr{background:var(--plum);border-radius:14px;padding:40px 44px;margin-bottom:32px;text-align:center;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,0.04) 0%,transparent 70%)}
+.hdr-logo{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:18px}
+.hdr-title{font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,36px);color:#fff;line-height:1.18;margin-bottom:10px}
+.hdr-title em{font-style:italic;color:rgba(255,255,255,0.45)}
+.hdr-sub{font-size:13px;color:rgba(255,255,255,0.38);max-width:540px;margin:0 auto 22px;line-height:1.65}
+.hdr-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.hpill{font-size:8px;letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.36);border:0.5px solid rgba(255,255,255,0.14);border-radius:20px;padding:4px 12px}
+
+/* SECTION HEADERS */
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:36px}
+.sec-line{flex:1;height:0.5px;background:var(--bdr)}
+.sec-label{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--plum);opacity:0.45;flex-shrink:0}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);color:var(--plum);margin-bottom:6px}
+.sec-desc{font-size:12.5px;color:var(--mid);line-height:1.65;margin-bottom:18px}
+
+/* CORE MESSAGE BOX */
+.core-box{background:var(--plum);border-radius:10px;padding:24px 28px;margin-bottom:28px}
+.core-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.core-side-label{font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:6px}
+.core-side-val{font-family:'Playfair Display',serif;font-size:18px;color:#fff;margin-bottom:6px}
+.core-side-body{font-size:11.5px;color:rgba(255,255,255,0.4);line-height:1.6}
+.core-div{width:0.5px;background:rgba(255,255,255,0.1)}
+.core-insight{margin-top:18px;padding:14px 18px;background:rgba(255,255,255,0.04);border-radius:8px;border-left:2px solid rgba(200,169,110,0.4)}
+.ci-text{font-family:'Playfair Display',serif;font-size:13px;color:rgba(255,255,255,0.65);font-style:italic;line-height:1.55}
+
+/* THREE BUCKETS */
+.buckets{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.bucket{background:#fff;border:0.5px solid var(--bdr);border-radius:10px;padding:18px 16px}
+.bucket.featured{background:var(--plum);border-color:var(--plum)}
+.bk-icon{font-size:18px;margin-bottom:8px}
+.bk-label{font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.bucket.featured .bk-label{color:rgba(255,255,255,0.3)}
+.bk-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--plum);margin-bottom:6px}
+.bucket.featured .bk-title{color:#fff}
+.bk-purpose{font-size:10.5px;color:var(--mid);margin-bottom:8px;font-weight:500}
+.bucket.featured .bk-purpose{color:rgba(255,255,255,0.5)}
+.bk-items{display:flex;flex-direction:column;gap:4px}
+.bk-item{font-size:10.5px;color:var(--mid);display:flex;gap:6px;align-items:flex-start;line-height:1.45}
+.bucket.featured .bk-item{color:rgba(255,255,255,0.45)}
+.bk-dot{width:4px;height:4px;border-radius:50%;background:var(--plum);opacity:0.3;margin-top:5px;flex-shrink:0}
+.bucket.featured .bk-dot{background:#fff;opacity:0.22}
+
+/* ICP CARDS */
+.icp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.icp-card{background:#fff;border:0.5px solid var(--bdr);border-radius:10px;overflow:hidden}
+.icp-hdr{padding:14px 16px;background:var(--plum)}
+.icp-hdr.ind{background:#2A122E}
+.icp-hdr.fam{background:#3A1A3E}
+.icp-hdr.ent{background:#1A0A1A}
+.icp-icon{font-size:16px;margin-bottom:5px}
+.icp-type{font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:3px}
+.icp-name{font-family:'Playfair Display',serif;font-size:15px;color:#fff}
+.icp-body{padding:14px 16px}
+.icp-problem{font-size:10px;font-weight:600;color:var(--plum);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;opacity:0.6}
+.icp-prob-text{font-size:11px;color:var(--mid);line-height:1.55;margin-bottom:10px;font-style:italic}
+.icp-sol-label{font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--plum);opacity:0.45;margin-bottom:6px}
+.icp-items{display:flex;flex-direction:column;gap:4px}
+.icp-item{font-size:11px;color:var(--mid);display:flex;gap:6px;align-items:flex-start;line-height:1.45}
+.icp-outcome{margin-top:10px;padding:8px 10px;background:var(--cream);border-radius:6px;border-left:2px solid var(--plum)}
+.icp-outcome-text{font-size:10.5px;color:var(--plum);line-height:1.5;opacity:0.75;font-style:italic}
+
+/* PRODUCT TABLE */
+.prod-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+.prod-table th{background:var(--plum);color:rgba(255,255,255,0.55);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;padding:10px 14px;text-align:left;font-weight:500}
+.prod-table td{padding:10px 14px;border-bottom:0.5px solid var(--bdr);font-size:11px;color:var(--mid);vertical-align:top}
+.prod-table tr:hover td{background:rgba(42,18,46,0.03)}
+.prod-table .prod-name{color:#1A0A20;font-weight:500;font-size:11.5px}
+.prod-table .tag{display:inline-block;font-size:8px;letter-spacing:0.08em;text-transform:uppercase;border-radius:20px;padding:2px 8px;margin-right:3px;margin-bottom:2px}
+.tag-ind{background:rgba(42,18,46,0.08);color:var(--plum)}
+.tag-fam{background:rgba(42,18,46,0.12);color:var(--plum)}
+.tag-ent{background:rgba(42,18,46,0.16);color:var(--plum)}
+.tag-all{background:rgba(42,18,46,0.1);color:var(--plum)}
+
+/* RECESSION / RESILIENCE BOX */
+.resilience-box{background:#fff;border:0.5px solid var(--bdr);border-radius:10px;padding:20px 22px;margin-bottom:24px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.res-col-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--plum);margin-bottom:10px}
+.res-items{display:flex;flex-direction:column;gap:6px}
+.res-item{font-size:11px;color:var(--mid);display:flex;gap:7px;align-items:flex-start;line-height:1.5}
+.res-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:0.6;margin-top:5px;flex-shrink:0}
+.res-gap-box{grid-column:span 2;background:rgba(200,169,110,0.06);border:0.5px solid rgba(200,169,110,0.25);border-radius:8px;padding:14px 16px}
+.res-gap-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--plum);margin-bottom:6px}
+.res-gap-body{font-size:11.5px;color:var(--mid);line-height:1.65}
+
+/* COST SNEAK PEEK */
+.cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.cost-card{background:#fff;border:0.5px solid var(--bdr);border-radius:9px;padding:14px 15px}
+.cost-type{font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.cost-product{font-family:'Playfair Display',serif;font-size:13px;color:var(--plum);margin-bottom:5px}
+.cost-range{font-size:11.5px;color:#1A0A20;font-weight:600;margin-bottom:4px}
+.cost-note{font-size:10px;color:var(--muted);line-height:1.5}
+.cost-disclaimer{font-size:9.5px;color:var(--muted);font-style:italic;margin-bottom:20px;text-align:center}
+
+/* HOW IT WORKS */
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.how-step{background:#fff;border:0.5px solid var(--bdr);border-radius:9px;padding:14px 13px;text-align:center}
+.how-num{font-family:'Playfair Display',serif;font-size:24px;color:var(--plum);opacity:0.3;margin-bottom:5px}
+.how-title{font-size:12px;font-weight:600;color:var(--plum);margin-bottom:4px}
+.how-body{font-size:10.5px;color:var(--mid);line-height:1.5}
+
+/* OFFER TIERS */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.tier{background:#fff;border:0.5px solid var(--bdr);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;gap:6px}
+.tier.on{background:var(--plum);border-color:var(--plum)}
+.tier-lbl{font-size:8px;letter-spacing:0.11em;text-transform:uppercase;color:var(--muted)}
+.tier.on .tier-lbl{color:rgba(255,255,255,0.28)}
+.tier-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--plum)}
+.tier.on .tier-name{color:#fff}
+.tier-price{font-size:11px;font-weight:600;color:#1A0A20;margin-bottom:2px}
+.tier.on .tier-price{color:rgba(255,255,255,0.55)}
+.tier-sep{height:0.5px;background:var(--bdr)}
+.tier.on .tier-sep{background:rgba(255,255,255,0.1)}
+.tier-items{display:flex;flex-direction:column;gap:4px;flex:1}
+.tier-item{font-size:11px;color:var(--mid);display:flex;gap:6px;line-height:1.45}
+.tier.on .tier-item{color:rgba(255,255,255,0.42)}
+.tier-cta{font-size:9px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--plum);padding-top:8px;border-top:0.5px solid var(--bdr)}
+.tier.on .tier-cta{color:rgba(255,255,255,0.5);border-top-color:rgba(255,255,255,0.1)}
+
+/* FOOTER */
+.ftr{background:var(--plum);border-radius:10px;padding:24px 28px;text-align:center}
+.ftr-title{font-family:'Playfair Display',serif;font-size:18px;color:#fff;margin-bottom:8px}
+.ftr-sub{font-size:12px;color:rgba(255,255,255,0.38);margin-bottom:18px;line-height:1.6;max-width:480px;margin-left:auto;margin-right:auto}
+.ftr-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.fbtnp{padding:10px 22px;background:#fff;color:var(--plum);border:none;border-radius:7px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block}
+.fbtns{padding:10px 22px;background:transparent;color:rgba(255,255,255,0.42);border:0.5px solid rgba(255,255,255,0.18);border-radius:7px;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block}
+.ftr-disc{font-size:8.5px;color:rgba(255,255,255,0.18);line-height:1.6}
+
+/* UTILITIES */
+.dot-d{width:4px;height:4px;border-radius:50%;background:var(--plum);opacity:0.28;margin-top:5px;flex-shrink:0}
+.gold-bar{width:32px;height:2px;background:var(--gold);opacity:0.5;margin:10px 0}
+.divider{height:0.5px;background:var(--bdr);margin:28px 0}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-logo">A L I G N 3 6 0 &nbsp;&middot;&nbsp; Wealth Architecture Guide</div>
+  <div class="hdr-title">Money Is Created.<br><em>Wealth Is Engineered.</em></div>
+  <div class="hdr-sub">A comprehensive guide to the products, strategies, and systems Samuel Ngu deploys for individuals, families, and enterprises &mdash; and how to determine which is right for you.</div>
+  <div class="hdr-pills">
+    <span class="hpill">Samuel Ngu &middot; Founder, Align360</span>
+    <span class="hpill">Licensed Life &amp; Health Insurance Professional</span>
+    <span class="hpill">Fund Product Development Manager</span>
+    <span class="hpill">samuelngu.com &nbsp;&middot;&nbsp; align360.io</span>
+  </div>
+</div>
+
+<!-- CORE MESSAGE -->
+<div class="sec-hdr"><div class="sec-line"></div><span class="sec-label">The Foundation</span><div class="sec-line"></div></div>
+<div class="core-box">
+  <div class="core-grid">
+    <div>
+      <div class="core-side-label">Money</div>
+      <div class="core-side-val">What you earn</div>
+      <div class="core-side-body">Income from your job, business, or investments. It responds to effort and strategy. Most people focus here exclusively &mdash; working harder, earning more &mdash; without ever optimizing what happens to what they earn.</div>
+    </div>
+    <div class="core-div"></div>
+    <div>
+      <div class="core-side-label">Wealth</div>
+      <div class="core-side-val">How efficiently you keep, grow, protect &amp; transfer it</div>
+      <div class="core-side-body">Wealth is a design problem. It requires architecture &mdash; a blueprint built around who you are, what you owe, what you own, and what you want to leave behind. Most households are leaking 20&ndash;40% of potential wealth through poor structuring alone.</div>
+    </div>
+  </div>
+  <div class="core-insight">
+    <div class="ci-text">&ldquo;Your role is not to earn more. It is to engineer a system where money works harder than you do. That engineering begins with identity &mdash; knowing who you are, how you&rsquo;re built, and what you&rsquo;re called to create. Then the financial architecture follows.&rdquo; &mdash; Samuel Ngu</div>
+  </div>
+</div>
+
+<!-- THREE BUCKETS -->
+<div class="sec-hdr"><div class="sec-line"></div><span class="sec-label">The System</span><div class="sec-line"></div></div>
+<div class="sec-title">The Three Buckets of Wealth Engineering</div>
+<div class="sec-desc">Every wealth architecture is built on three pillars. Most people only operate in one or two &mdash; leaving the others exposed. A complete system integrates all three simultaneously.</div>
+<div class="buckets">
+  <div class="bucket">
+    <div class="bk-icon">&#9632;</div>
+    <div class="bk-label">Bucket 1</div>
+    <div class="bk-title">Protection</div>
+    <div class="bk-purpose">Prevent financial collapse</div>
+    <div class="bk-items">
+      <div class="bk-item"><span class="bk-dot"></span>Life &amp; health insurance</div>
+      <div class="bk-item"><span class="bk-dot"></span>Disability &amp; income replacement</div>
+      <div class="bk-item"><span class="bk-dot"></span>Living benefits &amp; critical illness</div>
+      <div class="bk-item"><span class="bk-dot"></span>Long-term care coverage</div>
+      <div class="bk-item"><span class="bk-dot"></span>Key-person &amp; buy-sell coverage</div>
+    </div>
+  </div>
+  <div class="bucket featured">
+    <div class="bk-icon">&#9651;</div>
+    <div class="bk-label">Bucket 2</div>
+    <div class="bk-title">Accumulation</div>
+    <div class="bk-purpose">Grow assets efficiently</div>
+    <div class="bk-items">
+      <div class="bk-item"><span class="bk-dot"></span>Tax-advantaged growth plans</div>
+      <div class="bk-item"><span class="bk-dot"></span>Cash-value life insurance</div>
+      <div class="bk-item"><span class="bk-dot"></span>Infinite banking / family bank</div>
+      <div class="bk-item"><span class="bk-dot"></span>Indexed annuities &amp; structured products</div>
+      <div class="bk-item"><span class="bk-dot"></span>Real estate &amp; private lending</div>
+    </div>
+  </div>
+  <div class="bucket">
+    <div class="bk-icon">&#9670;</div>
+    <div class="bk-label">Bucket 3</div>
+    <div class="bk-title">Distribution</div>
+    <div class="bk-purpose">Use &amp; transfer wealth tax-efficiently</div>
+    <div class="bk-items">
+      <div class="bk-item"><span class="bk-dot"></span>Tax-free retirement income</div>
+      <div class="bk-item"><span class="bk-dot"></span>Trust &amp; estate planning</div>
+      <div class="bk-item"><span class="bk-dot"></span>Legacy &amp; generational transfer</div>
+      <div class="bk-item"><span class="bk-dot"></span>College funding strategies</div>
+      <div class="bk-item"><span class="bk-dot"></span>Charitable &amp; legacy structures</div>
+    </div>
+  </div>
+</div>
+
+<!-- ICP SECTION -->
+<div class="sec-hdr"><div class="sec-line"></div><span class="sec-label">Who This Is For</span><div class="sec-line"></div></div>
+<div class="sec-title">ICP-Specific Value Propositions</div>
+<div class="sec-desc">The same core architecture applies to everyone &mdash; but the entry point, the tools, and the language shift based on where you are in life and what you&rsquo;re building.</div>
+<div class="icp-grid">
+  <div class="icp-card">
+    <div class="icp-hdr ind">
+      <div class="icp-icon">&#9651;</div>
+      <div class="icp-type">ICP 1</div>
+      <div class="icp-name">Individuals &amp;<br>Young Professionals</div>
+    </div>
+    <div class="icp-body">
+      <div class="icp-problem">Core Problem</div>
+      <div class="icp-prob-text">High income, low structure. Tax inefficiency. No system. Starting right vs. fixing later.</div>
+      <div class="icp-sol-label">What We Offer</div>
+      <div class="icp-items">
+        <div class="icp-item"><span class="dot-d"></span>Financial foundation blueprint</div>
+        <div class="icp-item"><span class="dot-d"></span>Debt &amp; savings optimization</div>
+        <div class="icp-item"><span class="dot-d"></span>Tax-free growth strategy (early)</div>
+        <div class="icp-item"><span class="dot-d"></span>Income &amp; disability protection</div>
+        <div class="icp-item"><span class="dot-d"></span>Cash-value life insurance</div>
+        <div class="icp-item"><span class="dot-d"></span>Align360 identity OS (free)</div>
+      </div>
+      <div class="icp-outcome"><div class="icp-outcome-text">Accelerated net worth curve in first 10&ndash;15 years. Start right &mdash; not fix later.</div></div>
+    </div>
+  </div>
+  <div class="icp-card">
+    <div class="icp-hdr fam">
+      <div class="icp-icon">&#9670;</div>
+      <div class="icp-type">ICP 2</div>
+      <div class="icp-name">Families &amp;<br>Households</div>
+    </div>
+    <div class="icp-body">
+      <div class="icp-problem">Core Problem</div>
+      <div class="icp-prob-text">Assets accumulating without protection. No coordinated system across goals. Generational wealth left unbuilt.</div>
+      <div class="icp-sol-label">What We Offer</div>
+      <div class="icp-items">
+        <div class="icp-item"><span class="dot-d"></span>Income protection &amp; life insurance</div>
+        <div class="icp-item"><span class="dot-d"></span>Family bank &amp; infinite banking</div>
+        <div class="icp-item"><span class="dot-d"></span>College funding (&ldquo;million-dollar fund&rdquo;)</div>
+        <div class="icp-item"><span class="dot-d"></span>Mortgage &amp; debt acceleration</div>
+        <div class="icp-item"><span class="dot-d"></span>Retirement + tax-efficiency layering</div>
+        <div class="icp-item"><span class="dot-d"></span>Family360 wiring map (Align)</div>
+      </div>
+      <div class="icp-outcome"><div class="icp-outcome-text">Financial security today + generational wealth system for tomorrow.</div></div>
+    </div>
+  </div>
+  <div class="icp-card">
+    <div class="icp-hdr ent">
+      <div class="icp-icon">&#9632;</div>
+      <div class="icp-type">ICP 3</div>
+      <div class="icp-name">Enterprises &amp;<br>Business Owners</div>
+    </div>
+    <div class="icp-body">
+      <div class="icp-problem">Core Problem</div>
+      <div class="icp-prob-text">Overpaying taxes. Rising benefit costs. No structured exit or continuity plan. Team misalignment.</div>
+      <div class="icp-sol-label">What We Offer</div>
+      <div class="icp-items">
+        <div class="icp-item"><span class="dot-d"></span>Advanced tax &amp; cash flow optimization</div>
+        <div class="icp-item"><span class="dot-d"></span>Employee benefits engineering (EHP)</div>
+        <div class="icp-item"><span class="dot-d"></span>FICA tax reduction strategies</div>
+        <div class="icp-item"><span class="dot-d"></span>Key-person &amp; buy-sell agreements</div>
+        <div class="icp-item"><span class="dot-d"></span>Executive bonus structures</div>
+        <div class="icp-item"><span class="dot-d"></span>Enterprise Align OS (team dashboard)</div>
+      </div>
+      <div class="icp-outcome"><div class="icp-outcome-text">Higher profitability + stronger retention + scalable wealth architecture.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT TABLE -->
+<div class="sec-hdr"><div class="sec-line"></div><span class="sec-label">Products &amp; Strategies</span><div class="sec-line"></div></div>
+<div class="sec-title">Complete Product &amp; Strategy Reference</div>
+<div class="sec-desc">Every product below is matched to the right ICP, the right goal, and the approximate investment range. Exact premiums vary by health, age, coverage amount, and structure &mdash; a consultation determines fit.</div>
+<table class="prod-table">
+  <tr>
+    <th>Product / Strategy</th>
+    <th>Who It&rsquo;s For</th>
+    <th>What It Does</th>
+    <th>Est. Monthly Investment</th>
+    <th>Key Benefit</th>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Term Life Insurance</div></td>
+    <td><span class="tag tag-ind">Individual</span><span class="tag tag-fam">Family</span></td>
+    <td>Income replacement if you die during the policy term</td>
+    <td>$20&ndash;$80/mo (healthy, 30s&ndash;40s, $500K)</td>
+    <td>Lowest-cost death benefit; pure protection</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Whole / Permanent Life Insurance</div></td>
+    <td><span class="tag tag-all">All ICPs</span></td>
+    <td>Lifetime coverage + cash value accumulation</td>
+    <td>$200&ndash;$1,500+/mo depending on coverage</td>
+    <td>Tax-deferred growth, loan access, generational transfer</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Indexed Universal Life (IUL)</div></td>
+    <td><span class="tag tag-ind">Individual</span><span class="tag tag-ent">Enterprise</span></td>
+    <td>Market-linked growth with downside protection</td>
+    <td>$300&ndash;$2,000+/mo</td>
+    <td>Tax-free retirement income, market upside without full risk</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Living Benefits Rider</div></td>
+    <td><span class="tag tag-all">All ICPs</span></td>
+    <td>Access death benefit early if critically/chronically ill</td>
+    <td>Often included or low add-on cost</td>
+    <td>Converts life insurance into a lifetime financial tool</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Disability / Income Protection</div></td>
+    <td><span class="tag tag-ind">Individual</span><span class="tag tag-fam">Family</span></td>
+    <td>Replaces income if illness/injury prevents work</td>
+    <td>$100&ndash;$400/mo (1&ndash;3% of income typical)</td>
+    <td>Most overlooked protection; biggest financial risk</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Long-Term Care Insurance</div></td>
+    <td><span class="tag tag-fam">Family</span><span class="tag tag-ind">Individual 50+</span></td>
+    <td>Covers nursing home, assisted living, in-home care costs</td>
+    <td>$100&ndash;$300/mo (age-dependent)</td>
+    <td>Protects retirement savings from care costs ($100K+/yr)</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Infinite Banking / Family Bank</div></td>
+    <td><span class="tag tag-fam">Family</span><span class="tag tag-ind">Individual</span></td>
+    <td>Borrow against cash-value policy; recapture interest to self</td>
+    <td>$500&ndash;$3,000+/mo (structure-dependent)</td>
+    <td>Self-financing system; wealth as a circulating ecosystem</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Fixed / Indexed Annuity</div></td>
+    <td><span class="tag tag-ind">Individual</span><span class="tag tag-fam">Family</span></td>
+    <td>Guaranteed or indexed income stream in retirement</td>
+    <td>Lump sum or rollover ($50K&ndash;$1M+)</td>
+    <td>Predictable income; downside buffer; tax-deferred</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Tax-Free Retirement Strategy</div></td>
+    <td><span class="tag tag-all">All ICPs</span></td>
+    <td>Structure retirement income to minimize or eliminate tax</td>
+    <td>Varies by plan design</td>
+    <td>Roth conversions, IUL, LIRP &mdash; keep more in retirement</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">College Funding Plan</div></td>
+    <td><span class="tag tag-fam">Family</span></td>
+    <td>Build tax-advantaged education fund</td>
+    <td>$100&ndash;$500/mo started early</td>
+    <td>Can fund 4-year private college; life insurance hybrid option</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Trust &amp; Estate Planning</div></td>
+    <td><span class="tag tag-fam">Family</span><span class="tag tag-ent">Enterprise</span></td>
+    <td>Structures assets for efficient, tax-minimized transfer</td>
+    <td>One-time legal cost + annual review</td>
+    <td>Avoids probate; protects heirs; minimizes estate tax</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Business Overhead Insurance</div></td>
+    <td><span class="tag tag-ent">Enterprise</span></td>
+    <td>Covers business expenses if owner is disabled</td>
+    <td>$150&ndash;$600/mo</td>
+    <td>Keeps business alive if the key person cannot work</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Key-Person Insurance</div></td>
+    <td><span class="tag tag-ent">Enterprise</span></td>
+    <td>Company policy on critical employee/founder life</td>
+    <td>$200&ndash;$1,000+/mo</td>
+    <td>Protects business from loss of a critical contributor</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Employee Benefits Engineering (EHP)</div></td>
+    <td><span class="tag tag-ent">Enterprise</span></td>
+    <td>Reduce FICA taxes, lower workers&rsquo; comp, enhance benefits</td>
+    <td>Typically net-positive cash flow</td>
+    <td>Increase employee take-home + reduce employer cost simultaneously</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Buy-Sell Agreement Funding</div></td>
+    <td><span class="tag tag-ent">Enterprise</span></td>
+    <td>Funds partner buyout at death or disability</td>
+    <td>$300&ndash;$2,000+/mo per partner</td>
+    <td>Business continuity; prevents forced sale or family conflict</td>
+  </tr>
+  <tr>
+    <td><div class="prod-name">Private Money Lending Access</div></td>
+    <td><span class="tag tag-ent">Enterprise</span><span class="tag tag-ind">Individual</span></td>
+    <td>Access to private lending networks for real estate &amp; business</td>
+    <td>Deal-specific; interest-based</td>
+    <td>Faster capital access; relationship-based underwriting</td>
+  </tr>
+</table>
+
+<!-- RECESSION RESILIENCE -->
+<div class="sec-hdr"><div class="sec-line"></div><span class="sec-label">Advanced Architecture</span><div class="sec-line"></div></div>
+<div class="sec-title">Financial Resilience &amp; Recession Architecture</div>
+<div class="sec-desc">There is no single &ldquo;recession insurance.&rdquo; But there is a layered system that sophisticated individuals, families, and businesses use to remain resilient when markets shift. This is the system Samuel helps you build &mdash; before you need it.</div>
+<div class="resilience-box">
+  <div class="res-grid">
+    <div>
+      <div class="res-col-title">What Individuals &amp; Families Do</div>
+      <div class="res-items">
+        <div class="res-item"><span class="res-dot"></span>6&ndash;12 months cash reserves in high-yield accounts</div>
+        <div class="res-item"><span class="res-dot"></span>Disability insurance as income floor</div>
+        <div class="res-item"><span class="res-dot"></span>Life insurance with living benefits activated</div>
+        <div class="res-item"><span class="res-dot"></span>Fixed indexed annuities for downside buffering</div>
+        <div class="res-item"><span class="res-dot"></span>Diversified income streams (job + business + passive)</div>
+        <div class="res-item"><span class="res-dot"></span>Debt structured on fixed rates, not variable</div>
+        <div class="res-item"><span class="res-dot"></span>Umbrella liability coverage</div>
+        <div class="res-item"><span class="res-dot"></span>Cash-value policy as accessible reserve</div>
+      </div>
+    </div>
+    <div>
+      <div class="res-col-title">What Businesses Do</div>
+      <div class="res-items">
+        <div class="res-item"><span class="res-dot"></span>6&ndash;18 months operating cash reserves</div>
+        <div class="res-item"><span class="res-dot"></span>Trade credit insurance (customer non-payment)</div>
+        <div class="res-item"><span class="res-dot"></span>Key-person insurance on critical contributors</div>
+        <div class="res-item"><span class="res-dot"></span>Fixed-rate debt locked before rate rises</div>
+        <div class="res-item"><span class="res-dot"></span>Revenue diversification &amp; customer concentration reduction</div>
+        <div class="res-item"><span class="res-dot"></span>D&amp;O, EPLI, and cyber insurance</div>
+        <div class="res-item"><span class="res-dot"></span>Buy-sell agreement fully funded</div>
+        <div class="res-item"><span class="res-dot"></span>Corporate-owned life insurance (COLI)</div>
+      </div>
+    </div>
+    <div class="res-gap-box">
+      <div class="res-gap-title">The Market Gap &mdash; And Where Align360 Fits</div>
+      <div class="res-gap-body">There is currently no comprehensive &ldquo;Recession Insurance&rdquo; product for households or small businesses &mdash; no single policy that makes you whole across job loss, market decline, and business interruption simultaneously. What sophisticated individuals, families, and businesses build instead is a layered system: clarity and alignment across all 5 F&rsquo;s &mdash; including Finances &mdash; through Align360, paired with the protection and resilience architecture built through Samuel&rsquo;s licensed financial practice. Align360 keeps you clear on where you actually stand. Samuel&rsquo;s practice builds the protection around it. Together, they reach a gap neither a personality platform nor a single insurance product can close alone.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SAMPLE COSTS -->
+<div class="sec-hdr"><div class="sec-line"></div><span class="sec-label">What to Expect</span><div class="sec-line"></div></div>
+<div class="sec-title">Sample Investment Ranges</div>
+<div class="sec-desc">These are illustrative ranges only &mdash; actual premiums depend on age, health, coverage amount, and plan structure. A consultation determines the right fit and exact cost for your situation.</div>
+<div class="cost-grid">
+  <div class="cost-card">
+    <div class="cost-type">Young Professional</div>
+    <div class="cost-product">Term Life + Income Protection</div>
+    <div class="cost-range">$80&ndash;$250/mo</div>
+    <div class="cost-note">Foundation protection plan. Covers income if you can&rsquo;t work and dependents if you die. Starting point for age 25&ndash;40.</div>
+  </div>
+  <div class="cost-card">
+    <div class="cost-type">Individual / Family</div>
+    <div class="cost-product">IUL + Living Benefits</div>
+    <div class="cost-range">$400&ndash;$1,200/mo</div>
+    <div class="cost-note">Tax-free retirement income + death benefit + living benefits for illness. Core wealth-building engine for ages 30&ndash;50.</div>
+  </div>
+  <div class="cost-card">
+    <div class="cost-type">Family</div>
+    <div class="cost-product">Infinite Banking Setup</div>
+    <div class="cost-range">$600&ndash;$3,000/mo</div>
+    <div class="cost-note">Whole life policy structured for maximum cash value. Borrow against it for purchases; recapture interest back to yourself.</div>
+  </div>
+  <div class="cost-card">
+    <div class="cost-type">Family</div>
+    <div class="cost-product">College Funding Plan</div>
+    <div class="cost-range">$150&ndash;$500/mo</div>
+    <div class="cost-note">Started at birth to age 5, can fund a full 4-year private education. Life insurance hybrid option available.</div>
+  </div>
+  <div class="cost-card">
+    <div class="cost-type">Business Owner</div>
+    <div class="cost-product">Key-Person + Buy-Sell</div>
+    <div class="cost-range">$500&ndash;$3,000+/mo</div>
+    <div class="cost-note">Protects the business from loss of a founder or critical partner. Funds buyout at death or disability without forced sale.</div>
+  </div>
+  <div class="cost-card">
+    <div class="cost-type">Enterprise</div>
+    <div class="cost-product">Employee Benefits (EHP)</div>
+    <div class="cost-range">Often net cash-flow positive</div>
+    <div class="cost-note">Restructures payroll to reduce FICA, lower workers&rsquo; comp, and enhance employee benefits &mdash; often at no net cost to the employer.</div>
+  </div>
+</div>
+<div class="cost-disclaimer">*All figures are illustrative estimates only. Actual premiums are determined after a personal health &amp; financial consultation. Not a guarantee of coverage or cost.</div>
+
+<!-- HOW IT WORKS -->
+<div class="sec-hdr"><div class="sec-line"></div><span class="sec-label">The Process</span><div class="sec-line"></div></div>
+<div class="sec-title">How the Wealth Engineering Session Works</div>
+<div class="how-steps">
+  <div class="how-step">
+    <div class="how-num">01</div>
+    <div class="how-title">Align Assessment</div>
+    <div class="how-body">Complete your Wiring for Impact Assessment at align360.io. 10&ndash;12 minutes. Generates your identity and alignment profile.</div>
+  </div>
+  <div class="how-step">
+    <div class="how-num">02</div>
+    <div class="how-title">Gap Analysis</div>
+    <div class="how-body">We review your financial efficiency: taxes, debt, savings structure, insurance gaps, and wealth leakage. A $20K analysis at no cost for qualified clients.</div>
+  </div>
+  <div class="how-step">
+    <div class="how-num">03</div>
+    <div class="how-title">Strategy Map</div>
+    <div class="how-body">We build a personalized financial map &mdash; which bucket needs work first, which products fit your profile, and in what sequence to build.</div>
+  </div>
+  <div class="how-step">
+    <div class="how-num">04</div>
+    <div class="how-title">Implementation</div>
+    <div class="how-body">Only after strategy is clear do we recommend specific products. Implementation is phased &mdash; starting with protection, then accumulation, then distribution.</div>
+  </div>
+</div>
+
+<!-- OFFER TIERS -->
+<div class="sec-hdr"><div class="sec-line"></div><span class="sec-label">How to Work With Samuel</span><div class="sec-line"></div></div>
+<div class="sec-title">Three Ways to Begin</div>
+<div class="tier-grid">
+  <div class="tier">
+    <div class="tier-lbl">Tier 1 &middot; Abundance</div>
+    <div class="tier-name">Founding Access</div>
+    <div class="tier-price">Founding Pricing &middot; By Application</div>
+    <div class="tier-sep"></div>
+    <div class="tier-items">
+      <div class="tier-item"><span class="dot-d"></span>$20K business &amp; financial analysis (free) &mdash; for qualifying clients</div>
+      <div class="tier-item"><span class="dot-d"></span>Full wealth architecture design</div>
+      <div class="tier-item"><span class="dot-d"></span>Licensed financial product access</div>
+      <div class="tier-item"><span class="dot-d"></span>Vetted partner network</div>
+      <div class="tier-item"><span class="dot-d"></span>Ongoing coaching &amp; implementation</div>
+      <div class="tier-item"><span class="dot-d"></span>Founding access to Align360 &mdash; platform, dashboard, and direct input into what's built next</div>
+    </div>
+    <a class="tier-cta" href="https://calendly.com/samuel-align360/30min" target="_blank" style="display:block;text-decoration:none;">Book a Wealth Strategy Call &rarr;</a>
+  </div>
+  <div class="tier on">
+    <div class="tier-lbl">Tier 2 &middot; Alignment &middot; Most Popular</div>
+    <div class="tier-name">Get Support</div>
+    <div class="tier-price">Personal coaching &mdash; by discussion</div>
+    <div class="tier-sep"></div>
+    <div class="tier-items">
+      <div class="tier-item"><span class="dot-d"></span>Personal coaching built around your Align OS</div>
+      <div class="tier-item"><span class="dot-d"></span>Full access to your Align dashboard &mdash; DesignSuite, CareerNav, and ongoing updates</div>
+      <div class="tier-item"><span class="dot-d"></span>Direct access to Samuel &mdash; 1:1 strategy sessions</div>
+      <div class="tier-item"><span class="dot-d"></span>Career coaching &mdash; resume, positioning, and career navigation</div>
+      <div class="tier-item"><span class="dot-d"></span>Life coaching across the 5 F&rsquo;s &mdash; family, finances, friendships, faith, fitness</div>
+    </div>
+    <a class="tier-cta" href="https://calendly.com/samuel-align360/30min" target="_blank" style="display:block;text-decoration:none;">Apply to Work Together &rarr;</a>
+  </div>
+  <div class="tier">
+    <div class="tier-lbl">Tier 3 &middot; Clarity</div>
+    <div class="tier-name">Start Here</div>
+    <div class="tier-price">Self-Served &middot; Align360.io</div>
+    <div class="tier-sep"></div>
+    <div class="tier-items">
+      <div class="tier-item"><span class="dot-d"></span>Wiring for Impact Assessment</div>
+      <div class="tier-item"><span class="dot-d"></span>Full identity &amp; alignment profile</div>
+      <div class="tier-item"><span class="dot-d"></span>DesignSuite access</div>
+      <div class="tier-item"><span class="dot-d"></span>No commitment required</div>
+    </div>
+    <a class="tier-cta" href="https://align360.io/login" target="_blank" style="display:block;text-decoration:none;">Begin at Align360.io &rarr;</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="ftr">
+  <div class="ftr-title">Ready to Engineer Your Abundance?</div>
+  <div class="ftr-sub">The system is right in front of you. It starts with 10 minutes and a simple assessment. It goes wherever you&rsquo;re ready to go. Samuel responds personally within 48 hours.</div>
+  <div class="ftr-btns">
+    <a class="fbtnp" href="https://align360.io/login" target="_blank">Start Your Assessment &rarr;</a>
+    <a class="fbtns" href="https://samuelngu.com" target="_blank">SamuelNgu.com</a>
+  </div>
+  <div class="ftr-disc">Samuel Ngu is a licensed life &amp; health insurance professional. All financial strategies are for informational purposes only and do not constitute personalized financial, legal, or tax advice. Product availability, premiums, and benefits vary by state, carrier, age, and health status. A qualified consultation is required to determine suitability. Align360 and its financial services partners are separate entities. &copy; Align360 &middot; samuelngu.com &middot; align360.io &middot; Clarity &middot; Alignment &middot; Abundance</div>
+</div>
+
+</div><!-- /page -->
+</body>
+</html>
