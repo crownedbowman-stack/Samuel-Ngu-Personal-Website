@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Align360 — Wealth Strategy Offer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Inter',sans-serif;background:#F2F0F5;color:#1A0A20;-webkit-font-smoothing:antialiased}
+:root{--plum:#2A122E;--gold:#C8A96E;--cream:#F2F0F5;--mid:#5A4A68;--muted:#9A8AA8;--bdr:#E0D8E8;--white:#fff}
+
+.page{max-width:680px;margin:0 auto;padding:32px 20px 56px}
+
+/* HERO */
+.hero{background:var(--plum);border-radius:14px;padding:44px 40px;margin-bottom:28px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,0.05) 0%,transparent 68%)}
+.hero-logo{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.26);margin-bottom:20px;position:relative}
+.hero-hl{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,40px);color:#fff;line-height:1.12;margin-bottom:12px;position:relative}
+.hero-hl em{font-style:italic;color:rgba(255,255,255,0.45)}
+.hero-sub{font-size:13.5px;color:rgba(255,255,255,0.42);line-height:1.7;max-width:440px;margin:0 auto 26px;position:relative}
+.hero-cta{display:inline-block;padding:13px 28px;background:#fff;color:var(--plum);border-radius:8px;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;position:relative}
+.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:22px;position:relative}
+.hpill{font-size:8px;letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.34);border:0.5px solid rgba(255,255,255,0.13);border-radius:20px;padding:4px 12px}
+
+/* SECTION */
+.sec{margin-bottom:22px}
+.sec-label{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--plum);opacity:0.42;margin-bottom:8px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(20px,3.5vw,28px);color:var(--plum);line-height:1.2;margin-bottom:8px}
+.sec-body{font-size:13px;color:var(--mid);line-height:1.72;margin-bottom:14px}
+
+/* PAIN BOX */
+.pain-box{background:var(--white);border:0.5px solid var(--bdr);border-radius:12px;padding:22px 22px;margin-bottom:22px}
+.pain-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:0.5px solid var(--bdr)}
+.pain-row:last-child{border-bottom:none;padding-bottom:0}
+.pain-dash{color:var(--plum);opacity:0.32;font-size:13px;flex-shrink:0;margin-top:1px}
+.pain-text{font-size:12.5px;color:var(--mid);line-height:1.6}
+.pain-text strong{color:var(--plum);font-weight:600}
+
+/* QUOTE BLOCK */
+.quote-box{background:var(--plum);border-radius:10px;padding:22px 24px;margin-bottom:22px;text-align:center}
+.quote-text{font-family:'Playfair Display',serif;font-size:clamp(15px,2.5vw,19px);color:#fff;line-height:1.45;font-style:italic;margin-bottom:8px}
+.quote-attr{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28)}
+
+/* THREE PHASES */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+.phase{background:var(--white);border:0.5px solid var(--bdr);border-radius:10px;padding:16px 14px}
+.phase.featured{background:var(--plum);border-color:var(--plum)}
+.ph-num{font-family:'Playfair Display',serif;font-size:28px;color:var(--plum);opacity:0.18;line-height:1;margin-bottom:6px}
+.phase.featured .ph-num{color:#fff;opacity:0.22}
+.ph-title{font-family:'Playfair Display',serif;font-size:15px;color:var(--plum);margin-bottom:5px}
+.phase.featured .ph-title{color:#fff}
+.ph-body{font-size:11px;color:var(--muted);line-height:1.55}
+.phase.featured .ph-body{color:rgba(255,255,255,0.42)}
+
+/* WHAT YOU GET */
+.get-card{background:var(--white);border:0.5px solid var(--bdr);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start}
+.get-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.get-title{font-size:13px;font-weight:600;color:var(--plum);margin-bottom:3px}
+.get-body{font-size:12px;color:var(--mid);line-height:1.6}
+
+/* ANALYSIS BANNER */
+.analysis-banner{background:var(--plum);border-radius:10px;padding:20px 22px;margin-bottom:22px;display:flex;align-items:center;gap:18px}
+.ab-left{flex-shrink:0}
+.ab-val{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);line-height:1}
+.ab-lbl{font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:2px}
+.ab-div{width:0.5px;background:rgba(255,255,255,0.1);align-self:stretch;flex-shrink:0}
+.ab-right{}
+.ab-title{font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:4px}
+.ab-body{font-size:12px;color:rgba(255,255,255,0.42);line-height:1.6}
+
+/* PILOT */
+.pilot-box{background:var(--white);border:1.5px solid var(--plum);border-radius:12px;padding:24px 22px;margin-bottom:22px}
+.pilot-tag{font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--plum);opacity:0.45;margin-bottom:8px}
+.pilot-title{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,24px);color:var(--plum);margin-bottom:6px;line-height:1.2}
+.pilot-sub{font-size:12.5px;color:var(--mid);line-height:1.65;margin-bottom:16px}
+.pilot-items{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.pi{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--mid);line-height:1.55}
+.pi-check{color:var(--plum);opacity:0.5;font-size:12px;flex-shrink:0;margin-top:1px}
+.pi strong{color:var(--plum)}
+.pilot-price{display:inline-block;padding:5px 14px;background:rgba(42,18,46,0.07);border-radius:20px;font-size:11px;font-weight:600;color:var(--plum);letter-spacing:0.04em;margin-bottom:16px}
+.pilot-cta{display:block;text-align:center;padding:13px;background:var(--plum);color:#fff;border-radius:8px;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none}
+
+/* SPEAKING */
+.speaking-box{background:var(--cream);border:0.5px solid var(--bdr);border-radius:10px;padding:18px 20px;margin-bottom:22px}
+.sp-tag{font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);background:var(--plum);border-radius:20px;padding:3px 10px;display:inline-block;margin-bottom:10px}
+.sp-title{font-family:'Playfair Display',serif;font-size:16px;color:var(--plum);margin-bottom:5px}
+.sp-body{font-size:12px;color:var(--mid);line-height:1.6}
+
+/* CALL STRUCTURE */
+.call-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
+.cs{background:var(--white);border:0.5px solid var(--bdr);border-radius:9px;padding:13px 11px;text-align:center}
+.cs-time{font-family:'Playfair Display',serif;font-size:18px;color:var(--plum);opacity:0.35;line-height:1;margin-bottom:5px}
+.cs-title{font-size:11px;font-weight:600;color:var(--plum);margin-bottom:3px}
+.cs-body{font-size:10px;color:var(--muted);line-height:1.5}
+
+/* ICP */
+.icp-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.icp{background:var(--white);border:0.5px solid var(--bdr);border-radius:9px;padding:13px 13px}
+.icp-title{font-size:12px;font-weight:600;color:var(--plum);margin-bottom:4px}
+.icp-body{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* FOOTER */
+.ftr{background:var(--plum);border-radius:10px;padding:24px 22px;text-align:center}
+.ftr-title{font-family:'Playfair Display',serif;font-size:18px;color:#fff;margin-bottom:6px}
+.ftr-sub{font-size:12px;color:rgba(255,255,255,0.36);margin-bottom:18px;line-height:1.65}
+.ftr-cta{display:inline-block;padding:12px 26px;background:#fff;color:var(--plum);border-radius:8px;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;margin-bottom:16px}
+.ftr-disc{font-size:8.5px;color:rgba(255,255,255,0.18);line-height:1.65;max-width:480px;margin:0 auto}
+
+.divider{height:0.5px;background:var(--bdr);margin:24px 0}
+.gold-rule{width:32px;height:2px;background:var(--gold);opacity:0.45;margin:10px auto 16px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">A L I G N 3 6 0 &nbsp;&middot;&nbsp; Clarity &middot; Alignment &middot; Abundance</div>
+  <div class="hero-hl">You are already wealthy.<br><em>You just don&rsquo;t know it.</em></div>
+  <div class="hero-sub">A complimentary wealth strategy session for business owners, founders, and visionary leaders who are ready to engineer abundance &mdash; not just earn it.</div>
+  <a href="https://calendly.com/samuel-align360/30min" target="_blank" class="hero-cta">Book Your Wealth Strategy Call &rarr;</a>
+  <div class="hero-pills">
+    <span class="hpill">Samuel Ngu &middot; Founder, Align360</span>
+    <span class="hpill">Licensed Financial Professional</span>
+    <span class="hpill">30 Minutes &middot; Complimentary &middot; No Pressure</span>
+  </div>
+</div>
+
+<!-- THE REAL PROBLEM -->
+<div class="sec">
+  <div class="sec-label">The Gap No One Talks About</div>
+  <div class="sec-title">Most business owners are<br>building revenue. Not wealth.</div>
+  <div class="sec-body">You have a system for your business. You know your margins, your crew, your customers. But most owners have no system for converting what they earn into what lasts. The income is there. The architecture isn&rsquo;t.</div>
+</div>
+
+<div class="pain-box">
+  <div class="pain-row"><span class="pain-dash">&mdash;</span><span class="pain-text">You&rsquo;re <strong>overpaying taxes</strong> because no one has shown you the legal structures that change that</span></div>
+  <div class="pain-row"><span class="pain-dash">&mdash;</span><span class="pain-text">Your income <strong>stops when you stop</strong> — no passive layer, no ownership beyond the business</span></div>
+  <div class="pain-row"><span class="pain-dash">&mdash;</span><span class="pain-text">You have <strong>no protection plan</strong> — one illness, one lawsuit, one bad year undoes everything</span></div>
+  <div class="pain-row"><span class="pain-dash">&mdash;</span><span class="pain-text">You&rsquo;re <strong>building a business that runs you</strong> — not a life the business was always supposed to fund</span></div>
+  <div class="pain-row"><span class="pain-dash">&mdash;</span><span class="pain-text">There&rsquo;s <strong>no legacy plan</strong> — when you exit, the value walks out with you</span></div>
+</div>
+
+<div class="quote-box">
+  <div class="quote-text">&ldquo;Money is created. Wealth is engineered. And you can&rsquo;t engineer what you haven&rsquo;t designed.&rdquo;</div>
+  <div class="quote-attr">&mdash; Samuel Ngu, Founder &middot; Align360</div>
+</div>
+
+<!-- THREE PHASES -->
+<div class="sec">
+  <div class="sec-label">The System</div>
+  <div class="sec-title">Three phases. One architecture.</div>
+  <div class="sec-body">Align360 starts with who you are and ends with a financial system built around that. Not a generic plan. A personalized architecture.</div>
+</div>
+
+<div class="phases">
+  <div class="phase">
+    <div class="ph-num">01</div>
+    <div class="ph-title">Clarity</div>
+    <div class="ph-body">Know how you&rsquo;re wired. How you make decisions. What drains you. What you&rsquo;re actually built for.</div>
+  </div>
+  <div class="phase featured">
+    <div class="ph-num">02</div>
+    <div class="ph-title">Alignment</div>
+    <div class="ph-body">Build the system around your wiring. Your team, your decisions, your energy — all pointed the same direction.</div>
+  </div>
+  <div class="phase">
+    <div class="ph-num">03</div>
+    <div class="ph-title">Abundance</div>
+    <div class="ph-body">Engineer wealth. Income beyond the business. Protection. Legacy. The arc your business was always supposed to fund.</div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="sec">
+  <div class="sec-label">What Align360 Builds For You</div>
+  <div class="sec-title">Not advice. Architecture.</div>
+</div>
+
+<div class="get-card">
+  <div class="get-icon">&#9651;</div>
+  <div><div class="get-title">Tax-Free Retirement Strategy</div><div class="get-body">Legal structures that let your money grow and distribute tax-free. Available to business owners. Almost never shown to them.</div></div>
+</div>
+<div class="get-card">
+  <div class="get-icon">&#9632;</div>
+  <div><div class="get-title">Asset & Income Protection</div><div class="get-body">Living benefits, disability, key-person coverage, and risk transfer. The protection layer that keeps everything else from collapsing.</div></div>
+</div>
+<div class="get-card">
+  <div class="get-icon">&#9670;</div>
+  <div><div class="get-title">Family Bank & Infinite Banking</div><div class="get-body">Borrow against your own policy. Finance your own purchases. Recapture interest back to yourself. Wealth as a circulating system.</div></div>
+</div>
+<div class="get-card">
+  <div class="get-icon">&#9651;</div>
+  <div><div class="get-title">Legacy & Wealth Transfer</div><div class="get-body">Trust structures, estate planning, and generational wealth design. So the business you built becomes the foundation for what comes next.</div></div>
+</div>
+<div class="get-card">
+  <div class="get-icon">&#9632;</div>
+  <div><div class="get-title">Identity & Alignment OS</div><div class="get-body">A 10-minute assessment that maps how you&rsquo;re wired — your decision style, your energy drains, your peak performance conditions. The system no business plan includes.</div></div>
+</div>
+<div class="get-card">
+  <div class="get-icon">&#9670;</div>
+  <div><div class="get-title">Employee Benefits Engineering</div><div class="get-body">Reduce FICA taxes, lower workers&rsquo; comp costs, and enhance benefits simultaneously. Often net cash-flow positive for the employer.</div></div>
+</div>
+
+<!-- FREE ANALYSIS -->
+<div class="analysis-banner">
+  <div class="ab-left">
+    <div class="ab-val">$20K</div>
+    <div class="ab-lbl">Value</div>
+  </div>
+  <div class="ab-div"></div>
+  <div class="ab-right">
+    <div class="ab-title">Business &amp; Financial Analysis &mdash; Complimentary</div>
+    <div class="ab-body">For qualified clients, Samuel conducts a full business and financial gap analysis at no cost. This is the session that shows you exactly what your current structure is costing you &mdash; and what the architecture to fix it looks like.</div>
+  </div>
+</div>
+
+<!-- CALL STRUCTURE -->
+<div class="sec">
+  <div class="sec-label">The 30-Minute Call</div>
+  <div class="sec-title">Respect for your time.<br>Clarity on the other side.</div>
+</div>
+
+<div class="call-steps">
+  <div class="cs">
+    <div class="cs-time">5</div>
+    <div class="cs-title">Your World</div>
+    <div class="cs-body">What you&rsquo;ve built. Where you feel the friction.</div>
+  </div>
+  <div class="cs">
+    <div class="cs-time">10</div>
+    <div class="cs-title">The Gap</div>
+    <div class="cs-body">What your current setup is costing you financially &amp; structurally.</div>
+  </div>
+  <div class="cs">
+    <div class="cs-time">10</div>
+    <div class="cs-title">The Path</div>
+    <div class="cs-body">How Align360 and the $20K analysis closes that gap.</div>
+  </div>
+  <div class="cs">
+    <div class="cs-time">5</div>
+    <div class="cs-title">Next Step</div>
+    <div class="cs-body">Clear. Simple. No pressure.</div>
+  </div>
+</div>
+
+<!-- PILOT -->
+<div class="pilot-box">
+  <div class="pilot-tag">&#9679; &nbsp;Founding Access &middot; First 20 Only</div>
+  <div class="pilot-title">The Align360 Pilot &mdash;<br>You Help Shape What This Becomes</div>
+  <div class="pilot-sub">Align360 is in its founding pilot. We&rsquo;re opening 20 seats to owners who want direct access to the system &mdash; and who want to help shape it. You&rsquo;re not buying a finished product. You&rsquo;re joining the team that builds it.</div>
+  <div class="pilot-items">
+    <div class="pi"><span class="pi-check">&#10003;</span>Full Align360 access for you and up to <strong>5 of your key people</strong></div>
+    <div class="pi"><span class="pi-check">&#10003;</span>Your results <strong>personally reviewed by Samuel Ngu</strong>, Founder</div>
+    <div class="pi"><span class="pi-check">&#10003;</span>Onboarding handled by <strong>Drew Cline, Co-Founder</strong> &mdash; you don&rsquo;t figure it out alone</div>
+    <div class="pi"><span class="pi-check">&#10003;</span><strong>Direct line</strong> to the founding team throughout the pilot</div>
+    <div class="pi"><span class="pi-check">&#10003;</span>Complimentary <strong>$20K business &amp; financial analysis</strong> for qualified participants</div>
+    <div class="pi"><span class="pi-check">&#10003;</span>No contracts. No minimum commitment beyond showing up.</div>
+  </div>
+  <div class="pilot-price">$25 / month per person &middot; Pilot pricing &middot; Lowest it will ever be</div>
+  <a href="https://calendly.com/samuel-align360/30min" target="_blank" class="pilot-cta">Book Your Wealth Strategy Call &rarr;</a>
+</div>
+
+<!-- WHO THIS IS FOR -->
+<div class="sec">
+  <div class="sec-label">Who This Is For</div>
+  <div class="sec-title">Built for people who built something real.</div>
+</div>
+
+<div class="icp-row">
+  <div class="icp">
+    <div class="icp-title">Trades &amp; Home Services</div>
+    <div class="icp-body">HVAC &middot; Plumbing &middot; Electrical &middot; Roofing &middot; Landscaping &middot; Any trade where you built it yourself</div>
+  </div>
+  <div class="icp">
+    <div class="icp-title">Franchise Owners</div>
+    <div class="icp-body">You run someone else&rsquo;s system. Now get one for yourself &mdash; for the parts of life the franchise manual doesn&rsquo;t cover.</div>
+  </div>
+  <div class="icp">
+    <div class="icp-title">Small Business Owners</div>
+    <div class="icp-body">Any owner who built something real, runs a team of 5&ndash;50, and knows they&rsquo;re capable of more.</div>
+  </div>
+</div>
+
+<!-- SPEAKING OFFER -->
+<div class="speaking-box">
+  <div class="sp-tag">&#9733; &nbsp;Free Speaking Offer &middot; Pilot Partners Only</div>
+  <div class="sp-title">Samuel Ngu Available to Speak to Your Team or Network</div>
+  <div class="sp-body">As part of the pilot, Samuel is available to speak to your team, your franchise group, or your business network at no charge. Virtual for all qualified pilot partners; live and in-person if local to Samuel. Identity, energy, direction, and how to build a life that&rsquo;s actually yours &mdash; not just a business that runs you. One per pilot partner.</div>
+</div>
+
+<!-- FOOTER CTA -->
+<div class="ftr">
+  <div class="gold-rule"></div>
+  <div class="ftr-title">The system is right in front of you.</div>
+  <div class="ftr-sub">30 minutes. No prep needed. Come as you are.<br>Samuel responds personally within 48 hours.</div>
+  <a href="https://calendly.com/samuel-align360/30min" target="_blank" class="ftr-cta">Book Your Wealth Strategy Call &rarr;</a>
+  <div class="ftr-disc">Samuel Ngu is a licensed life &amp; health insurance professional. All financial strategies referenced are for informational purposes and do not constitute personalized financial, legal, or tax advice. Product availability and outcomes vary by individual circumstance. A consultation is required to determine suitability. Align360 coaching and assessment services are separate from Samuel Ngu&rsquo;s licensed financial services provided in partnership with GFI. &copy; Align360 Systems, Inc. &middot; align360.io &middot; samuel@align360.io</div>
+</div>
+
+</div>
+</body>
+</html>
