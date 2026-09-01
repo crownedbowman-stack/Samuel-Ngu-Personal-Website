@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Align360 — Find Your Fit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,600;1,300&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FBF7FA; --dark: #1B0A24; --body: #2A122E; --magenta: #7E1A4C;
+    --mauve: #9A4A78; --gold: #B8873F; --rule: #4E0230; --soft: #3C2A40; --border: #E3D9DE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); font-family: 'Jost', sans-serif; color: var(--body); }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px 24px; }
+
+  .header { display: flex; align-items: center; justify-content: center; gap: 10px; padding-bottom: 18px; border-bottom: 1.4px solid var(--rule); margin-bottom: 34px; }
+  .logo-icon { width: 22px; height: 22px; }
+  .logo-word { font-family: 'Cinzel', serif; font-weight: 600; font-size: 22px; letter-spacing: 5px; color: var(--dark); }
+
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px; color: var(--dark); text-align: center; line-height: 1.2; margin-bottom: 8px; }
+  .sub { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 21px; color: var(--magenta); text-align: center; margin-bottom: 30px; }
+
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 34px; }
+  @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+  .card { border: 1.5px solid var(--border); background: #fff; border-radius: 4px; padding: 18px 20px; cursor: pointer; transition: all 0.15s ease; text-align: left; }
+  .card:hover { border-color: var(--mauve); }
+  .card.active { border-color: var(--magenta); background: #FDF6FA; box-shadow: 0 0 0 1px var(--magenta); }
+  .card-title { font-family: 'Jost', sans-serif; font-weight: 600; font-size: 15px; color: var(--dark); margin-bottom: 4px; }
+  .card-sub { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 12px; color: var(--soft); }
+
+  .detail { display: none; border: 1px solid var(--border); background: #fff; border-radius: 4px; padding: 26px 28px; margin-bottom: 30px; }
+  .detail.visible { display: block; animation: fadein 0.25s ease; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .detail-eyebrow { font-family: 'Jost', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 2px; color: var(--mauve); text-transform: uppercase; margin-bottom: 10px; }
+  .detail-pitch { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 15px; color: var(--dark); line-height: 1.55; margin-bottom: 16px; }
+  .qa { margin-bottom: 12px; }
+  .qa b { color: var(--magenta); font-size: 13px; }
+  .qa p { font-size: 13.5px; line-height: 1.5; color: var(--body); margin-top: 2px; }
+
+  .section-label { font-family: 'Jost', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 2px; color: var(--mauve); text-transform: uppercase; margin-bottom: 14px; text-align: center; }
+
+  form { border: 1px solid var(--border); background: #fff; border-radius: 4px; padding: 26px 28px; margin-bottom: 22px; }
+  .field { margin-bottom: 14px; }
+  label { display: block; font-size: 12.5px; font-weight: 500; color: var(--soft); margin-bottom: 5px; }
+  input, textarea, select { width: 100%; border: 1px solid var(--border); border-radius: 3px; padding: 10px 12px; font-family: 'Jost', sans-serif; font-size: 14px; color: var(--dark); background: var(--bg); }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--magenta); }
+  textarea { min-height: 80px; resize: vertical; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .row2 { grid-template-columns: 1fr; } }
+
+  button.submit { width: 100%; background: var(--rule); color: #fff; border: none; border-radius: 3px; padding: 13px; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.5px; cursor: pointer; margin-top: 4px; }
+  button.submit:hover { background: var(--magenta); }
+
+  .or-divider { display: flex; align-items: center; gap: 12px; margin: 8px 0 22px 0; color: var(--soft); font-size: 12px; }
+  .or-divider::before, .or-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .book-box { border: 1.5px solid var(--rule); background: var(--dark); border-radius: 4px; padding: 24px 28px; text-align: center; }
+  .book-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 20px; color: #fff; margin-bottom: 6px; }
+  .book-sub { font-size: 13px; color: #D8CBD6; margin-bottom: 16px; }
+  .book-btn { display: inline-block; background: var(--gold); color: var(--dark); font-family: 'Jost', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; padding: 12px 28px; border-radius: 3px; letter-spacing: 0.3px; }
+  .book-btn:hover { background: #cfa050; }
+
+  .footer { text-align: center; margin-top: 34px; font-size: 12px; color: var(--soft); }
+  .footer a { color: var(--mauve); text-decoration: none; }
+
+  .hidden-until-selected { display: none; }
+  .hidden-until-selected.visible { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <svg class="logo-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="#1B0A24" stroke-width="1.3"/>
+      <circle cx="12" cy="12" r="2.6" fill="#1B0A24"/>
+      <line x1="12" y1="0.5" x2="12" y2="4" stroke="#1B0A24" stroke-width="1.1"/>
+      <line x1="12" y1="20" x2="12" y2="23.5" stroke="#1B0A24" stroke-width="1.1"/>
+    </svg>
+    <span class="logo-word">ALIGN</span>
+  </div>
+
+  <h1>Which one are you?</h1>
+  <div class="sub">Tell us, and we'll show you the version of Align built for you.</div>
+
+  <div class="cards" id="cards">
+    <div class="card" data-key="enterprise">
+      <div class="card-title">Enterprise</div>
+      <div class="card-sub">CEO, COO, CHRO, or transformation leader</div>
+    </div>
+    <div class="card" data-key="advisors">
+      <div class="card-title">Advisors &amp; Operators</div>
+      <div class="card-sub">M&amp;A integration, fractional COO, executive coach</div>
+    </div>
+    <div class="card" data-key="family">
+      <div class="card-title">Family Office</div>
+      <div class="card-sub">Principal, family office executive, or advisor</div>
+    </div>
+    <div class="card" data-key="school">
+      <div class="card-title">School</div>
+      <div class="card-sub">Superintendent, principal, or counseling director</div>
+    </div>
+  </div>
+
+  <div id="detail-enterprise" class="detail">
+    <div class="detail-eyebrow">For Enterprise</div>
+    <div class="detail-pitch">Align helps leaders see, fix, and measure people problems before they become expensive business problems.</div>
+    <div class="qa"><b>Why you should care:</b><p>Preventable people costs, leadership bandwidth, and dependency risk are already on your P&amp;L &mdash; they're just invisible until they've already cost you.</p></div>
+    <div class="qa"><b>What's in it for you:</b><p>Better talent deployment, recovered leadership time and capacity, less dependency, better execution &mdash; measured, not assumed.</p></div>
+    <div class="qa"><b>Why Align:</b><p>One living model of your people that gets more useful the longer it runs &mdash; not a one-time survey or a static dashboard you have to re-interpret every quarter.</p></div>
+  </div>
+
+  <div id="detail-advisors" class="detail">
+    <div class="detail-eyebrow">For Advisors &amp; Operators</div>
+    <div class="detail-pitch">Align helps advisors see more, intervene better, and prove the work &mdash; without replacing your methodology.</div>
+    <div class="qa"><b>Why you should care:</b><p>You're already diagnosing these conditions by hand, slowly. A consultant is an intervention; your clients need something that outlasts the engagement.</p></div>
+    <div class="qa"><b>What's in it for you:</b><p>Sharper diagnosis, measurable value instead of anecdote, and a persistent reason your clients bring you back.</p></div>
+    <div class="qa"><b>Why Align:</b><p>The same underlying intelligence layer works across M&amp;A integration, fractional operating, and coaching &mdash; you get the infrastructure, we don't touch your methodology.</p></div>
+  </div>
+
+  <div id="detail-family" class="detail">
+    <div class="detail-eyebrow">For Family Offices</div>
+    <div class="detail-pitch">Align helps family offices strengthen the human side of wealth &mdash; development, relationships, readiness, succession, and legacy.</div>
+    <div class="qa"><b>Why you should care:</b><p>Your advisors manage the wealth. Almost nobody is systematically developing the people who will inherit responsibility for it.</p></div>
+    <div class="qa"><b>What's in it for you:</b><p>Evidence-based succession readiness, captured institutional judgment, and a family that trusts what gets surfaced because each member gets real value too.</p></div>
+    <div class="qa"><b>Why Align:</b><p>Relationship Bridge&trade; lets Align work across an entire family system &mdash; parent, sibling, advisor &mdash; without collapsing everyone's privacy into one shared view.</p></div>
+  </div>
+
+  <div id="detail-school" class="detail">
+    <div class="detail-eyebrow">For Schools</div>
+    <div class="detail-pitch">Align helps schools understand and develop students more effectively, from enrollment through graduation.</div>
+    <div class="qa"><b>Why you should care:</b><p>One counselor for hundreds of students means real problems get caught after the crisis, not before it.</p></div>
+    <div class="qa"><b>What's in it for you:</b><p>Give every student the guidance of a dedicated counselor, without replacing the counselor &mdash; and catch disengagement while it's still reversible.</p></div>
+    <div class="qa"><b>Why Align:</b><p>One student model that starts in 9th grade and keeps compounding &mdash; not a one-time career quiz that resets every year.</p></div>
+  </div>
+
+  <div id="form-section" class="hidden-until-selected">
+    <div class="section-label">Tell Us More</div>
+
+    <form name="align-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="align-inquiry">
+      <input type="hidden" name="audience" id="audience-field" value="">
+      <p class="hidden-until-selected" style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+      <div class="row2">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="org">Organization</label>
+          <input type="text" id="org" name="organization">
+        </div>
+      </div>
+      <div class="field">
+        <label for="org-size">Organization size</label>
+        <select id="org-size" name="organization_size">
+          <option value="">Select one</option>
+          <option value="1-24">1&ndash;24</option>
+          <option value="25-49">25&ndash;49</option>
+          <option value="50-499">50&ndash;499</option>
+          <option value="500-999">500&ndash;999</option>
+          <option value="1000+">1,000+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">What are you hoping to explore?</label>
+        <textarea id="message" name="message"></textarea>
+      </div>
+      <button type="submit" class="submit">Send Inquiry</button>
+    </form>
+
+    <div class="or-divider">OR</div>
+
+    <div class="book-box">
+      <div class="book-title">Skip the form. Grab time directly.</div>
+      <div class="book-sub">30 minutes, no prep needed.</div>
+      <a class="book-btn" href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    ALIGN360 &middot; <a href="https://align360.io">align360.io</a>
+  </div>
+
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  const details = document.querySelectorAll('.detail');
+  const formSection = document.getElementById('form-section');
+  const audienceField = document.getElementById('audience-field');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const key = card.dataset.key;
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      details.forEach(d => d.classList.remove('visible'));
+      document.getElementById('detail-' + key).classList.add('visible');
+      formSection.classList.add('visible');
+      audienceField.value = card.querySelector('.card-title').textContent;
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+</script>
+
+</body>
+</html>
