@@ -322,6 +322,31 @@
     border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 24px;
   }
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--gold-light);
+    min-width: 84px;
+  }
+  .hero-stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
   .hero-credentials {
     display: flex;
     flex-direction: column;
@@ -962,6 +987,40 @@
     border-bottom-color: var(--gold);
   }
 
+  .exp-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+  .exp-item {
+    border-top: 2px solid var(--gold);
+    padding: 20px 4px 0;
+  }
+  .exp-num {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--cherry);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .exp-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .exp-line {
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--cherry);
+    margin-top: 32px;
+  }
+
   .services-full {
     margin-top: 80px;
   }
@@ -1576,6 +1635,7 @@
     .footer-top { grid-template-columns: 1fr; }
     .clarity-stat-row { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr 1fr; }
+    .exp-row { grid-template-columns: 1fr; }
     .hero-ctas { flex-direction: column; }
     .btn-primary, .btn-outline { width: 100%; justify-content: center; }
   }
@@ -1665,7 +1725,12 @@
         <div class="hero-story-label">The Backing</div>
         <div class="hero-story-quote">"I didn't inherit a plan. I found the platform strong enough to execute one at scale."</div>
         <div class="hero-story-body">
-          Immigrant. Author. Licensed financial professional. Also the founder of Align360, the organizational clarity platform — different problem, same architecture-first thinking.
+          Immigrant. Author. Licensed financial professional with a background in fund strategy and investment management at a global firm. Also the founder of Align360, the organizational clarity platform — different problem, same architecture-first thinking.
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="hero-stat-num">$82B+</span><span class="hero-stat-label">AUM tied to fund-strategy processes I've run</span></div>
+          <div class="hero-stat"><span class="hero-stat-num">$12M+</span><span class="hero-stat-label">Incremental value created in two years</span></div>
+          <div class="hero-stat"><span class="hero-stat-num">M&amp;A</span><span class="hero-stat-label">Mergers, liquidations &amp; restructurings</span></div>
         </div>
         <div class="hero-credentials">
           <div class="credential-item">
@@ -1731,6 +1796,22 @@
         <div class="service-card reveal reveal-delay-3"><div class="service-icon">🔁</div><div class="service-card-name">401(k) / IRA Rollovers</div></div>
       </div>
     </div>
+
+    <div class="exp-row">
+      <div class="exp-item reveal">
+        <div class="exp-num">$82B+</div>
+        <div class="exp-label">In assets under management tied to the fund-strategy and reporting processes I've run at a global investment firm.</div>
+      </div>
+      <div class="exp-item reveal reveal-delay-1">
+        <div class="exp-num">$12M+</div>
+        <div class="exp-label">In incremental value created within two years through fund strategy, optimization, and restructuring.</div>
+      </div>
+      <div class="exp-item reveal reveal-delay-2">
+        <div class="exp-num">M&amp;A</div>
+        <div class="exp-label">Mergers, liquidations, and restructurings, plus advisory work for executives and founders on growth and exits.</div>
+      </div>
+    </div>
+    <p class="exp-line reveal">Board-level financial modeling and strategy, applied to your family's and your business's financial architecture.</p>
 
     <div class="business-analysis-card reveal" style="margin-top:56px;">
       <div class="ba-badge">The Platform</div>
