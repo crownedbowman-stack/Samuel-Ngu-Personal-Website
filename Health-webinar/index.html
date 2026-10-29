@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Align Health · Founder's Circle Live Demo</title>
+<meta name="description" content="An invite-only live demo of Align Health for nutrition, fitness and wellness practitioners. 20 Founder's Circle spots.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#070509;--gold:#C9A96E;--gold2:#E8C97E;--green:#6FCF97;--muted:#AD9BAE;--text:rgba(255,255,255,.86);--line:rgba(255,255,255,.1);--glass:rgba(255,255,255,.05)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--deep);color:var(--text);line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 45% at 15% 0%,rgba(111,207,151,.10),transparent 60%),radial-gradient(ellipse 50% 45% at 90% 100%,rgba(82,31,88,.45),transparent 60%);pointer-events:none;z-index:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:'Playfair Display',serif;letter-spacing:.14em;font-size:19px}
+.brand small{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-left:4px}
+.btn{display:inline-block;font:600 14px 'DM Sans',sans-serif;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a0d1d;border:0;border-radius:50px;padding:13px 26px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:none;border:1px solid rgba(201,169,110,.45);color:var(--gold2);padding:10px 20px;font-size:13px}
+.btn.sm{padding:9px 16px;font-size:13px}
+.hero{padding:44px 0 52px;max-width:780px}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+h1{font-family:'Playfair Display',serif;font-weight:500;color:#fff;font-size:clamp(34px,5.4vw,56px);line-height:1.1;margin-bottom:18px}
+h1 em{font-style:italic;color:var(--gold2)}
+.lead{font-size:17px;max-width:660px;margin-bottom:26px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:18px}
+.meta span::before{content:'●';color:var(--green);font-size:8px;margin-right:8px;vertical-align:middle}
+section{padding:38px 0}
+.label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h2{font-family:'Playfair Display',serif;font-weight:500;color:#fff;font-size:clamp(26px,3.4vw,34px);line-height:1.2;margin-bottom:10px;max-width:720px}
+.sub{font-size:15px;color:var(--muted);max-width:700px;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:20px}
+.card .n{font-family:'Playfair Display',serif;color:var(--gold2);font-size:15px;margin-bottom:8px}
+.card h3{font-size:15.5px;color:#fff;font-weight:600;margin-bottom:6px}
+.card p{font-size:13.5px;color:var(--muted)}
+.story{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:20px}
+.story .t{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:3px 10px;margin-bottom:10px}
+.t.a{color:#F4C07A;border:1px solid rgba(230,126,34,.45);background:rgba(230,126,34,.1)}
+.t.g{color:#8DE3B3;border:1px solid rgba(111,207,151,.45);background:rgba(111,207,151,.1)}
+.t.y{color:var(--gold2);border:1px solid rgba(201,169,110,.45);background:rgba(201,169,110,.1)}
+.story h3{font-family:'Playfair Display',serif;font-weight:500;font-size:19px;color:#fff;line-height:1.3;margin-bottom:6px}
+.story p{font-size:13.5px}
+.story small{display:block;font-size:11.5px;color:var(--muted);margin-top:10px}
+.callout{margin-top:16px;border-left:3px solid var(--green);background:rgba(111,207,151,.06);border-radius:0 14px 14px 0;padding:14px 18px;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;color:#fff;border:1px solid var(--line);background:var(--glass);border-radius:50px;padding:8px 16px}
+.chip.g{border-color:rgba(111,207,151,.45);background:rgba(111,207,151,.1)}
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.q{border-left:3px solid var(--gold);background:rgba(201,169,110,.06);border-radius:0 16px 16px 0;padding:18px 20px}
+.q p{font-family:'Playfair Display',serif;font-size:18px;line-height:1.45;color:#fff;margin-bottom:8px}
+.q span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{border-radius:18px;padding:22px;border:1px solid var(--line);background:var(--glass)}
+.panel.green{border-color:rgba(111,207,151,.35);background:rgba(111,207,151,.06)}
+.panel h3{font-size:16px;color:#fff;margin-bottom:10px;font-weight:600}
+.panel ul{list-style:none;font-size:14px}
+.panel li{padding:6px 0 6px 22px;position:relative;border-top:1px solid rgba(255,255,255,.06)}
+.panel li:first-child{border-top:0}
+.panel li::before{content:'✓';position:absolute;left:0;color:var(--green)}
+.panel.plain li::before{content:'–';color:var(--muted)}
+.founding{border:1px solid rgba(201,169,110,.5);background:linear-gradient(135deg,rgba(201,169,110,.12),rgba(201,169,110,.03));border-radius:20px;padding:26px}
+.founding h3{font-family:'Playfair Display',serif;font-weight:500;font-size:26px;color:#fff;margin-bottom:6px}
+.founding>p{font-size:14px;max-width:640px}
+.perks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.perk{background:rgba(7,5,9,.5);border:1px solid rgba(201,169,110,.3);border-radius:14px;padding:16px}
+.perk b{display:block;color:#fff;font-size:15px;margin-bottom:4px}
+.perk span{font-size:13px;color:var(--muted)}
+.frow{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.frow p{font-size:13px;color:var(--muted);max-width:560px}
+form{background:rgba(13,10,20,.85);border:1px solid var(--line);border-radius:22px;padding:28px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.full{grid-column:1/-1}
+label.f{display:block;font-size:12px;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+label.f b{color:var(--gold2);font-weight:500}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;color:#fff;font:14px 'DM Sans',sans-serif;padding:12px 14px}
+select option{background:#1a0d1d}
+input:focus,select:focus,textarea:focus{outline:2px solid rgba(201,169,110,.6);outline-offset:1px}
+fieldset{border:0}
+legend{font-size:12px;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{display:flex;align-items:center;gap:8px;font-size:13.5px;color:#fff;border:1px solid var(--line);background:var(--glass);border-radius:12px;padding:9px 13px;cursor:pointer}
+.opt input{accent-color:var(--green)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.consent input{margin-top:4px;accent-color:var(--green)}
+.hidden{display:none}
+.thanks{display:none;padding:10px 4px}
+.thanks h3{font-family:'Playfair Display',serif;font-weight:500;font-size:28px;color:#fff;margin-bottom:8px}
+.share{margin-top:20px;border:1px solid rgba(201,169,110,.4);background:rgba(201,169,110,.07);border-radius:16px;padding:18px}
+.share b{color:#fff;font-size:16px;display:block;margin-bottom:4px}
+.share .link{font-size:13px;color:var(--gold2);word-break:break-all;margin:10px 0;background:rgba(0,0,0,.3);padding:10px 12px;border-radius:10px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.err{color:#F4A261;font-size:13px;margin-top:10px;display:none}
+.fine{font-size:12px;color:var(--muted);margin-top:12px}
+footer{padding:40px 0 50px;font-size:13px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);margin-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--gold2);text-decoration:none}
+@media(max-width:900px){.grid4{grid-template-columns:1fr 1fr}}
+@media(max-width:820px){.grid,.grid4,.perks,.quotes,.split,.fgrid{grid-template-columns:1fr}.hero{padding:20px 0 34px}header .btn{display:none}form,.founding{padding:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <svg width="26" height="26" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="10" stroke="white" stroke-width="1.3" stroke-opacity=".7"/><circle cx="20" cy="20" r="3" fill="white" opacity=".9"/><line x1="20" y1="2" x2="20" y2="10" stroke="white" stroke-width="1.2" stroke-opacity=".6"/><line x1="20" y1="30" x2="20" y2="38" stroke="white" stroke-width="1.2" stroke-opacity=".6"/><line x1="2" y1="20" x2="10" y2="20" stroke="white" stroke-width="1.2" stroke-opacity=".6"/><line x1="30" y1="20" x2="38" y2="20" stroke="white" stroke-width="1.2" stroke-opacity=".6"/></svg>
+    ALIGN <small>Health</small>
+  </div>
+  <a class="btn ghost" href="#signup">Save my spot</a>
+</header>
+
+<div class="hero">
+  <div class="eyebrow">Invite-only live demo for health and wellness practitioners</div>
+  <h1>See what changes for your clients <em>between sessions.</em></h1>
+  <p class="lead">Align Health gives you one clear view of how each client is really doing, built only from what they choose to share with you. Your clients get an app for their whole life, and it shows them why your plan matters. Join the list and we will send you the invite to our live walkthrough.</p>
+  <a class="btn" href="#signup">Save my spot</a>
+  <div class="meta"><span>Live on Zoom, about 45 minutes with Q&amp;A</span><span>Small group, by invitation</span><span>20 Founder's Circle spots</span></div>
+</div>
+
+<section>
+  <div class="label">What you will see in the demo</div>
+  <h2>Less guessing about your clients. More time actually coaching them.</h2>
+  <div class="grid" style="margin-top:18px">
+    <div class="card"><div class="n">01</div><h3>Your caseload, sorted by who needs you</h3><p>See what is changing for each client, in which direction and by how much, with a suggested next step. No digging through old notes.</p></div>
+    <div class="card"><div class="n">02</div><h3>Clients choose what you see</h3><p>Each area can be Off, Summary or Detail. People share more when they stay in control, and you get what the work needs.</p></div>
+    <div class="card"><div class="n">03</div><h3>Replies drafted, never sent for you</h3><p>Align drafts a message from what changed this week. You edit it and press send. Nothing goes out on its own.</p></div>
+    <div class="card"><div class="n">04</div><h3>Sessions that prep themselves</h3><p>Clients can ask to talk and pick a time. You get a prep sheet built from what they share, and you can speak your notes instead of typing them.</p></div>
+    <div class="card"><div class="n">05</div><h3>Plans that land on their phone</h3><p>Assign meals, workouts, habits and daily targets. Clients check them off on their side, and you see progress if they share it.</p></div>
+    <div class="card"><div class="n">06</div><h3>A community you can grow</h3><p>See how your whole practice is trending with no names attached, then send challenges and events that clients choose to join.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="label">Why clients follow through</div>
+  <h2>Align tells the story of why your plan matters.</h2>
+  <p class="sub">People don't quit plans because they don't care. They quit because the plan feels separate from their life. Align connects the workout, the meal and the sleep to what is actually happening in their week and to the goal they set, so the "why" is always in front of them.</p>
+  <div class="grid">
+    <div class="story"><span class="t a">Look-ahead</span><h3>Quarter close starts Monday.</h3><p>Stress ran high during your last two closes. Plan lighter lunches, keep caffeine before 1 pm, and protect your Sunday night sleep.</p><small>From the client's work calendar. Private to them.</small></div>
+    <div class="story"><span class="t g">Encouragement</span><h3>You are 62% of the way.</h3><p>Six weeks ago you followed 48% of your plan. Now it is 71%. That is steady work, and it is the kind that lasts.</p><small>From their goal and plan progress.</small></div>
+    <div class="story"><span class="t y">Pattern</span><h3>Early protein shows up in your energy.</h3><p>On days you ate protein early, your energy was noticeably higher than on the days you didn't. Keep it going.</p><small>From their own daily check-ins.</small></div>
+  </div>
+  <div class="callout">The client decides which parts of their life Align may draw on. Family, faith and work stay private to them. A story card reaches you only if the client chooses to send it.</div>
+</section>
+
+<section>
+  <div class="label">The whole person</div>
+  <h2>Your clients get all of Align, not just a health app.</h2>
+  <p class="sub">Health is one part of a life. Align gives each client one place for the rest of it too, so your work fits into how they actually live.</p>
+  <div class="grid4">
+    <div class="card"><h3>Everything in one app</h3><p>Goals, decisions, health, family and faith in one organized home. No juggling five apps.</p></div>
+    <div class="card"><h3>It knows how they are wired</h3><p>A private Identity Profile learns how they think and decide, and gets sharper over time.</p></div>
+    <div class="card"><h3>Patterns, then a next step</h3><p>It shows what is behind a low day and suggests one small thing. They still make the call.</p></div>
+    <div class="card"><h3>A private AI guide</h3><p>They can talk through a hard week or a big decision, and it answers with their life in view.</p></div>
+  </div>
+  <div class="chips" style="margin-top:16px"><span class="chip">Personal</span><span class="chip">Work</span><span class="chip">Career</span><span class="chip g">Health with you</span><span class="chip">Faith</span><span class="chip">Family</span></div>
+</section>
+
+<section>
+  <div class="label">From early users</div>
+  <div class="quotes">
+    <div class="q"><p>"It has everything in one app. It's organized, and it helps with decision fatigue."</p><span>Early Align user</span></div>
+    <div class="q"><p>"It serves the person, not just the problem. It actually cares."</p><span>Early Align user</span></div>
+    <div class="q"><p>"It doesn't just say my energy is low. It tells me why, and suggests a snack that won't break my focus."</p><span>Early Align user</span></div>
+    <div class="q"><p>"It gives suggestions but keeps the decisions with me. It thinks ahead so I don't have to carry it all in my head."</p><span>Early Align user</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="split">
+    <div class="panel green">
+      <h3>What your clients get</h3>
+      <ul>
+        <li>Daily food guidance from a 30-second check-in</li>
+        <li>A Nutrition Score explained in plain words</li>
+        <li>Meal ideas built from what is already in their kitchen</li>
+        <li>A direct line to you, and an easy way to ask for a session</li>
+        <li>The full Align app, as their own account to keep</li>
+      </ul>
+    </div>
+    <div class="panel plain">
+      <h3>What Align Health is, and is not</h3>
+      <ul>
+        <li>It is a wellness and coaching tool for you and your clients.</li>
+        <li>It is not a medical record and does not give medical advice.</li>
+        <li>Clinical records stay in the system you already use.</li>
+        <li>A version for practitioners who need records inside Align is planned, not available today.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label">Built for</div>
+  <div class="chips">
+    <span class="chip">Nutrition coaches</span><span class="chip">Personal trainers</span><span class="chip">Wellness practices</span><span class="chip">Health coaches</span><span class="chip">Movement and recovery specialists</span><span class="chip">Group fitness and studios</span>
+  </div>
+</section>
+
+<section>
+  <div class="founding">
+    <div class="label">Founder's Circle</div>
+    <h3>A small number of early spots.</h3>
+    <p>We are opening 20 founding spots for practitioners who want to shape Align Health and launch it with their clients. Founding partners get benefits no one who joins later will get.</p>
+    <div class="perks">
+      <div class="perk"><b>Our best revenue share</b><span>Earn from your clients on Align at a founding rate.</span></div>
+      <div class="perk"><b>Featured on our website</b><span>Named as a founding partner of Align Health.</span></div>
+      <div class="perk"><b>Referral rights in Align</b><span>Bring others in and get credit for it, built into the system.</span></div>
+    </div>
+    <div class="frow"><p>Founding spots are paid and limited. Full details are shared on a call after the demo.</p><a class="btn" href="#signup">I am interested</a></div>
+  </div>
+</section>
+
+<section id="signup">
+  <div class="label">Join the list</div>
+  <h2>Get the invite to the live demo.</h2>
+  <p class="sub">We review every request and send the Zoom invite to a select group.</p>
+  <form name="founders-circle" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="sf">
+    <input type="hidden" name="form-name" value="founders-circle">
+    <input type="hidden" name="referred_by" id="ref">
+    <p class="hidden"><label>Leave this empty: <input name="bot-field"></label></p>
+    <div id="fields">
+    <div class="fgrid">
+      <div><label class="f" for="name">Full name <b>*</b></label><input type="text" id="name" name="name" required autocomplete="name"></div>
+      <div><label class="f" for="email">Email <b>*</b></label><input type="email" id="email" name="email" required autocomplete="email"></div>
+      <div><label class="f" for="phone">Phone (optional)</label><input type="tel" id="phone" name="phone" autocomplete="tel"></div>
+      <div><label class="f" for="business">Practice or business name</label><input type="text" id="business" name="business" autocomplete="organization"></div>
+      <div><label class="f" for="role">What best describes you? <b>*</b></label>
+        <select id="role" name="role" required>
+          <option value="">Choose one</option>
+          <option>Nutrition coach or nutritionist</option>
+          <option>Personal trainer</option>
+          <option>Health or wellness coach</option>
+          <option>Wellness practice or studio owner</option>
+          <option>Movement or recovery specialist</option>
+          <option>Licensed clinician</option>
+          <option>Other</option>
+        </select></div>
+      <div><label class="f" for="clients">How many active clients do you work with? <b>*</b></label>
+        <select id="clients" name="active_clients" required>
+          <option value="">Choose one</option>
+          <option>Under 10</option>
+          <option>10 to 25</option>
+          <option>26 to 50</option>
+          <option>51 to 100</option>
+          <option>Over 100</option>
+        </select></div>
+      <fieldset class="full"><legend>How do you work with clients?</legend>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="format" value="One on one">One on one</label>
+          <label class="opt"><input type="checkbox" name="format" value="Groups or classes">Groups or classes</label>
+          <label class="opt"><input type="checkbox" name="format" value="Online programs">Online programs</label>
+          <label class="opt"><input type="checkbox" name="format" value="In person">In person</label>
+        </div></fieldset>
+      <fieldset class="full"><legend>What would help you most? Pick any.</legend>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="interest" value="Seeing how clients do between sessions">Seeing how clients do between sessions</label>
+          <label class="opt"><input type="checkbox" name="interest" value="Clients who follow through on the plan">Clients who follow through on the plan</label>
+          <label class="opt"><input type="checkbox" name="interest" value="Less time on check-ins and follow-ups">Less time on check-ins and follow-ups</label>
+          <label class="opt"><input type="checkbox" name="interest" value="Building a community or group programs">Building a community or group programs</label>
+          <label class="opt"><input type="checkbox" name="interest" value="A new revenue stream">A new revenue stream</label>
+        </div></fieldset>
+      <fieldset class="full"><legend>Which live demo time works for you? (Arizona time)</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="time" value="Tuesday 12:00 pm">Tuesday, 12:00 pm</label>
+          <label class="opt"><input type="radio" name="time" value="Wednesday 12:00 pm">Wednesday, 12:00 pm</label>
+          <label class="opt"><input type="radio" name="time" value="Thursday 6:00 pm">Thursday, 6:00 pm</label>
+          <label class="opt"><input type="radio" name="time" value="None of these">None of these work</label>
+        </div></fieldset>
+      <div class="full"><label class="f" for="ready">If it fits your practice, are you open to a paid founding spot? <b>*</b></label>
+        <select id="ready" name="ready_to_invest" required>
+          <option value="">Choose one</option>
+          <option>Yes, if it fits</option>
+          <option>Maybe, I want to see it first</option>
+          <option>Not right now</option>
+        </select></div>
+      <div><label class="f" for="heard">Who told you about this? (optional)</label><input type="text" id="heard" name="heard_from"></div>
+      <div><label class="f" for="notes">Anything you want us to cover? (optional)</label><input type="text" id="notes" name="notes"></div>
+      <label class="consent full"><input type="checkbox" name="consent" value="yes" required><span>Email me about this demo and Align Health. I can unsubscribe at any time. <b style="color:var(--gold2);font-weight:500">*</b></span></label>
+    </div>
+    <div style="margin-top:20px"><button class="btn" type="submit" id="sbtn">Save my spot</button></div>
+    <div class="err" id="err"></div>
+    <p class="fine">We use your answers only to plan the demo and follow up with you. We never sell or share your information.</p>
+    </div>
+    <div class="thanks" id="thanks">
+      <h3>You are on the list.</h3>
+      <p>We review every request and will email you the date and the Zoom link if you are invited.</p>
+      <div class="share">
+        <b>Know a practitioner who would want this?</b>
+        <span style="font-size:13px;color:var(--muted)">Send them your personal link. When they join through it, you get credit, and referrers move up the Founder's Circle list.</span>
+        <div class="link" id="mylink"></div>
+        <div class="row">
+          <button type="button" class="btn sm" id="copyb">Copy my link</button>
+          <a class="btn ghost sm" id="smsb" href="#">Text it</a>
+          <a class="btn ghost sm" id="mailb" href="#">Email it</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <span>Align360 · Clarity, alignment and abundance</span>
+  <span>Questions? <a href="mailto:samuel@align360.io">samuel@align360.io</a> · <a href="https://align360.io">align360.io</a></span>
+</footer>
+</div>
+
+<script>
+(function(){var r=new URLSearchParams(location.search).get('ref');if(r)document.getElementById('ref').value=r})();
+function slug(s){return (s||'friend').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)}
+function showShare(name){
+  var base=location.protocol==='file:'?'https://samuelngu.com/founders-circle':location.origin+location.pathname;
+  var link=base+'?ref='+slug(name);
+  var msg="I just signed up for a small live demo of Align Health. It shows how clients are doing between sessions and helps them see why the plan matters. Thought you'd want in: "+link;
+  document.getElementById('mylink').textContent=link;
+  document.getElementById('smsb').href='sms:?&body='+encodeURIComponent(msg);
+  document.getElementById('mailb').href='mailto:?subject='+encodeURIComponent('Thought of you: Align Health live demo')+'&body='+encodeURIComponent(msg);
+  document.getElementById('copyb').onclick=function(){var b=this,done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy my link'},1600)};
+    if(navigator.clipboard)navigator.clipboard.writeText(msg).then(done,done);else done()};
+}
+document.getElementById('sf').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target,btn=document.getElementById('sbtn'),err=document.getElementById('err'),name=document.getElementById('name').value;
+  err.style.display='none';btn.disabled=true;btn.textContent='Saving...';
+  var done=function(){document.getElementById('fields').style.display='none';document.getElementById('thanks').style.display='block';showShare(name);document.getElementById('signup').scrollIntoView({behavior:'smooth'})};
+  if(location.protocol==='file:'){done();return}
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);done()})
+    .catch(function(){btn.disabled=false;btn.textContent='Save my spot';err.textContent='Something went wrong. Please try again, or email samuel@align360.io.';err.style.display='block'});
+});
+</script>
+</body>
+</html>
