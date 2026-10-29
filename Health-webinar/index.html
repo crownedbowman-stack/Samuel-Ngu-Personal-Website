@@ -300,7 +300,7 @@ footer a{color:var(--gold2);text-decoration:none}
 
 <footer>
   <span>Align360 · Clarity, alignment and abundance</span>
-  <span>Questions? <a href="mailto:samuel@align360.io">samuel@align360.io</a> · <a href="https://align360.io">align360.io</a></span>
+  <span>Hosted by Samuel Ngu · <a href="https://samuelngu.com">About Samuel</a> · <a href="https://align360.io">Align for individuals</a> · <a href="https://align360.io/enterprise">Align for organizations</a></span>
 </footer>
 </div>
 
@@ -325,7 +325,7 @@ document.getElementById('sf').addEventListener('submit',function(e){
   if(location.protocol==='file:'){done();return}
   fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
     .then(function(r){if(!r.ok)throw new Error(r.status);done()})
-    .catch(function(){btn.disabled=false;btn.textContent='Save my spot';err.textContent='Something went wrong. Please try again, or email samuel@align360.io.';err.style.display='block'});
+    .catch(function(){btn.disabled=false;btn.textContent='Save my spot';err.textContent='Something went wrong. Please try again in a moment.';err.style.display='block'});
 });
 </script>
 </body>
