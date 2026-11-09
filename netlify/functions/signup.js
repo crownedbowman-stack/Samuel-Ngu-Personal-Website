@@ -4,6 +4,7 @@
 const BASE_ID = process.env.AIRTABLE_BASE_ID || 'appkwsucg7QjS96nG';
 const TABLE = process.env.AIRTABLE_TABLE || 'tblUB0d6IFvTSlrPF'; // Enterprise Leads
 const SOURCE = 'Enterprise webinar page';
+const HEALTH_TABLE = process.env.AIRTABLE_HEALTH_TABLE || 'tblyr06qB7HWba3TX'; // Practitioner Leads
 
 const json = (statusCode, body) => ({
   statusCode,
@@ -28,6 +29,43 @@ exports.handler = async (event) => {
 
   // Bots fill the hidden field. Pretend it worked.
   if (text(d['bot-field'])) return json(200, { ok: true });
+
+  // Align Health practitioner list goes to its own table.
+  if (d.list === 'health') {
+    const hName = text(d.name, 200);
+    const hEmail = text(d.email, 200).toLowerCase();
+    const who = text(d.who, 120);
+    const clients = text(d.active_clients, 120);
+    const biz = text(d.business, 200);
+    if (!hName || !who || !clients || !biz) return json(400, { error: 'Please complete the required fields.' });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(hEmail)) return json(400, { error: 'Please enter a valid email.' });
+    if (d.consent !== 'yes' && d.consent !== true) return json(400, { error: 'Please confirm you agree to be emailed.' });
+
+    const PLATFORMS = { LinkedIn: 'h_linkedin', Instagram: 'h_instagram', YouTube: 'h_youtube', TikTok: 'h_tiktok', Facebook: 'h_facebook' };
+    const chosen = list(d.platforms).filter((n) => PLATFORMS[n] && text(d[PLATFORMS[n]], 200));
+    if (!chosen.length) return json(400, { error: 'Please add at least one social handle or link.' });
+
+    const hf = {
+      'Full name': hName,
+      Email: hEmail,
+      'Who you are': who,
+      'Active clients': clients,
+      'Main platforms': chosen,
+      'Consent to email': true,
+      'Consent date': new Date().toISOString(),
+      Source: 'Align Health webinar page',
+      Status: 'New',
+    };
+    chosen.forEach((n) => { hf[n] = text(d[PLATFORMS[n]], 200); });
+    hf['Practice or business'] = biz;
+    hf['Main platform'] = chosen.includes(text(d.main_platform, 40)) ? text(d.main_platform, 40) : chosen[0];
+    const help = list(d.interest);
+    if (help.length) hf['What would help most'] = help;
+    const otherText = text(d.other_text, 300);
+    if (otherText) hf['Other (what would help)'] = otherText;
+    if (d.founding === true || d.founding === 'yes') hf['Founding interest'] = true;
+    return save(hf, HEALTH_TABLE);
+  }
 
   // Email-only signup from the samuelngu.com updates box.
   if (d.mode === 'updates') {
@@ -100,9 +138,9 @@ exports.handler = async (event) => {
   return save(fields);
 };
 
-async function save(fields) {
+async function save(fields, table = TABLE) {
   try {
-    const res = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE}`, {
+    const res = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(table)}`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}`,
