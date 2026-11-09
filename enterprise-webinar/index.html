@@ -61,6 +61,7 @@ legend{font-size:12px;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
 .opts{display:flex;flex-wrap:wrap;gap:8px}
 .opt{display:flex;align-items:center;gap:8px;font-size:14px;color:#fff;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:6px;padding:9px 13px;cursor:pointer}
 .opt input{accent-color:#D9B77A}
+.consent a{color:var(--gold)}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted)}
 .consent input{margin-top:4px;accent-color:#D9B77A}
 .hidden{display:none}
@@ -133,7 +134,9 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
         <li>We are at the pilot stage. Screens in the demo are prototypes on demo data.</li>
         <li>It detects signals associated with people risk. It does not predict outcomes.</li>
         <li>Leaders see patterns in groups of five or more, not private lives.</li>
-        <li>We are not certified today (no SOC 2, HIPAA or ISO 27001). Private deployment is a later step.</li>
+        <li>Your data is not sold and is not used to train models.</li>
+        <li>We are not certified today (no SOC 2, HIPAA or ISO 27001). We plan to pursue formal audits as revenue supports them, and we work within your security review in the meantime.</li>
+        <li>Private deployment is available when you need it. Your data stays inside your own boundary, scoped and priced separately.</li>
       </ul>
     </div>
   </div>
@@ -151,7 +154,7 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
     <div>
       <div class="label">Pilot conversations</div>
       <h3>A small number of pilots at a time.</h3>
-      <p>If you want to talk about a 90-day pilot with one team, tick the box on the form, or book a private demo now and we will go straight to your problem.</p>
+      <p>If you want to talk about a 90-day pilot with one team, book a private demo now and we will go straight to your problem.</p>
     </div>
     <a class="btn" href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">Book a private demo</a>
   </div>
@@ -167,7 +170,6 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
       <div><label class="f" for="name">Full name <b>*</b></label><input type="text" id="name" name="name" required autocomplete="name"></div>
       <div><label class="f" for="email">Work email <b>*</b></label><input type="email" id="email" name="email" required autocomplete="email"></div>
       <div><label class="f" for="company">Company <b>*</b></label><input type="text" id="company" name="company" required autocomplete="organization"></div>
-      <div><label class="f" for="role">Role or title <b>*</b></label><input type="text" id="role" name="role" required autocomplete="organization-title"></div>
       <div><label class="f" for="seniority">Seniority <b>*</b></label>
         <select id="seniority" name="seniority" required>
           <option value="">Choose one</option>
@@ -186,15 +188,6 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
           <option>Franchise</option>
           <option>Other</option>
         </select></div>
-      <div><label class="f" for="size">Company size (employees)</label>
-        <select id="size" name="size">
-          <option value="">Choose one</option>
-          <option>Under 50</option>
-          <option>50 to 200</option>
-          <option>201 to 1,000</option>
-          <option>1,001 to 5,000</option>
-          <option>Over 5,000</option>
-        </select></div>
       <div><label class="f" for="how_soon">How soon are you looking to act? <b>*</b></label>
         <select id="how_soon" name="how_soon" required>
           <option value="">Choose one</option>
@@ -202,29 +195,19 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
           <option>This year</option>
           <option>Just exploring</option>
         </select></div>
-      <div><label class="f" for="phone">Phone (optional)</label><input type="tel" id="phone" name="phone" autocomplete="tel"></div>
       <div><label class="f" for="linkedin">LinkedIn profile (optional, helps me tailor the demo to you)</label><input type="text" id="linkedin" name="linkedin" autocomplete="url" placeholder="linkedin.com/in/..."></div>
-      <fieldset class="full"><legend>Which problem matters most to you? Pick any.</legend>
+      <fieldset class="full"><legend>What is going on that has you looking at this? Pick any (optional).</legend>
         <div class="opts">
-          <label class="opt"><input type="checkbox" name="problems" value="Organizational Alignment">Organizational Alignment</label>
-          <label class="opt"><input type="checkbox" name="problems" value="Retention Intelligence">Retention Intelligence</label>
-          <label class="opt"><input type="checkbox" name="problems" value="Talent Deployment">Talent Deployment</label>
-          <label class="opt"><input type="checkbox" name="problems" value="Leadership Dependency">Leadership Dependency</label>
-          <label class="opt"><input type="checkbox" name="problems" value="Institutional Intelligence">Institutional Intelligence</label>
-        </div></fieldset>
-      <div class="full"><label class="f" for="notes">What is going on that has you looking at this? (optional)</label><textarea id="notes" name="notes" rows="3"></textarea></div>
-      <fieldset class="full"><legend>Best time for a live demo?</legend>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="time" value="Weekday lunch">Weekday lunch</label>
-          <label class="opt"><input type="radio" name="time" value="Weekday evening">Weekday evening</label>
-          <label class="opt"><input type="radio" name="time" value="Saturday morning">Saturday morning</label>
-          <label class="opt"><input type="radio" name="time" value="Send me a recording">Send me a recording</label>
-        </div></fieldset>
-      <fieldset class="full"><legend>After the demo, I would like to</legend>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" name="next_step" value="Book a call">Book a call</label>
-          <label class="opt"><input type="checkbox" name="next_step" value="Be considered for a pilot">Be considered for a pilot</label>
-          <label class="opt"><input type="checkbox" name="next_step" value="Just watch for now">Just watch for now</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Change management">Change management</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Restructuring, merger or acquisition">Restructuring, merger or acquisition</label>
+          <label class="opt"><input type="checkbox" name="problems" value="AI adoption and value realization">AI adoption and value realization</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Strategy and execution alignment">Strategy and execution alignment</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Retention and key people">Retention and key people</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Talent deployment">Talent deployment</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Leadership dependency">Leadership dependency</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Institutional knowledge">Institutional knowledge</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Portfolio or franchise value creation">Portfolio or franchise value creation</label>
+          <label class="opt"><input type="checkbox" name="problems" value="Something else">Something else</label>
         </div></fieldset>
       <label class="consent full"><input type="checkbox" id="consent" name="consent" required><span>Email me about this demo and Align360. I can unsubscribe at any time. See the <a href="#privacy" data-privacy>privacy policy</a>. <b style="color:var(--gold);font-weight:500">*</b></span></label>
     </div>
@@ -254,9 +237,9 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
     <div class="dlg-box"><p style="margin:0">In short: we collect only what you give us on the form. We use it to plan the live demo and to follow up with you. We do not sell it, and you can ask us to remove it at any time.</p></div>
     <h3>What we collect</h3>
     <ul>
-      <li>Your name, work email, company, role and seniority</li>
-      <li>Optional details: phone, LinkedIn link, company size, and anything you write in the notes box</li>
-      <li>Your answers about what you do, which problems matter to you, how soon you are looking to act, your preferred demo time and what you would like to happen next</li>
+      <li>Your name, work email, company and seniority</li>
+      <li>An optional LinkedIn link and the topics you choose</li>
+      <li>Your answers about what best describes you and how soon you are looking to act</li>
       <li>When you agreed to hear from us</li>
     </ul>
     <p>We do not ask for payment details, and we do not use advertising trackers on this page.</p>
@@ -273,7 +256,7 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
     <h3>How long we keep it</h3>
     <p>Until you unsubscribe or ask us to delete it. We may keep a minimal record that you opted out so that we do not email you again.</p>
     <h3>Security</h3>
-    <p>We take reasonable steps to protect your information and limit access to the people who need it. No online service can promise perfect security, so please do not put sensitive personal information in the notes box.</p>
+    <p>We take reasonable steps to protect your information and limit access to the people who need it. No online service can promise perfect security, so please do not email us sensitive personal information.</p>
     <h3>Who this is for</h3>
     <p>This page and the demo are for working professionals and are not directed at children. If we change this policy in a way that matters, we will update the date above.</p>
     <p><a href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">Book a call</a> &middot; Samuel Ngu, Founder, Align360</p>
@@ -295,24 +278,18 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
       name:form.elements.name.value,
       email:form.elements.email.value,
       company:form.elements.company.value,
-      role:form.elements.role.value,
       seniority:form.elements.seniority.value,
       who:form.elements.who.value,
-      size:form.elements.size.value,
       how_soon:form.elements.how_soon.value,
-      phone:form.elements.phone.value,
       linkedin:form.elements.linkedin.value,
       problems:vals('problems'),
-      notes:form.elements.notes.value,
-      time:one('time'),
-      next_step:vals('next_step'),
       consent:form.elements.consent.checked?'yes':''
     };
     btn.disabled=true;btn.textContent='Saving...';
     fetch('/.netlify/functions/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok)throw new Error(j.error||'Request failed');return j})})
       .then(function(){
-        var hot=data.how_soon==='In the next 90 days'||data.next_step.indexOf('Be considered for a pilot')>-1;
+        var hot=data.how_soon==='In the next 90 days';
         if(hot){
           document.getElementById('thanks-h').textContent='You are on the list. Let’s talk sooner.';
           document.getElementById('thanks-p').textContent='Since you are looking to move soon, pick a time for a private walkthrough. We will also send the live demo date to your email.';
