@@ -64,6 +64,14 @@ exports.handler = async (event) => {
     const otherText = text(d.other_text, 300);
     if (otherText) hf['Other (what would help)'] = otherText;
     if (d.founding === true || d.founding === 'yes') hf['Founding interest'] = true;
+    const ready = text(d.ready_to_invest, 120);
+    if (ready) hf['Ready to invest'] = ready;
+    const slot = text(d.time, 120);
+    if (slot) hf['Preferred demo time'] = slot;
+    const heard = text(d.heard_from, 200);
+    if (heard) hf['Heard from'] = heard;
+    const ref = text(d.referred_by, 80);
+    if (ref) hf['Referred by'] = ref;
     return save(hf, HEALTH_TABLE);
   }
 
