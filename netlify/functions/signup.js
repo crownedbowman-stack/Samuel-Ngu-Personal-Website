@@ -46,8 +46,9 @@ exports.handler = async (event) => {
   const email = text(d.email, 200).toLowerCase();
   const company = text(d.company, 200);
   const role = text(d.role, 200);
+  const seniority = text(d.seniority, 120);
 
-  if (!name || !company || !role) return json(400, { error: 'Please complete the required fields.' });
+  if (!name || !company || !seniority) return json(400, { error: 'Please complete the required fields.' });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return json(400, { error: 'Please enter a valid email.' });
   if (d.consent !== 'yes' && d.consent !== true) return json(400, { error: 'Please confirm you agree to be emailed.' });
 
@@ -55,12 +56,13 @@ exports.handler = async (event) => {
     'Full name': name,
     Email: email,
     Company: company,
-    'Role or title': role,
     'Consent to email': true,
     'Consent date': new Date().toISOString(),
     Source: SOURCE,
     Status: 'New',
   };
+
+  if (role) fields['Role or title'] = role;
 
   const phone = text(d.phone, 40);
   if (phone) fields.Phone = phone;
