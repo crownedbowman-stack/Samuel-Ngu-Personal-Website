@@ -29,6 +29,19 @@ exports.handler = async (event) => {
   // Bots fill the hidden field. Pretend it worked.
   if (text(d['bot-field'])) return json(200, { ok: true });
 
+  // Email-only signup from the samuelngu.com updates box.
+  if (d.mode === 'updates') {
+    const addr = text(d.email, 200).toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(addr)) return json(400, { error: 'Please enter a valid email.' });
+    return save({
+      Email: addr,
+      'Consent to email': true,
+      'Consent date': new Date().toISOString(),
+      Source: 'Updates list (samuelngu.com)',
+      Status: 'New',
+    });
+  }
+
   const name = text(d.name, 200);
   const email = text(d.email, 200).toLowerCase();
   const company = text(d.company, 200);
@@ -82,6 +95,10 @@ exports.handler = async (event) => {
   const notes = text(d.notes, 2000);
   if (notes) fields['What is going on'] = notes;
 
+  return save(fields);
+};
+
+async function save(fields) {
   try {
     const res = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE}`, {
       method: 'POST',
@@ -102,4 +119,4 @@ exports.handler = async (event) => {
     console.error('Signup failed', e);
     return json(502, { error: 'We could not save your signup. Please try again in a moment.' });
   }
-};
+}
