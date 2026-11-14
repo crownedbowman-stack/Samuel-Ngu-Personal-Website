@@ -196,7 +196,7 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
           <option>This year</option>
           <option>Just exploring</option>
         </select></div>
-      <div><label class="f" for="linkedin">LinkedIn profile (optional, helps me tailor the demo to you)</label><input type="text" id="linkedin" name="linkedin" autocomplete="url" placeholder="linkedin.com/in/..."></div>
+      <div><label class="f" for="linkedin">LinkedIn profile <b>*</b></label><input type="text" id="linkedin" name="linkedin" required autocomplete="url" placeholder="linkedin.com/in/..."></div>
       <fieldset class="full"><legend>What is going on that has you looking at this? Pick any (optional).</legend>
         <div class="opts">
           <label class="opt"><input type="checkbox" name="problems" value="Change management">Change management</label>
@@ -274,6 +274,7 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
     e.preventDefault();
     err.style.display='none';
     if(!form.checkValidity()){form.reportValidity();return}
+    if(!/linkedin\.com\/./i.test(form.elements.linkedin.value)){showErr('Please add your LinkedIn profile link, like linkedin.com/in/yourname.');form.elements.linkedin.focus();return}
     if(form.elements.phone.value.replace(/\D/g,'').length<10){showErr('Please enter your phone number, with area code.');form.elements.phone.focus();return}
     var data={
       'bot-field':form.elements['bot-field'].value,
