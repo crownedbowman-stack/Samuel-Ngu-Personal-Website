@@ -117,15 +117,14 @@ exports.handler = async (event) => {
   fields.Phone = text(d.phone, 40);
 
   let linkedin = text(d.linkedin, 300);
-  if (linkedin) {
-    if (!/^https?:\/\//i.test(linkedin)) linkedin = 'https://' + linkedin;
-    try {
-      new URL(linkedin);
-      fields['LinkedIn URL'] = linkedin;
-    } catch (e) {
-      /* skip an unusable link rather than fail the signup */
-    }
+  if (!/linkedin\.com\/./i.test(linkedin)) return json(400, { error: 'Please add your LinkedIn profile link.' });
+  if (!/^https?:\/\//i.test(linkedin)) linkedin = 'https://' + linkedin;
+  try {
+    new URL(linkedin);
+  } catch (e) {
+    return json(400, { error: 'Please add your LinkedIn profile link.' });
   }
+  fields['LinkedIn URL'] = linkedin;
 
   const single = {
     Seniority: text(d.seniority, 120),
