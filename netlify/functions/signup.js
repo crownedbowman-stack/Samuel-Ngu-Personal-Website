@@ -13,6 +13,7 @@ const json = (statusCode, body) => ({
 });
 
 const text = (v, max = 500) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+const phoneOk = (v) => text(v, 40).replace(/\D/g, '').length >= 10;
 const list = (v) => (Array.isArray(v) ? v : v ? [v] : []).map((x) => text(x, 120)).filter(Boolean);
 
 exports.handler = async (event) => {
@@ -38,6 +39,7 @@ exports.handler = async (event) => {
     const clients = text(d.active_clients, 120);
     const biz = text(d.business, 200);
     if (!hName || !who || !clients || !biz) return json(400, { error: 'Please complete the required fields.' });
+    if (!phoneOk(d.phone)) return json(400, { error: 'Please enter your phone number, with area code.' });
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(hEmail)) return json(400, { error: 'Please enter a valid email.' });
     if (d.consent !== 'yes' && d.consent !== true) return json(400, { error: 'Please confirm you agree to be emailed.' });
 
@@ -48,6 +50,7 @@ exports.handler = async (event) => {
     const hf = {
       'Full name': hName,
       Email: hEmail,
+      Phone: text(d.phone, 40),
       'Who you are': who,
       'Active clients': clients,
       'Main platforms': chosen,
@@ -95,6 +98,7 @@ exports.handler = async (event) => {
   const seniority = text(d.seniority, 120);
 
   if (!name || !company || !seniority) return json(400, { error: 'Please complete the required fields.' });
+  if (!phoneOk(d.phone)) return json(400, { error: 'Please enter your phone number, with area code.' });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return json(400, { error: 'Please enter a valid email.' });
   if (d.consent !== 'yes' && d.consent !== true) return json(400, { error: 'Please confirm you agree to be emailed.' });
 
@@ -110,8 +114,7 @@ exports.handler = async (event) => {
 
   if (role) fields['Role or title'] = role;
 
-  const phone = text(d.phone, 40);
-  if (phone) fields.Phone = phone;
+  fields.Phone = text(d.phone, 40);
 
   let linkedin = text(d.linkedin, 300);
   if (linkedin) {
