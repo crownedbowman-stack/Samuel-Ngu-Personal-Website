@@ -261,6 +261,7 @@ dialog::backdrop{background:rgba(5,2,8,.78)}
     <div class="fgrid">
       <div><label class="f" for="name">Your name <b>*</b></label><input type="text" id="name" name="name" required autocomplete="name"></div>
       <div><label class="f" for="email">Email <b>*</b></label><input type="email" id="email" name="email" required autocomplete="email"></div>
+      <div><label class="f" for="phone">Phone <b>*</b></label><input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(480) 555-0123"></div>
       <div><label class="f" for="business">Business name <b>*</b></label><input type="text" id="business" name="business" required autocomplete="organization"></div>
       <div><label class="f" for="role">What do you do? <b>*</b></label>
         <select id="role" name="role" required>
@@ -416,11 +417,13 @@ function showShare(name){
     e.preventDefault();
     err.style.display='none';
     if(!form.checkValidity()){form.reportValidity();return}
+    if(form.elements.phone.value.replace(/\D/g,'').length<10){showErr('Please enter your phone number, with area code.');form.elements.phone.focus();return}
     var tm=form.querySelector('[name="time"]:checked');
     var data={list:'health',
       'bot-field':form.elements['bot-field'].value,
       name:form.elements.name.value,
       email:form.elements.email.value,
+      phone:form.elements.phone.value,
       business:form.elements.business.value,
       who:form.elements.role.value,
       active_clients:form.elements.active_clients.value,
