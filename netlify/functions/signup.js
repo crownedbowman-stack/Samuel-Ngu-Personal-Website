@@ -5,6 +5,7 @@ const BASE_ID = process.env.AIRTABLE_BASE_ID || 'appkwsucg7QjS96nG';
 const TABLE = process.env.AIRTABLE_TABLE || 'tblUB0d6IFvTSlrPF'; // Enterprise Leads
 const SOURCE = 'Enterprise webinar page';
 const HEALTH_TABLE = process.env.AIRTABLE_HEALTH_TABLE || 'tblyr06qB7HWba3TX'; // Practitioner Leads
+const INDIVIDUAL_TABLE = process.env.AIRTABLE_INDIVIDUAL_TABLE || 'Individual Leads'; // Align Individual save-the-date list
 
 const json = (statusCode, body) => ({
   statusCode,
@@ -12,8 +13,8 @@ const json = (statusCode, body) => ({
   body: JSON.stringify(body),
 });
 
+const phoneOk = (p) => /^[0-9+()\-.\s]{7,25}$/.test(p) && p.replace(/\D/g, '').length >= 7 && p.replace(/\D/g, '').length <= 15;
 const text = (v, max = 500) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
-const phoneOk = (v) => text(v, 40).replace(/\D/g, '').length >= 10;
 const list = (v) => (Array.isArray(v) ? v : v ? [v] : []).map((x) => text(x, 120)).filter(Boolean);
 
 exports.handler = async (event) => {
@@ -31,6 +32,63 @@ exports.handler = async (event) => {
   // Bots fill the hidden field. Pretend it worked.
   if (text(d['bot-field'])) return json(200, { ok: true });
 
+  // Align Individual save-the-date list goes to its own table.
+  if (d.list === 'individual') {
+    const iName = text(d.name, 200);
+    const iEmail = text(d.email, 200).toLowerCase();
+    const iPhone = text(d.phone, 40);
+    const platform = text(d.platform, 40);
+    const handle = text(d.handle, 200);
+    const understand = text(d.understand, 160);
+    const slot = text(d.time, 120);
+
+    if (!iName || !understand || !slot) return json(400, { error: 'Please complete the required fields.' });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(iEmail)) return json(400, { error: 'Please enter a valid email.' });
+    if (!phoneOk(iPhone)) return json(400, { error: 'Please enter a valid phone number.' });
+    if (d.consent !== 'yes' && d.consent !== true) return json(400, { error: 'Please confirm you agree to be emailed.' });
+
+    // One real social profile, to filter out fake signups.
+    const DOMAINS = {
+      LinkedIn: ['linkedin.com'],
+      Instagram: ['instagram.com'],
+      Facebook: ['facebook.com', 'fb.com'],
+      X: ['x.com', 'twitter.com'],
+      TikTok: ['tiktok.com'],
+      YouTube: ['youtube.com', 'youtu.be'],
+    };
+    if (!DOMAINS[platform]) return json(400, { error: 'Please choose where we can find you online.' });
+    if ((handle.match(/[a-z0-9]/gi) || []).length < 3 || /\s{2,}/.test(handle)) {
+      return json(400, { error: 'Please enter your handle or profile link.' });
+    }
+    if (/^https?:\/\//i.test(handle) || /\.[a-z]{2,}\//i.test(handle)) {
+      const host = handle.replace(/^https?:\/\//i, '').split(/[\/?#]/)[0].toLowerCase().replace(/^www\./, '');
+      if (!DOMAINS[platform].some((dom) => host === dom || host.endsWith('.' + dom))) {
+        return json(400, { error: `That link does not look like a ${platform} profile. Please check it.` });
+      }
+    }
+
+    const SLOTS = ['Tuesday 6:00 pm Arizona', 'Thursday 6:00 pm Arizona', 'Saturday 9:00 am Arizona'];
+    if (!SLOTS.includes(slot)) return json(400, { error: 'Please choose a time.' });
+
+    return save(
+      {
+        'Full name': iName,
+        Email: iEmail,
+        Phone: iPhone,
+        'Social platform': platform,
+        'Social handle': handle,
+        'Want to understand': understand,
+        'Preferred session time': slot,
+        'Design partner interest': d.design_partner === true || d.design_partner === 'yes',
+        'Consent to email': true,
+        'Consent date': new Date().toISOString(),
+        Source: 'Align Individual save the date',
+        Status: 'New',
+      },
+      INDIVIDUAL_TABLE
+    );
+  }
+
   // Align Health practitioner list goes to its own table.
   if (d.list === 'health') {
     const hName = text(d.name, 200);
@@ -38,8 +96,9 @@ exports.handler = async (event) => {
     const who = text(d.who, 120);
     const clients = text(d.active_clients, 120);
     const biz = text(d.business, 200);
+    const hPhone = text(d.phone, 40);
     if (!hName || !who || !clients || !biz) return json(400, { error: 'Please complete the required fields.' });
-    if (!phoneOk(d.phone)) return json(400, { error: 'Please enter your phone number, with area code.' });
+    if (!phoneOk(hPhone)) return json(400, { error: 'Please enter a valid phone number.' });
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(hEmail)) return json(400, { error: 'Please enter a valid email.' });
     if (d.consent !== 'yes' && d.consent !== true) return json(400, { error: 'Please confirm you agree to be emailed.' });
 
@@ -50,7 +109,7 @@ exports.handler = async (event) => {
     const hf = {
       'Full name': hName,
       Email: hEmail,
-      Phone: text(d.phone, 40),
+      Phone: hPhone,
       'Who you are': who,
       'Active clients': clients,
       'Main platforms': chosen,
@@ -96,15 +155,17 @@ exports.handler = async (event) => {
   const company = text(d.company, 200);
   const role = text(d.role, 200);
   const seniority = text(d.seniority, 120);
+  const phone = text(d.phone, 40);
 
   if (!name || !company || !seniority) return json(400, { error: 'Please complete the required fields.' });
-  if (!phoneOk(d.phone)) return json(400, { error: 'Please enter your phone number, with area code.' });
+  if (!phoneOk(phone)) return json(400, { error: 'Please enter a valid phone number.' });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return json(400, { error: 'Please enter a valid email.' });
   if (d.consent !== 'yes' && d.consent !== true) return json(400, { error: 'Please confirm you agree to be emailed.' });
 
   const fields = {
     'Full name': name,
     Email: email,
+    Phone: phone,
     Company: company,
     'Consent to email': true,
     'Consent date': new Date().toISOString(),
@@ -114,17 +175,16 @@ exports.handler = async (event) => {
 
   if (role) fields['Role or title'] = role;
 
-  fields.Phone = text(d.phone, 40);
-
   let linkedin = text(d.linkedin, 300);
-  if (!/linkedin\.com\/./i.test(linkedin)) return json(400, { error: 'Please add your LinkedIn profile link.' });
-  if (!/^https?:\/\//i.test(linkedin)) linkedin = 'https://' + linkedin;
-  try {
-    new URL(linkedin);
-  } catch (e) {
-    return json(400, { error: 'Please add your LinkedIn profile link.' });
+  if (linkedin) {
+    if (!/^https?:\/\//i.test(linkedin)) linkedin = 'https://' + linkedin;
+    try {
+      new URL(linkedin);
+      fields['LinkedIn URL'] = linkedin;
+    } catch (e) {
+      /* skip an unusable link rather than fail the signup */
+    }
   }
-  fields['LinkedIn URL'] = linkedin;
 
   const single = {
     Seniority: text(d.seniority, 120),
