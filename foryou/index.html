@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Align360 · Align for Individuals</title>
+<meta name="description" content="Align changes as you change. It shows you who you are, using real assessments, and helps you weigh choices against what you care about. Save your spot for a first look.">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1B0A24;--deep:#12071A;--card:#2A1235;--line:#4A2A5A;--gold:#D9B77A;--pink:#D49CBA;--mag:#7E1A4C;--text:#EDE3EE;--muted:#BFA9BB;--ok:#9FD6B0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--deep);color:var(--text);line-height:1.6;font-weight:400}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 45% at 12% 0%,rgba(126,26,76,.28),transparent 62%),radial-gradient(ellipse 50% 45% at 92% 100%,rgba(82,31,88,.45),transparent 62%);pointer-events:none;z-index:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;font-family:'Cinzel',serif;letter-spacing:.22em;font-size:20px}
+.brand small{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.btn{display:inline-block;font:600 14px 'Jost',sans-serif;background:linear-gradient(135deg,#D9B77A,#E8CB8E);color:#1B0A24;border:0;border-radius:50px;padding:13px 26px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:none;border:1px solid rgba(217,183,122,.5);color:var(--gold);padding:12px 24px}
+.btn:disabled{opacity:.6;cursor:default}
+.hero{padding:48px 0 52px;max-width:780px}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1{font-family:'Cormorant Garamond',serif;font-weight:500;color:#fff;font-size:clamp(38px,6vw,62px);line-height:1.06;margin-bottom:18px}
+h1 em{font-style:italic;color:var(--pink)}
+.lead{font-size:18px;color:var(--text);max-width:660px;margin-bottom:26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:20px}
+.meta span::before{content:'●';color:var(--gold);font-size:8px;margin-right:8px;vertical-align:middle}
+section{padding:38px 0}
+.label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:#fff;font-size:clamp(28px,3.8vw,40px);line-height:1.15;margin-bottom:22px;max-width:700px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:20px}
+.card .n{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:20px;margin-bottom:6px;line-height:1}
+.card h3{font-size:16px;color:#fff;font-weight:600;margin-bottom:6px;line-height:1.3}
+.card p{font-size:14px;color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{border-radius:6px;padding:22px;border:1px solid var(--line);background:var(--card)}
+.panel h3{font-size:17px;color:#fff;margin-bottom:10px;font-weight:600}
+.panel ul{list-style:none;font-size:14.5px}
+.panel li{padding:7px 0 7px 22px;position:relative;border-top:1px solid rgba(255,255,255,.07);color:var(--text)}
+.panel li:first-child{border-top:0}
+.panel li::before{content:'';position:absolute;left:2px;top:15px;width:6px;height:6px;background:var(--gold);border-radius:50%}
+.panel.plain li::before{background:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13.5px;color:#fff;border:1px solid var(--line);background:var(--card);border-radius:50px;padding:8px 16px}
+.pilot{border:1px solid rgba(217,183,122,.5);background:linear-gradient(135deg,rgba(217,183,122,.12),rgba(217,183,122,.03));border-radius:8px;padding:26px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.pilot h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;color:#fff;margin-bottom:6px}
+.pilot p{font-size:15px;max-width:620px;color:var(--text)}
+form{background:rgba(18,7,26,.88);border:1px solid var(--line);border-radius:10px;padding:28px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.full{grid-column:1/-1}
+label.f{display:block;font-size:12px;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+label.f b,legend b{color:var(--gold);font-weight:500}
+input[type=text],input[type=email],input[type=tel],input[type=url],select,textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:6px;color:#fff;font:15px 'Jost',sans-serif;padding:12px 14px}
+select option{background:#1B0A24}
+input:focus,select:focus,textarea:focus{outline:2px solid rgba(217,183,122,.65);outline-offset:1px}
+fieldset{border:0}
+legend{font-size:12px;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{display:flex;align-items:center;gap:8px;font-size:14px;color:#fff;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:6px;padding:9px 13px;cursor:pointer}
+.opt input{accent-color:#D9B77A}
+.consent a{color:var(--gold)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.consent input{margin-top:4px;accent-color:#D9B77A}
+.hidden{display:none}
+.thanks{display:none;text-align:center;padding:34px 10px}
+.thanks h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;color:#fff;margin-bottom:10px}
+.thanks p{max-width:520px;margin:0 auto 18px;color:var(--text)}
+.err{color:#F4A261;font-size:13px;margin-top:10px;display:none}
+.fine{font-size:12px;color:var(--muted);margin-top:12px}
+footer{padding:36px 0 50px;font-size:13px;color:var(--muted);border-top:1px solid rgba(255,255,255,.08);margin-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--gold);text-decoration:none}
+@media(max-width:820px){.grid{grid-template-columns:1fr}.split,.fgrid{grid-template-columns:1fr}.hero{padding:24px 0 34px}header .btn{display:none}form{padding:20px}.hero .btn{width:100%;text-align:center}}
+
+dialog{background:#1B0A24;color:var(--text);border:1px solid var(--line);border-radius:10px;max-width:720px;width:calc(100% - 32px);max-height:86vh;padding:0;margin:auto}
+dialog::backdrop{background:rgba(5,2,8,.78)}
+.dlg-head{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#1B0A24}
+.dlg-head h2{margin:0;font-size:28px}
+.dlg-x{background:none;border:1px solid var(--line);color:var(--text);border-radius:50px;padding:6px 16px;font:500 13px 'Jost',sans-serif;cursor:pointer}
+.dlg-body{padding:8px 24px 28px}
+.dlg-body h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:#fff;font-size:24px;margin:22px 0 6px}
+.dlg-body p,.dlg-body li{font-size:15.5px;margin-bottom:10px;color:var(--text)}
+.dlg-body ul{margin:0 0 10px 22px}
+.dlg-body a{color:var(--gold)}
+.dlg-box{background:var(--card);border-left:4px solid var(--gold);border-radius:6px;padding:14px 18px;margin:16px 0}
+
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.story{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(217,183,122,.10),rgba(217,183,122,.02));border-radius:6px;padding:22px 26px;max-width:760px}
+.story p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,28px);line-height:1.3;color:#fff;margin:0 0 8px}
+.story small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.times{display:flex;flex-direction:column;gap:8px}
+.hint{font-size:12px;color:var(--muted);margin-top:6px}
+.share{margin:26px auto 0;max-width:560px;text-align:left;border:1px solid var(--line);border-radius:8px;padding:18px;background:rgba(255,255,255,.03)}
+.share h4{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;color:#fff;margin-bottom:4px}
+.share p{font-size:14px;color:var(--muted);margin:0 0 10px;max-width:none}
+.share textarea{min-height:110px;font-size:14px;resize:vertical}
+.share .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.share .btn{padding:10px 18px;font-size:13px}
+.team{font-size:14px;color:var(--muted);margin-top:22px;text-align:center}
+.team a{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">ALIGN <small>For Individuals</small></div>
+  <a class="btn ghost" href="#signup">Save my spot</a>
+</header>
+
+<div class="hero">
+  <div class="eyebrow">Solve what is urgent. Stay aligned for what is next.</div>
+  <h1>Align grows <em>with you.</em></h1>
+  <p class="lead">Align changes as you change. It shows you who you are, using real assessments. It helps you weigh a choice against what matters most to you. Save your spot, and we will send you the date and details.</p>
+  <div class="cta">
+    <a class="btn" href="#signup">Save my spot</a>
+  </div>
+  <div class="meta"><span>We will email you the date</span><span>A live first look at Align</span></div>
+</div>
+
+<section>
+  <div class="story">
+    <p>An early user said Align showed her who she was in five minutes. In decades, no one else had told her, or helped her find the words.</p>
+    <small>From an early user</small>
+  </div>
+  <div class="grid" style="margin-top:14px;max-width:1000px">
+    <div class="card"><p style="color:var(--text)">Early users call it valuable. They say it feels like it is on their side.</p></div>
+    <div class="card"><p style="color:var(--text)">One said the Value Spectrum and Impact Readiness showed where they were stuck. It also showed how to grow from there, privately, under the radar.</p></div>
+    <div class="card"><p style="color:var(--text)">Another said it is like having a world-class coach.</p></div>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:10px">Summarized from early user feedback. Names are kept private.</p>
+</section>
+
+<section>
+  <div class="label">Why now</div>
+  <h2>Work is changing fast. Know what you bring.</h2>
+  \1Jobs, tools and what people expect are changing fast. Many people cannot say what they are good at. A one-time test gets old as you change. Align keeps your picture up to date, so you can make your next move with a clear head. You start now, while the change is happening, not after it.\2
+</section>
+
+<section>
+  <div class="label">What Align does for you</div>
+  <h2>Know who you are. Keep it in view as life changes.</h2>
+  <div class="grid two">
+    <div class="card"><div class="n">01</div><h3>It grows with you</h3><p>Your life changes, and so do you. Align keeps up. You check in. You share the talks and notes you choose to share. Align builds a picture of you that keeps growing, not a one-time result. In 21 days, you see your work rhythm: when you do your best work, and when to protect your energy.</p></div>
+    <div class="card"><div class="n">02</div><h3>Who you are, from real assessments</h3><p>See how you are wired. See how you see and decide. See what your hard times gave you, and where you add the most value. You do not get a label. You get your pattern, named, and one thing to practice.</p></div>
+    <div class="card"><div class="n">03</div><h3>Decisions weighed against what you care about</h3><p>Bring a choice, a worry or a new direction. Weigh it against your values and where you want to go.</p></div>
+    <div class="card"><div class="n">04</div><h3>Your priorities, kept in view</h3><p>Align shows you what matters most. That helps you stay on track and move toward your goals. When you are ready, it can take you from clarity, to work, to ownership.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="label">Questions people bring to Align</div>
+  <div class="chips">
+    <span class="chip">Why do I keep ending up in the same place?</span><span class="chip">Am I in the right work?</span><span class="chip">What am I good at that I cannot see?</span><span class="chip">What should I do next?</span><span class="chip">How do I stay valuable as work changes?</span><span class="chip">Why am I working so hard and still feel stuck?</span><span class="chip">How do I position myself for my next role?</span><span class="chip">What skills should I build next?</span><span class="chip">What are my gifts for?</span>
+  </div>
+</section>
+
+<section>
+  <div class="split">
+    <div class="panel">
+      <h3>Yours, by design</h3>
+      <ul>
+        <li>Your information is yours. We do not sell it. We do not use it to train AI models.</li>
+        <li>Align helps you look at your own values. It does not diagnose you. It does not make your choices for you.</li>
+        <li>What you share is used to help you. Nothing else.</li>
+        <li>Align is a tool that works for you. It is not a person, and it does not replace your own judgment. You pick what to share. You make every decision.</li>
+      </ul>
+    </div>
+    <div class="panel plain">
+      <h3>Honest about where we are</h3>
+      <ul>
+        <li>Align is in its pilot stage. We are building it with early users.</li>
+        <li>It reflects what you tell it and what the assessments show. It is not therapy or medical advice. It cannot predict your future.</li>
+        <li>Most of Align is live today. LegacyLab, the last stage, is still being built.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="team" style="text-align:left;margin-top:16px">Built by a real person you can look up. <a href="https://www.linkedin.com/in/samuelngu-align/" target="_blank" rel="noopener">Samuel Ngu, Founder, Align360</a>.</p>
+</section>
+
+<section id="signup">
+  <div class="label">Save the date</div>
+  <h2>Save your spot for the first look.</h2>
+  <form id="sf" novalidate>
+    <div class="hidden"><label>Leave this empty: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+    <div id="fields">
+    <div class="fgrid">
+      <div><label class="f" for="name">Full name <b>*</b></label><input type="text" id="name" name="name" required autocomplete="name"></div>
+      <div><label class="f" for="email">Email <b>*</b></label><input type="email" id="email" name="email" required autocomplete="email"></div>
+      <div><label class="f" for="phone">Phone <b>*</b></label><input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567" minlength="7" maxlength="25" pattern="[0-9+\(\)\.\- ]{7,25}" title="Enter a phone number, with country code if outside the US"><div class="hint">So we can reach you about the date.</div></div>
+      <div><label class="f" for="understand">What do you most want to understand? <b>*</b></label>
+        <select id="understand" name="understand" required>
+          <option value="">Choose one</option>
+          <option>Why I keep ending up in the same place</option>
+          <option>Whether I am in the right work</option>
+          <option>What I am good at that I cannot see</option>
+          <option>What to do next</option>
+          <option>How to stay valuable as work changes</option>
+          <option>Why I am working hard but feel stuck</option>
+          <option>My purpose and my gifts</option>
+          <option>How to position myself for my next role</option>
+          <option>Which skills to build next</option>
+          <option>Something else</option>
+        </select></div>
+      <div><label class="f" for="platform">Where can we find you online? <b>*</b></label>
+        <select id="platform" name="platform" required>
+          <option value="">Choose one</option>
+          <option>LinkedIn</option>
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>X</option>
+          <option>TikTok</option>
+          <option>YouTube</option>
+        </select></div>
+      <div><label class="f" for="handle">Your handle or profile link <b>*</b></label><input type="text" id="handle" name="handle" required autocomplete="off" placeholder="linkedin.com/in/... or @yourhandle" maxlength="200"><div class="hint">Share one profile so we know you are a real person. We use it for nothing else.</div></div>
+      <fieldset class="full"><legend>Which time would work best for you? <b>*</b></legend>
+        <div class="times">
+          <label class="opt"><input type="radio" name="time" value="Tuesday 6:00 pm Arizona" required>Tuesday, 6:00 pm Arizona &middot; 5:00 pm Pacific &middot; 8:00 pm Eastern</label>
+          <label class="opt"><input type="radio" name="time" value="Thursday 6:00 pm Arizona">Thursday, 6:00 pm Arizona &middot; 5:00 pm Pacific &middot; 8:00 pm Eastern</label>
+          <label class="opt"><input type="radio" name="time" value="Saturday 9:00 am Arizona">Saturday, 9:00 am Arizona &middot; 8:00 am Pacific &middot; 11:00 am Eastern</label>
+        </div>
+        <div class="hint">This is a pick, not a booking. We will email you the final date. These times are for the winter months. Arizona does not change its clocks.</div>
+      </fieldset>
+      <label class="consent full"><input type="checkbox" id="dp" name="design_partner"><span>I want to help shape Align as a design partner. We review every request. (Optional)</span></label>
+      <label class="consent full"><input type="checkbox" id="consent" name="consent" required><span>Email me about this first look and Align360. I can unsubscribe any time. See the <a href="#privacy" data-privacy>privacy policy</a>. <b style="color:var(--gold);font-weight:500">*</b></span></label>
+    </div>
+    <div style="margin-top:20px"><button class="btn" type="submit" id="sbtn">Save my spot</button></div>
+    <div class="err" id="err" role="alert"></div>
+    <p class="fine">We use your answers only to plan the first look and to follow up with you. We do not sell or share your information. <a href="#privacy" data-privacy style="color:var(--gold)">Privacy policy</a>.</p>
+    </div>
+    <div class="thanks" id="thanks">
+      <h3>You are on the list.</h3>
+      <p id="thanks-p">We read every request. We will email you the final date and the details. The first look is on a computer, so plan to use a laptop or desktop.</p>
+      <div class="share">
+        <h4>Know someone who would want this?</h4>
+        <p>Send them the link in your own words. They sign up on their own. We do not track who shares it. If Align helps you, a shout-out, a tag or a repost is always welcome.</p>
+        <textarea id="share-msg" aria-label="Message to send"></textarea>
+        <div class="row">
+          <button class="btn ghost" type="button" id="share-copy">Copy link</button>
+          <a class="btn ghost" id="share-email" href="#">Email it</a>
+          <a class="btn ghost" id="share-text" href="#">Text it</a>
+        </div>
+      </div>
+      <p class="team">Bringing this to a team, a family or a group? <a href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">Book a conversation</a>.</p>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <span>Built by <a href="https://www.linkedin.com/in/samuelngu-align/" target="_blank" rel="noopener">Samuel Ngu</a>, Founder, Align360 · Clarity, alignment and abundance</span>
+  <span>Bringing this to a team, a family or a group? <a href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">Book a conversation</a> · <a href="https://align360.io">align360.io</a> · <a href="#privacy" data-privacy>Privacy</a></span>
+</footer>
+</div>
+
+<dialog id="privacy" aria-labelledby="privacy-title">
+  <div class="dlg-head"><h2 id="privacy-title">Privacy</h2><button class="dlg-x" type="button" id="privacy-x">Close</button></div>
+  <div class="dlg-body">
+    <p style="color:var(--muted);font-size:13px">Last updated November 14, 2026</p>
+    <p>This page tells you what we collect when you join the Align360 list for individuals or book a call. It tells you why, and what you can do about it.</p>
+    <div class="dlg-box"><p style="margin:0">In short: we collect only what you give us on the form. We use it to plan the first look and to follow up with you. We do not sell it. You can ask us to remove it at any time.</p></div>
+    <h3>What we collect</h3>
+    <ul>
+      <li>Your name, email and phone number</li>
+      <li>One social profile link or handle. We use it only to check that you are a real person</li>
+      <li>What you most want to understand, the time that works best for you, and whether you want to help shape Align as a design partner</li>
+      <li>The date you said yes to hearing from us</li>
+    </ul>
+    <p>We do not ask for payment details. We do not use ad trackers on this page. If you use the share box after you sign up, the message goes from your own email or text app. We do not see it. We do not collect the addresses or numbers you send it to.</p>
+    <h3>Why we collect it</h3>
+    <ul>
+      <li>To send you the date and details for the first look, and to call you about it if we need to</li>
+      <li>To plan the session around what people want to learn</li>
+      <li>To make sure sign-ups come from real people</li>
+      <li>To follow up about Align360, including a conversation if you ask for one</li>
+    </ul>
+    <h3>Who handles it</h3>
+    <p>A few services run this page. They handle your information only to do their job for us. Netlify hosts the page and runs the form. Airtable stores the list. Calendly handles any call you book, under its own privacy policy. An email service sends you the details and updates. We do not sell your information. We do not share it with anyone else for their own marketing.</p>
+    <h3>Your consent and your choices</h3>
+    <p>We email you because you checked the box that asks us to. You can change your mind at any time. Use the unsubscribe link in any email we send. You can also ask to see what we hold about you, to fix it, or to have it deleted. To do that, book a call through the link on this page and tell us. We will act on it quickly.</p>
+    <h3>How long we keep it</h3>
+    <p>We keep it until you unsubscribe or ask us to delete it. We may keep a small note that you opted out, so we do not email you again.</p>
+    <h3>Security</h3>
+    <p>We take reasonable steps to protect your information. Only the people who need it can see it. No online service can promise perfect security, so please do not email us sensitive personal information.</p>
+    <h3>Who this is for</h3>
+    <p>This page is for adults. It is not meant for children. If we change this policy in a way that matters, we will update the date above.</p>
+    <p><a href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">Book a call</a> &middot; Samuel Ngu, Founder, Align360</p>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var form=document.getElementById('sf'),btn=document.getElementById('sbtn'),err=document.getElementById('err');
+  function one(name){var el=form.querySelector('[name="'+name+'"]:checked');return el?el.value:''}
+  function showErr(msg){err.textContent=msg;err.style.display='block'}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    err.style.display='none';
+    if(!form.checkValidity()){form.reportValidity();return}
+    var data={list:'individual',
+      'bot-field':form.elements['bot-field'].value,
+      name:form.elements.name.value,
+      email:form.elements.email.value,
+      phone:form.elements.phone.value,
+      understand:form.elements.understand.value,
+      platform:form.elements.platform.value,
+      handle:form.elements.handle.value,
+      time:one('time'),
+      design_partner:form.elements.design_partner.checked,
+      consent:form.elements.consent.checked?'yes':''
+    };
+    btn.disabled=true;btn.textContent='Saving...';
+    fetch('/.netlify/functions/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok)throw new Error(j.error||'Request failed');return j})})
+      .then(function(){
+        if(data.design_partner){
+          document.getElementById('thanks-p').textContent='We read every request. We will email you the final date and the details. You asked to help shape Align as a design partner, so we will reach out to you personally. The first look is on a computer, so plan to use a laptop or desktop.';
+        }
+        document.getElementById('fields').style.display='none';
+        document.getElementById('thanks').style.display='block';
+        document.getElementById('signup').scrollIntoView({behavior:'smooth'});
+      })
+      .catch(function(ex){
+        btn.disabled=false;btn.textContent='Save my spot';
+        showErr(location.protocol==='file:'?'Preview only. The form saves responses once this page is live on Netlify.':(ex.message||'Something went wrong. Please try again soon.'));
+      });
+  });
+})();
+
+(function(){
+  var url=location.origin&&location.origin!=='null'?location.origin+location.pathname:'https://samuelngu.com/';
+  var msg='I found Align. It grows with you. It shows you who you are, using real assessments, and helps you weigh choices against what you care about. They are holding a first look, and I thought of you. You can save your spot here: '+url;
+  var ta=document.getElementById('share-msg');
+  ta.value=msg;
+  function sync(){var m=encodeURIComponent(ta.value);document.getElementById('share-email').href='mailto:?subject='+encodeURIComponent('Thought of you')+'&body='+m;document.getElementById('share-text').href='sms:?&body='+m}
+  sync();ta.addEventListener('input',sync);
+  document.getElementById('share-copy').addEventListener('click',function(){
+    var b=this;
+    function done(){b.textContent='Link copied';setTimeout(function(){b.textContent='Copy link'},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,function(){window.prompt('Copy this link',url)})}else{window.prompt('Copy this link',url)}
+  });
+})();
+
+(function(){
+  var dlg=document.getElementById('privacy');
+  function open(){if(dlg.showModal&&!dlg.open)dlg.showModal();else dlg.setAttribute('open','')}
+  Array.prototype.forEach.call(document.querySelectorAll('[data-privacy]'),function(a){a.addEventListener('click',function(e){e.preventDefault();open();history.replaceState(null,'','#privacy')})});
+  document.getElementById('privacy-x').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+  dlg.addEventListener('close',function(){if(location.hash==='#privacy')history.replaceState(null,'',location.pathname)});
+  if(location.hash==='#privacy')open();
+})();
+</script>
+</body>
+</html>
