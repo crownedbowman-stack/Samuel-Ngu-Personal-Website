@@ -1680,6 +1680,42 @@
   @media (max-width:560px){ #advisory .clarity-stat-row{grid-template-columns:1fr !important;} }
   #wealth { display: none; padding-top: 140px; }
   #wealth.open { display: block; }
+
+  /* ── TESTIMONIALS ── */
+  #proof{background:var(--cherry);border-top:1px solid rgba(203,169,85,.35);padding:96px 0;}
+  #proof .section-inner{max-width:1100px;margin:0 auto;padding:0 32px;}
+  .tq-label{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .tq-heading{font-family:var(--font-display);font-size:clamp(30px,4vw,44px);font-weight:500;color:#fff;margin:0 0 36px;line-height:1.15;}
+  .tq-slider{position:relative;}
+  .tq-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;}
+  .tq-track::-webkit-scrollbar{display:none;}
+  .tq-card{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:2px;padding:30px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-width:0;}
+  .tq-quote{font-family:var(--font-display);font-size:21px;line-height:1.45;color:#fff;margin:0;}
+  .tq-quote::before{content:"\201C";color:var(--gold);}
+  .tq-quote::after{content:"\201D";color:var(--gold);}
+  .tq-name{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);}
+  .tq-role{font-size:12px;line-height:1.5;color:rgba(255,255,255,.55);margin-top:4px;}
+  .tq-book{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:6px;}
+  .tq-nav{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;align-items:center;}
+  .tq-btn{width:44px;height:44px;border:1px solid rgba(203,169,85,.6);background:transparent;color:var(--gold);font-size:18px;cursor:pointer;border-radius:2px;}
+  .tq-btn:hover{background:var(--gold);color:var(--cherry);}
+  @media(max-width:900px){.tq-card{flex-basis:calc((100% - 24px)/2);}}
+  @media(max-width:600px){.tq-card{flex-basis:88%;}.tq-quote{font-size:19px;}#proof{padding:72px 0;}}
+  .readers{margin-top:64px;padding-top:48px;border-top:1px solid rgba(255,255,255,.1);}
+  .readers-title{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+  .readers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .readers-grid .tq-quote{font-size:17px;}
+  @media(max-width:1000px){.readers-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.readers-grid{grid-template-columns:1fr;}}
+  .speak-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:0 0 40px;}
+  .speak-proof .tq-card{background:#fff;border:1px solid rgba(42,18,46,.12);}
+  .speak-proof .tq-quote{color:var(--cherry);font-size:18px;}
+  .speak-proof .tq-name{color:var(--cherry);}
+  .speak-proof .tq-role{color:var(--text-secondary);}
+  @media(max-width:900px){.speak-proof{grid-template-columns:1fr;}}
+  .wealth-back-bottom{margin-top:48px;text-align:center;}
+  .wealth-back-bottom a{display:inline-block;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;}
+  .wealth-back-bottom a:hover{background:var(--gold);color:var(--cherry);}
 </style>
 </head>
 <body>
@@ -1816,6 +1852,19 @@
   </div>
 </section>
 
+
+<!-- TESTIMONIALS -->
+<section id="proof">
+  <div class="section-inner">
+    <div class="tq-label">In Their Words</div>
+    <h2 class="tq-heading">What leaders and partners say about working with Samuel.</h2>
+    <div class="tq-slider">
+      <div class="tq-track" id="tqTrack"><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Samuel has a true gift for helping people discover their destiny and then build a structured path to reach it.</blockquote><figcaption><div class="tq-name">Kyle Sorgel</div><div class="tq-role">Owner, Obsidian Equity Management</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Capable of strategizing and building systems that solve challenging problems. Forward-thinking and action-oriented.</blockquote><figcaption><div class="tq-name">Anonymous</div><div class="tq-role">Construction leader</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Mental, emotional, spiritual, business and relational misalignments fall into place at the sound of his wisdom and testimony.</blockquote><figcaption><div class="tq-name">Anonymous</div><div class="tq-role">Aerospace engineer</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">He has helped me take on any task with a fresh perspective and a positive mentality.</blockquote><figcaption><div class="tq-name">Aleksandra Sekulic</div><div class="tq-role">Owner, Love + Lavender Fashion Boutique</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">It is refreshing to see a young person with a strong work ethic, discipline and leadership skills.</blockquote><figcaption><div class="tq-name">Meredith Beal</div><div class="tq-role">Chairman, Lasting Value Broadcasting Group</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Samuel has been a wonderful collaborator: inspiring, dedicated, professional, kind and caring.</blockquote><figcaption><div class="tq-name">Zoe Gerowitz</div><div class="tq-role">College Access Program Coordinator, Jewish Big Brothers Big Sisters of Southern Los Angeles</div></figcaption></figure></div>
+      <div class="tq-nav"><button class="tq-btn" type="button" aria-label="Previous" onclick="tqMove(-1)">&larr;</button><button class="tq-btn" type="button" aria-label="Next" onclick="tqMove(1)">&rarr;</button><a href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener" class="btn-gold" style="margin-left:auto;white-space:nowrap;align-self:center;">Book a Strategy Conversation &rarr;</a></div>
+    </div>
+  </div>
+</section>
+
 <!-- WEALTH ARCHITECTURE: STORY, ICPs, SERVICES, BACKING -->
 <section id="wealth">
   <div class="section-inner">
@@ -1912,6 +1961,7 @@
       </div>
       <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);line-height:1.6;">This is Samuel's individual licensed practice, carried out in partnership with Global Financial Impact and its carrier and advisory network — independent of Align360 as a company.</div>
     </div>
+      <div class="wealth-back-bottom"><a href="#advisory" onclick="closeWealth(event)">&larr; Back to Align Advisory</a></div>
   </div>
 </section>
 
@@ -1982,6 +2032,11 @@
         </div>
       </div>
     </div>
+  
+    <div class="readers">
+      <div class="readers-title">What readers say</div>
+      <div class="readers-grid"><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Reading this book, I couldn’t stop thinking, “I wish I knew this stuff when I was 18!”</blockquote><figcaption><div class="tq-name">Will Preble</div><div class="tq-role">Founder, Ascendance</div><div class="tq-book">Live Fearless</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Reading this book felt like uncovering lessons I wish I had learned a while ago. The advice is easy to grasp and actionable.</blockquote><figcaption><div class="tq-name">Nia Coffey</div><div class="tq-role">Former WNBA Player, Atlanta Dream</div><div class="tq-book">Live Fearless</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Reading The Gifts of Rejection by Samuel Ngu felt like sitting down with a wise, encouraging friend who knows exactly what you’re going through.</blockquote><figcaption><div class="tq-name">K</div><div class="tq-role">Verified Amazon purchase</div><div class="tq-book">The Gifts of Rejection</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">This book does a great job of staying biblically sound while encouraging you to walk alongside God in the purpose He has called you to.</blockquote><figcaption><div class="tq-name">Zachary Richardson</div><div class="tq-role">Former NFL Player</div><div class="tq-book">The God Experiment</div></figcaption></figure></div>
+    </div>
   </div>
 </section>
 
@@ -1991,6 +2046,7 @@
     <div class="section-label reveal">Invite Samuel</div>
     <h2 class="section-heading reveal reveal-delay-1">Speaking &amp; Consulting</h2>
     <p class="section-subheading reveal reveal-delay-2" style="max-width:800px; margin-bottom:40px;">Samuel speaks to organizations, leadership teams, and conferences on alignment, execution, and building with purpose. Each engagement is tailored to where your organization is and where it's going.</p>
+    <div class="speak-proof"><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Samuel Ngu offers unique insight from a global, real-world perspective that propels people into their purpose.</blockquote><figcaption><div class="tq-name">Dr. Eddie Connor</div><div class="tq-role">Best-selling author and international speaker</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Arguably, an individual’s two most important “knowings” are identity and purpose. Samuel Ngu’s life journey and his passion for people to thrive in God’s design make him highly qualified to speak to these issues.</blockquote><figcaption><div class="tq-name">Michael Prock</div><div class="tq-role">Real Estate Developer</div></figcaption></figure><figure class="tq-card" style="margin:0"><blockquote class="tq-quote" style="border:0;padding:0">Rooted in wisdom, practicality and love, his guidance helps you nurture your relationship with God and expand the pillars of career, business, health and community.</blockquote><figcaption><div class="tq-name">Nicole De Fulgentis</div><div class="tq-role">Founder and CEO, H3R Magazine</div></figcaption></figure></div>
     <div class="speak-grid">
       <div>
         <ul class="speak-topics reveal reveal-delay-2">
@@ -2163,6 +2219,17 @@
     document.getElementById('advisory').scrollIntoView({ behavior: 'smooth' });
   }
   if (location.hash === '#wealth') window.addEventListener('load', () => openWealth());
+
+  
+  function tqMove(d){var t=document.getElementById('tqTrack');var c=t.querySelector('.tq-card');if(!t||!c)return;t.scrollBy({left:d*(c.offsetWidth+24),behavior:'smooth'});}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(!a)return;
+    var h=a.getAttribute('href');
+    if(h==='#wealth'||h==='#'||a.closest('#wealth'))return;
+    var w=document.getElementById('wealth');
+    if(w&&w.classList.contains('open')){w.classList.remove('open');try{history.replaceState(null,'',location.pathname);}catch(err){}}
+  },true);
 
   function openMobileMenu() {
     document.getElementById('mobileMenu').classList.add('open');
