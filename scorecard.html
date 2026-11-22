@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 5-Point Organizational Risk Scorecard | Align360</title>
+<meta name="description" content="A 10-minute self-assessment for founders and operating leaders. Score five common pressure points in your people and capacity, and see where to look first.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#1B0A24;--card:#2A1235;--gold:#D9B77A;--gold2:#B8873F;--mag:#7E1A4C;--mauve:#9A4A78;--ink:#2A1F2E;--soft:#F5EEF4;--line:#D9C9D6;--light:#FBF8FB}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--light);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.brand{font-family:'Cinzel',Georgia,serif;letter-spacing:.42em;font-size:15px;color:var(--gold)}
+.k{font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--mauve)}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.08;color:var(--dark)}
+/* hero */
+.hero{background:radial-gradient(ellipse at 15% 0%,#33153F 0%,#1B0A24 62%);color:#FBF8FB;padding:34px 0 64px;border-bottom:4px solid var(--gold)}
+.hero .brand{margin-bottom:44px;display:block}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero .k{color:var(--gold);margin-bottom:16px}
+.hero h1{font-size:60px;color:#FBF8FB;margin-bottom:18px}
+.hero .sub{font-size:19px;color:#E9DFE9;max-width:520px;margin-bottom:28px}
+.cover{position:relative;justify-self:center}
+.cover img{width:100%;height:auto;max-width:380px;display:block;box-shadow:0 30px 60px rgba(0,0,0,.5);border-left:5px solid var(--gold);transform:rotate(1.5deg)}
+/* form */
+form{display:flex;flex-direction:column;gap:12px;max-width:500px}
+.hero form{background:rgba(255,255,255,.05);border:1px solid #4A2A5A;padding:22px;border-top:3px solid var(--gold)}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:#D9C9DE}
+.light label.f{color:var(--mauve)}
+input[type=text],input[type=email]{font:inherit;font-size:16px;padding:13px 14px;border:1px solid #B9A8B6;background:#fff;color:var(--ink);width:100%;border-radius:2px;letter-spacing:0;text-transform:none}
+input:focus{outline:3px solid rgba(217,183,122,.55);border-color:var(--gold2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:#D9C9DE}
+.light .chk{color:#4A3A52}
+.chk input{margin-top:3px;width:18px;height:18px;accent-color:var(--mag);flex:none}
+button.cta{font:inherit;font-weight:600;font-size:17px;letter-spacing:.04em;background:var(--gold);color:var(--dark);border:0;padding:16px 22px;cursor:pointer;border-radius:2px;transition:transform .15s,background .15s}
+button.cta:hover{background:#E6C78F;transform:translateY(-1px)}
+button.cta[disabled]{opacity:.6;cursor:wait;transform:none}
+.light button.cta{background:var(--mag);color:#fff}
+.light button.cta:hover{background:#94235C}
+.micro{font-size:13.5px;color:#BFA9BB}
+.light .micro{color:#6B5B70}
+.err{color:#FFB4C6;font-size:14.5px;min-height:1.2em}
+.light .err{color:#A3153F}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.done{background:rgba(255,255,255,.07);border:1px solid #4A2A5A;border-top:3px solid var(--gold);padding:26px;max-width:500px}
+.light .done{background:#fff;border-color:var(--line);border-top-color:var(--mag)}
+.done h3{font-size:32px;color:var(--gold);margin-bottom:8px}
+.light .done h3{color:var(--dark)}
+.done p{font-size:16.5px;color:#E9DFE9;margin-bottom:14px}
+.light .done p{color:#4A3A52}
+.dl{display:inline-block;background:var(--gold);color:var(--dark);font-weight:600;text-decoration:none;padding:15px 24px;border-radius:2px;margin-bottom:14px}
+.light .dl{background:var(--mag);color:#fff}
+.done a.alt{display:block;font-size:15.5px;color:var(--gold);text-underline-offset:3px}
+.light .done a.alt{color:var(--mag)}
+/* stats */
+.stats{background:var(--dark);color:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stats div{padding:20px 18px;border-left:1px solid #3A1F48;text-align:center}
+.stats div:first-child{border-left:0}
+.stats b{display:block;font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--gold);font-weight:500;line-height:1}
+.stats span{font-size:14px;color:#D9C9DE;letter-spacing:.04em}
+/* sections */
+section.s{padding:72px 0}
+.say{background:#fff;border-bottom:1px solid var(--line)}
+.say h2{font-size:38px;margin:8px 0 28px}
+.qs{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.qs blockquote{border-left:4px solid var(--gold2);padding:6px 0 6px 22px;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1.3;color:var(--dark);font-weight:500}
+.qs cite{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:14.5px;color:#6B5B70;margin-top:10px;letter-spacing:.03em}
+.learn h2{font-size:44px;margin:8px 0 30px}
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.li{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-top:3px solid var(--mag);padding:22px 24px}
+.li b{font-family:'Cormorant Garamond',serif;font-size:38px;line-height:.9;color:var(--gold2);font-weight:500;flex:none;width:34px}
+.li span{font-size:17.5px;line-height:1.45;color:#2A1F2E}
+.about{background:var(--dark);color:#FBF8FB}
+.about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.about h2{font-size:46px;color:#FBF8FB;margin-top:8px}
+.about .k{color:var(--gold)}
+.about p{font-size:18.5px;color:#E9DFE9;margin-bottom:14px}
+.about .who{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.second{background:var(--soft)}
+.second .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.second h2{font-size:46px;margin:8px 0 14px}
+.second p.lead{font-size:18.5px;color:#4A3A52}
+footer{background:#14061b;color:#BFA9BB;padding:30px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+footer a{text-underline-offset:3px;color:#D9C9DE}
+footer .brand{font-size:13px}
+.note{font-size:13px;color:#8A7A90;max-width:620px;margin-top:6px}
+@media(max-width:900px){
+ .hgrid,.about .wrap,.second .wrap{grid-template-columns:1fr;gap:34px}
+ .hero h1{font-size:44px}.cover{order:-1}.cover img{max-width:240px}.hero .brand{margin-bottom:26px}
+ .qs,.lg{grid-template-columns:1fr}
+ .stats .wrap{grid-template-columns:1fr 1fr}.stats div:nth-child(3){border-left:0}.stats div:nth-child(n+3){border-top:1px solid #3A1F48}
+ section.s{padding:52px 0}.learn h2,.about h2,.second h2{font-size:36px}
+ .row2{grid-template-columns:1fr}
+}
+dialog#privacy{border:0;max-width:640px;width:calc(100% - 32px);max-height:85vh;padding:0;border-radius:4px;background:#FBF8FB;color:#2A1F2E;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+dialog#privacy::backdrop{background:rgba(20,6,27,.75)}
+dialog#privacy .in{padding:34px 34px 30px;overflow:auto;max-height:85vh;border-top:4px solid var(--gold)}
+dialog#privacy h2{font-size:36px;margin-bottom:2px}dialog#privacy h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;margin:20px 0 4px;color:var(--dark)}
+dialog#privacy p,dialog#privacy li{font-size:16px;margin-bottom:8px;line-height:1.6}dialog#privacy ul{padding-left:20px}
+dialog#privacy .d{color:#6B5B70;font-size:14px}dialog#privacy button{margin-top:14px;font:inherit;font-weight:600;background:var(--mag);color:#fff;border:0;padding:12px 24px;cursor:pointer;border-radius:2px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+ <div class="wrap">
+  <span class="brand">ALIGN360</span>
+  <div class="hgrid">
+   <div>
+    <p class="k">Free self-assessment for founders and operating leaders</p>
+    <h1>Where is execution getting stuck in your company?</h1>
+    <p class="sub">Score five common pressure points in your people and capacity in about 10 minutes, and see where to look first.</p>
+    <div class="formslot" id="slot1"></div>
+   </div>
+   <div class="cover"><img src="/scorecard-cover.png" alt="Cover of The 5-Point Organizational Risk Scorecard" width="935" height="1210"></div>
+  </div>
+ </div>
+</header>
+
+<div class="stats"><div class="wrap">
+ <div><b>15</b><span>yes or no questions</span></div>
+ <div><b>5</b><span>pressure points</span></div>
+ <div><b>10</b><span>minutes</span></div>
+ <div><b>1</b><span>clear place to start</span></div>
+</div></div>
+
+<section class="s say"><div class="wrap">
+ <p class="k">What people say about working with Samuel</p>
+ <h2>Practical, structured, and built for action.</h2>
+ <div class="qs">
+  <blockquote>&ldquo;Capable of strategizing and building systems that solve challenging problems. Forward-thinking and action-oriented.&rdquo;<cite>Client endorsement, name withheld</cite></blockquote>
+  <blockquote>&ldquo;He helped me personally when I pivoted my career into a completely different industry.&rdquo;<cite>Kyle Sorgel, Owner, Obsidian Equity Management</cite></blockquote>
+ </div>
+</div></section>
+
+<section class="s learn"><div class="wrap">
+ <p class="k">What you will get</p>
+ <h2>Inside the scorecard.</h2>
+ <div class="lg">
+  <div class="li"><b>1</b><span>Spot the five pressure points that most often slow growing companies.</span></div>
+  <div class="li"><b>2</b><span>Score your own company with 15 plain yes or no questions.</span></div>
+  <div class="li"><b>3</b><span>Tell whether a stalled project came down to money or to people capacity.</span></div>
+  <div class="li"><b>4</b><span>Name the one person or process your business leans on most.</span></div>
+  <div class="li"><b>5</b><span>Count how many decisions are waiting on you in the next 48 hours.</span></div>
+  <div class="li"><b>6</b><span>Choose a first move for your highest-scoring area, and finish it this week.</span></div>
+ </div>
+</div></section>
+
+<section class="s about"><div class="wrap">
+ <div><p class="k">About the author</p><h2>Samuel Ngu</h2><p class="who" style="margin-top:12px">Founder, Align360</p></div>
+ <div>
+  <p>Samuel Ngu is the founder of Align360, a platform designed to help leadership teams see where people, capacity and knowledge are under strain, using group-level patterns and never individual scores.</p>
+  <p>He has coached and mentored business leaders and entrepreneurs, holds a master&rsquo;s degree in negotiation, conflict resolution and peacebuilding, and is the author of <em>Live Fearless</em>.</p>
+ </div>
+</div></section>
+
+<section class="s second light"><div class="wrap">
+ <div>
+  <p class="k">Ready when you are</p>
+  <h2>Get the scorecard.</h2>
+  <p class="lead">It takes about 10 minutes, and your answers stay with you. Nothing you mark in the document is sent to us.</p>
+ </div>
+ <div class="formslot" id="slot2"></div>
+</div></section>
+
+<footer><div class="wrap">
+ <div><span class="brand">ALIGN360</span><p class="note">This scorecard is a self-assessment for discussion. It is not an audit, a benchmark or professional advice.</p></div>
+ <div>&copy; 2026 Align360 &nbsp;&middot;&nbsp; <a href="#privacy" id="pp">Privacy policy</a></div>
+</div></footer>
+
+<dialog id="privacy"><div class="in"><h2>Privacy policy</h2><p class="d">Last updated November 22, 2026</p>
+<h3>What we collect</h3><p>When you request the Risk Scorecard, we collect your name, work email and company, along with the date you agreed to hear from us. We do not collect anything you mark inside the scorecard. It is a file you download, and your answers stay with you.</p>
+<h3>How we use it</h3><ul><li>To deliver the scorecard you asked for.</li><li>With your agreement, to send occasional notes from Align360 about organizational health and related sessions.</li><li>To follow up if you ask for a call.</li></ul>
+<h3>Where it is stored</h3><p>Your details are stored with our database provider, Airtable, and with our email tool once we begin sending messages. We do not sell your information or share it for advertising.</p>
+<h3>Your choices</h3><p>You can unsubscribe from any email we send, and you can ask us at any time to delete your details. Reply to any message from us and say so, and we will remove you.</p>
+<h3>Cookies</h3><p>This page does not set advertising or tracking cookies of its own.</p>
+<h3>Changes</h3><p>If we change this policy, we will update the date above.</p>
+<button type="button" id="ppx">Close</button></div></dialog>
+<template id="tpl">
+ <form novalidate>
+  <input class="hp" type="text" name="bot-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <label class="f">Your name<input type="text" name="name" autocomplete="name" required></label>
+  <label class="f">Work email<input type="email" name="email" autocomplete="email" required></label>
+  <label class="f">Company<input type="text" name="company" autocomplete="organization" required></label>
+  <label class="chk"><input type="checkbox" name="consent" required><span>Send me the scorecard, and occasional notes from Align360. I can unsubscribe at any time.</span></label>
+  <p class="err" role="alert"></p>
+  <button class="cta" type="submit">Send me the scorecard</button>
+  <p class="micro">Instant download. We never sell your information.</p>
+ </form>
+</template>
+
+<script>
+(function(){var d=document.getElementById('privacy');document.getElementById('pp').addEventListener('click',function(e){e.preventDefault();d.showModal()});document.getElementById('ppx').addEventListener('click',function(){d.close()});d.addEventListener('click',function(e){if(e.target===d)d.close()})})();
+(function(){
+  var tpl=document.getElementById('tpl'), forms=[];
+  function done(file){
+    forms.forEach(function(f){
+      var box=document.createElement('div');box.className='done';
+      box.innerHTML='<h3>Your scorecard is ready.</h3><p>Thank you. Download it below, and set aside 10 minutes. Print it if you like to write on paper.</p><a class="dl" href="'+file+'" download>Download the scorecard (PDF)</a><a class="alt" href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">When you have scored it, book a 30-minute call to talk it through</a>';
+      f.slot.replaceChildren(box);
+    });
+    var first=forms[0].slot.querySelector('.dl'); if(first) first.focus();
+  }
+  ['slot1','slot2'].forEach(function(id){
+    var slot=document.getElementById(id), form=tpl.content.firstElementChild.cloneNode(true);
+    slot.appendChild(form); forms.push({slot:slot,form:form});
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var err=form.querySelector('.err'), btn=form.querySelector('button'), d={};
+      err.textContent='';
+      d.name=form.name.value.trim(); d.email=form.email.value.trim(); d.company=form.company.value.trim();
+      d.consent=form.consent.checked; d['bot-field']=form['bot-field'].value;
+      if(!d.name||!d.company){err.textContent='Please add your name and company.';return}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email)){err.textContent='Please enter a valid email.';return}
+      if(!d.consent){err.textContent='Please tick the box so we can send your scorecard.';return}
+      btn.disabled=true; btn.textContent='Sending...';
+      fetch('/.netlify/functions/scorecard',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+        .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})})
+        .then(function(x){
+          if(x.ok&&x.j.ok&&x.j.download){done(x.j.download)}
+          else if(x.ok&&x.j.ok){err.textContent='Thank you. Please check your email shortly.';btn.disabled=false;btn.textContent='Send me the scorecard'}
+          else{err.textContent=(x.j&&x.j.error)||'Something went wrong. Please try again.';btn.disabled=false;btn.textContent='Send me the scorecard'}
+        })
+        .catch(function(){err.textContent='We could not reach the server. Please try again.';btn.disabled=false;btn.textContent='Send me the scorecard'});
+    });
+  });
+})();
+</script>
+</body>
+</html>
