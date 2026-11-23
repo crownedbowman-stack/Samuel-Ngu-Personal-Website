@@ -5,6 +5,7 @@ const BASE_ID = process.env.AIRTABLE_BASE_ID || 'appkwsucg7QjS96nG';
 const TABLE = process.env.AIRTABLE_TABLE || 'tblUB0d6IFvTSlrPF'; // Enterprise Leads
 const SOURCE = 'Enterprise webinar page';
 const HEALTH_TABLE = process.env.AIRTABLE_HEALTH_TABLE || 'tblyr06qB7HWba3TX'; // Practitioner Leads
+const BLUEPRINT_PATH = process.env.BLUEPRINT_PATH || '/downloads/Align360-Career-Advantage-Blueprint-k7w3qx.pdf';
 const INDIVIDUAL_TABLE = process.env.AIRTABLE_INDIVIDUAL_TABLE || 'Individual Leads'; // Align Individual save-the-date list
 
 const json = (statusCode, body) => ({
@@ -41,6 +42,7 @@ exports.handler = async (event) => {
     const handle = text(d.handle, 200);
     const understand = text(d.understand, 160);
     const slot = text(d.time, 120);
+    const career = d.topic === 'career-advantage';
 
     if (!iName || !understand || !slot) return json(400, { error: 'Please complete the required fields.' });
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(iEmail)) return json(400, { error: 'Please enter a valid email.' });
@@ -82,10 +84,11 @@ exports.handler = async (event) => {
         'Design partner interest': d.design_partner === true || d.design_partner === 'yes',
         'Consent to email': true,
         'Consent date': new Date().toISOString(),
-        Source: 'Align Individual save the date',
+        Source: career ? 'Career Advantage Masterclass page' : 'Align Individual save the date',
         Status: 'New',
       },
-      INDIVIDUAL_TABLE
+      INDIVIDUAL_TABLE,
+      career ? { download: BLUEPRINT_PATH } : {}
     );
   }
 
@@ -208,7 +211,7 @@ exports.handler = async (event) => {
   return save(fields);
 };
 
-async function save(fields, table = TABLE) {
+async function save(fields, table = TABLE, extra = {}) {
   try {
     const res = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(table)}`, {
       method: 'POST',
@@ -224,7 +227,7 @@ async function save(fields, table = TABLE) {
       console.error('Airtable error', res.status, detail);
       return json(502, { error: 'We could not save your signup. Please try again in a moment.' });
     }
-    return json(200, { ok: true });
+    return json(200, { ok: true, ...extra });
   } catch (e) {
     console.error('Signup failed', e);
     return json(502, { error: 'We could not save your signup. Please try again in a moment.' });
