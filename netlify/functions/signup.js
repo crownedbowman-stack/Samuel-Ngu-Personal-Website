@@ -69,7 +69,9 @@ exports.handler = async (event) => {
       }
     }
 
-    const SLOTS = ['Tuesday 6:00 pm Arizona', 'Thursday 6:00 pm Arizona', 'Saturday 9:00 am Arizona'];
+    const SLOTS = career
+      ? ['Tuesday Dec 15 6:00 pm Arizona (live)', 'Saturday Dec 19 9:00 am Arizona (replay)']
+      : ['Tuesday 6:00 pm Arizona', 'Thursday 6:00 pm Arizona', 'Saturday 9:00 am Arizona'];
     if (!SLOTS.includes(slot)) return json(400, { error: 'Please choose a time.' });
 
     return save(
