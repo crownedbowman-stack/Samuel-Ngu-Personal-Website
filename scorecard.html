@@ -205,7 +205,7 @@ dialog#privacy .d{color:#6B5B70;font-size:14px}dialog#privacy button{margin-top:
   function done(file){
     forms.forEach(function(f){
       var box=document.createElement('div');box.className='done';
-      box.innerHTML='<h3>Your scorecard is ready.</h3><p>Thank you. Download it below and set aside 10 minutes. Then join us on December 9 for a free 35-minute session on the same five risks.</p><a class="dl" href="'+file+'" download>Download the scorecard (PDF)</a><a class="dl" href="/webinar">Join the free webinar, Dec 9</a><a class="alt" href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">Or, when you have scored it, book a 30-minute call to talk it through</a>';
+      box.innerHTML='<h3>Your scorecard is ready.</h3><p>Thank you. Download it below and set aside 10 minutes. Then join us on December 9 for a free 35-minute session on the same five risks.</p><a class="dl" href="'+file+'" download>Download the scorecard (PDF)</a><a class="dl" href="/webinar">Join the free webinar, Dec 9</a><a class="alt" href="https://calendly.com/samuel-align360/30min" target="_blank" rel="noopener">Scored a gap? See how Align is designed to address it in your organization. Book a conversation.</a>';
       f.slot.replaceChildren(box);
     });
     var first=forms[0].slot.querySelector('.dl'); if(first) first.focus();
