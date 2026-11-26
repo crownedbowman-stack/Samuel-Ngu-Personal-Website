@@ -4,7 +4,7 @@
 
 const BASE_ID = process.env.AIRTABLE_BASE_ID || 'appkwsucg7QjS96nG';
 const TABLE = process.env.AIRTABLE_TABLE || 'tblUB0d6IFvTSlrPF'; // Enterprise Leads
-const SOURCE = 'Webinar Dec 9';
+const SOURCE = 'Webinar Dec 15';
 const JOIN = process.env.WEBINAR_JOIN_LINK || 'https://meet.google.com/ube-qvsu-pbp';
 const CALENDAR = process.env.WEBINAR_CALENDAR_LINK || 'https://www.addevent.com/event/9hl0lgxnl5dz';
 
